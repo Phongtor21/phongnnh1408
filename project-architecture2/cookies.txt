@@ -1,0 +1,8 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.google.com	TRUE	/	FALSE	1999999999	NID	511=ktWtnFTzYQObqnqs5Mm1NtVpM7ydwHzd8lrqeqz4gV4a22B8c72fpS8ZeyC75hewiT8ILYjDsHe09D05jVDpfvB7tYuCZigCwL3NeO-qZoBJEykSgObxEORKD0f9Z2dl5uWMsf1ZmudMUtyjP-FjCV9Ia2vctswFPx5OnODmaNc
+prague.foxthemes.me	TRUE	/	FALSE	1999999999	wp_woocommerce_session_ba15b2fee38ff9e102e3733a2d8dbeda	cdf56515bfd6432d5a78ecc2fffb7422%7C%7C1638593681%7C%7C1638590081%7C%7C12b1a199e6b0fdcdbd31b016b06b47a1
+prague.foxthemes.me	TRUE	/	FALSE	1999999999	wordpress_test_cookie	WP%20Cookie%20check
+prague.foxthemes.me	TRUE	/	FALSE	1999999999	woocommerce_items_in_cart	1
+prague.foxthemes.me	TRUE	/	FALSE	1999999999	woocommerce_cart_hash	c73906f554b328e4489e59a58abadbe0
+
