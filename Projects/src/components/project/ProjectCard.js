@@ -11,16 +11,16 @@ import { Typography } from '@mui/material';
 export default function ProjectCard({ project }) {
   return (
     <Card sx={{
-      maxWidth: 268,
+      maxWidth: 230,
+      height: 210,
       margin: '5.5px',
       borderRadius: 0,
-      boxShadow: 'none',
-      height: '250px',
+      boxShadow: 'none'
     }}>
       <Link href="/project-detail">
         <CardMedia sx={{
-          height: 200,
-          width: 268,
+          height: 160,
+          width: 230,
         }}
           component="img"
           alt="green iguana"

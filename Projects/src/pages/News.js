@@ -5,10 +5,9 @@ import NewsCard from '../components/news/NewsCard';
 import newsMock from '../__mocks__/newsMock';
 
 const StyleBox = styled(Box)({
-  padding: '20px 200px',
+  padding: '15px 260px',
   backgroundColor: 'white',
   display: 'flex',
-  // justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
   flexDirection: 'colurmn',

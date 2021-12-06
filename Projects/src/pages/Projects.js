@@ -5,7 +5,7 @@ import projectMock from '../__mocks__/projectsMock';
 import ProjectCard from '../components/project/ProjectCard';
 
 const StyleBox = styled(Box)({
-  padding: '20px 200px',
+  padding: '15px 260px',
   backgroundColor: 'white',
   display: 'flex',
   // justifyContent: 'space-around',
