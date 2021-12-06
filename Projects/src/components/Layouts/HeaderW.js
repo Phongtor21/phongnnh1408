@@ -46,7 +46,7 @@ const GridMenu = styled(Grid)(({
     textAlign: 'center',
     boxShadow: "none",
     textTransform: "none",
-    marginTop: "1rem",
+    // marginTop: "0",
     color: "#333333",
 
 }));

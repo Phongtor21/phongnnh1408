@@ -5,10 +5,9 @@ import SlideProject from "./slide/SlideProject";
 import { Typography } from "@mui/material";
 
 const StyleBox = styled(Box)({
-    padding: '20px 200px',
+    padding: '0px 255px',
     backgroundColor: 'white',
     height: 'auto',
-    marginBottom: '100px',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
@@ -19,7 +18,7 @@ const StyleBox = styled(Box)({
 
 const StyleBoxContent = styled(Box)({
     display: 'flex',
-    padding: '55px 55px 0 55px'
+    padding: '10px 55px 0 55px'
 });
 
 export default function ProjectDetail() {
@@ -27,7 +26,7 @@ export default function ProjectDetail() {
         <StyleBox>
             <SlideProject />
             <StyleBoxContent>
-                <Box sx={{ width: '70%' }}>
+                <Box sx={{ width: '80%' }}>
                     <Typography variant="h5" sx={{ fontWeight: '900' }} >
                         B U I L D I N G     A R C H E T E C
                     </Typography>
@@ -35,18 +34,18 @@ export default function ProjectDetail() {
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </Typography>
                 </Box>
-                <Box sx={{ width: '30%', }}>
+                <Box sx={{ width: '20%', }}>
                     <ul>
                         <Typography variant="p" sx={{ color: '#6D6D6D' }}>
                             DATE:
-                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '15px' }}>
+                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
                                 06/12/2021
                             </Typography>
                         </Typography>
                         <br />
                         <Typography variant="p" sx={{ marginTop: '80px', color: '#6D6D6D' }} >
                             ARCHETEC:
-                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '15px' }}>
+                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
                                 Anthony Lopez
                             </Typography>
                         </Typography>

@@ -5,10 +5,9 @@ import SlideProject from "./slide/SlideProject";
 import { Typography } from "@mui/material";
 
 const StyleBox = styled(Box)({
-    padding: '20px 200px',
+    padding: '10px 255px',
     backgroundColor: 'white',
     height: 'auto',
-    marginBottom: '100px',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
@@ -19,7 +18,7 @@ const StyleBox = styled(Box)({
 
 const StyleBoxContent = styled(Box)({
     display: 'flex',
-    padding: '55px 55px 0 55px'
+    padding: '10px 55px 0 55px'
 });
 
 export default function ProjectDetail() {
