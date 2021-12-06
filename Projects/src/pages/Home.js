@@ -2,16 +2,13 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import HomeAbout from '../components/home/HomeAbout';
-import HomeNews from '../components/home/HomeNews';
 import HomeSlide from '../components/home/HomeSlide';
 
 
 const StyleBoxHome = styled(Box)({
-  padding: '50px 200px',
+  padding: '20px 200px',
   backgroundColor: 'white',
   height: 'auto',
-  marginBottom: '200px',
   justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
@@ -24,7 +21,7 @@ const StyleBoxHome = styled(Box)({
 export const Home = () => {
   return (
     <>
-      <StyleBoxHome>
+      <StyleBoxHome className="UTM-Avo">
         <HomeSlide />
       </StyleBoxHome>
     </>

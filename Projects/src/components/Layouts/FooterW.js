@@ -14,7 +14,7 @@ const BootstrapButton = styled(Button)({
     boxShadow: "none",
     boxSizing: "small",
     textTransform: "none",
-    fontSize: 12,
+    fontSize: '10px',
     fontWeight: 300,
     color: "#333333",
     lineHeight: 0,
@@ -22,7 +22,6 @@ const BootstrapButton = styled(Button)({
     backgroundColor: "#ffff",
     marginLeft: "-24px",
     marginRight: "-24px",
-    fontFamily: ["Roboto"].join(","),
     "&:hover": {
         backgroundColor: "#fff",
         color: "#999999",
@@ -43,16 +42,16 @@ const GridMenu = styled(Grid)(({
     textAlign: 'center',
     boxShadow: "none",
     textTransform: "none",
-    marginTop: "1rem",
+    marginTop: "2px",
     color: "#333333",
 }));
 
 export const FooterW = () => {
     return (
-        <div class="content-footer">
+        <div class="UTM-Avo content-footer">
             <Link to="/home" style={{ textDecoration: "none", pointerEvents: "none" }}>
                 <Typography sx={{
-                    fontSize: "20px",
+                    fontSize: "14px",
                     fontWeight: "200"
                 }}>
                     A7 STUDIO
