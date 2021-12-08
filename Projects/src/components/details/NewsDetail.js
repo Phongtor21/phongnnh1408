@@ -3,9 +3,13 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import SlideProject from "./slide/SlideProject";
 import { Typography } from "@mui/material";
+import SlideNews from "./slide/SlideNews";
+
 
 const StyleBox = styled(Box)({
-    padding: '10px 255px',
+    // padding: '10px 255px',
+    width: '900px',
+    margin: '0 auto',
     backgroundColor: 'white',
     height: 'auto',
     justifyContent: 'space-around',
@@ -18,24 +22,37 @@ const StyleBox = styled(Box)({
 
 const StyleBoxContent = styled(Box)({
     display: 'flex',
-    padding: '10px 55px 0 55px'
+    width: '900px',
+    margin: '0 auto',
+    paddingTop: '20px'
 });
 
-export default function ProjectDetail() {
+export default function NewsDetail() {
     return (
-        <StyleBox>
-            <SlideProject />
+        <StyleBox >
+            <SlideNews />
             <StyleBoxContent>
                 <Box>
                     <Typography variant="h5" sx={{ fontWeight: '900' }} >
                         B U I L D I N G   A R C H E T E C
                     </Typography>
                     <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        <div class="scrollbar scrollbar-detail" id="style-1">
+                            <div class="force-overflow">
+                                {[...new Array(50)]
+                                    .map(
+                                        () => `Cras mattis consectetur purus sit amet fermentum.
+                                            Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                            Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
+                                    )
+                                    .join('\n')}
+                            </div>
+                        </div>
                     </Typography>
                 </Box>
-            </StyleBoxContent>
 
+            </StyleBoxContent>
         </StyleBox>
     )
 }

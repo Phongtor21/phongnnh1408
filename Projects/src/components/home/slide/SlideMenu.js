@@ -1,6 +1,6 @@
 import React from 'react';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
+import 'react-slideshow-image/dist/styles.css';
+import { Carousel } from 'react-bootstrap';
 
 const slideImages = [
   {
@@ -18,15 +18,24 @@ const slideImages = [
 ];
 
 export default function SlideMenu() {
-    return (
-      <div className="slide-container">
-      <Slide>
-       {slideImages.map((slideImage, index)=> (
-          <div className="each-slide" key={index}>
-            <img className="img-slide" src={slideImage.url}/>
-          </div>
-        ))} 
-      </Slide>
-    </div>
-    )
+  return (
+    
+      <Carousel>
+        {slideImages.map((slideImage, index) => (
+          // <div className="each-slide" key={index}>
+          //   <img className="img-slide" src={slideImage.url} alt={slideImage.caption} />
+          // </div>
+          <Carousel.Item key={index}>
+          <img
+            className="d-block w-100 img-slide"
+            src={slideImage.url}
+            alt={slideImage.caption}
+            
+          />
+          
+        </Carousel.Item>
+        ))}
+      </Carousel>
+    
+  )
 }

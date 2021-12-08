@@ -11,16 +11,16 @@ import { Typography } from '@mui/material';
 export default function NewsCard({ news }) {
   return (
     <Card sx={{
-      maxWidth: 210,
-      height: 210,
+      maxWidth: 275,
+      height: 240,
       margin: '6.5px',
       borderRadius: 0,
       boxShadow: 'none',
     }}>
       <Link href="/news-detail">
         <CardMedia sx={{
-          height: 160,
-          width: 210,
+          height: 175,
+          width: 275,
         }}
           component="img"
           alt="green iguana"
@@ -33,7 +33,7 @@ export default function NewsCard({ news }) {
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
-            fontSize: '14px',
+            fontSize: '12px',
             ":hover": {
               color: '#6D6D6D'
             }

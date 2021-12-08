@@ -4,37 +4,30 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Link } from '@mui/material';
 import PropTypes from 'prop-types';
-
-
 
 export default function MemberCard({ member }) {
   return (
     <Card sx={{
-      maxWidth: 268,
-      marginTop: 0,
-      marginBottom: 0,
+      maxWidth: 110,
+      margin: '5px',
+      height: 180,
       borderRadius: 0,
       boxShadow: 'none'
     }}>
       <CardMedia sx={{
-        height: 200,
-        width: 268,
+        height: 140,
+        width: 110,
       }}
         component="img"
         alt="green iguana"
         image={member.image}
       />
       <CardContent sx={{ padding: "0" }}>
-        <CardActions sx={{ padding: "10px 0" }}>
-          <Link href={member.url} sx={{
-            color: '#000000',
-            textDecoration: 'none',
-            fontWeight: '700'
-          }}>{member.title}</Link>
+        <CardActions sx={{ padding: "0", fontSize: '10px' }}>
+          {member.title}
         </CardActions>
-        <Typography variant="body2" color="text.secondary" sx={{fontsize: '11px'}}>
+        <Typography variant="body2" color="text.secondary" sx={{fontSize: '8px'}}>
           {member.description}
         </Typography>
       </CardContent>

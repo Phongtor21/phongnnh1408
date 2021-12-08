@@ -12,14 +12,14 @@ export default function ProjectCard({ project }) {
   return (
     <Card sx={{
       maxWidth: 210,
-      height: 210,
+      height: 190,
       margin: '6.5px',
       borderRadius: 0,
       boxShadow: 'none'
     }}>
       <Link href="/project-detail">
         <CardMedia sx={{
-          height: 160,
+          height: 140,
           width: 210,
         }}
           component="img"
@@ -33,7 +33,7 @@ export default function ProjectCard({ project }) {
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
-            fontSize: '14px',
+            fontSize: '12px',
             ":hover": {
               color: '#6D6D6D'
             }

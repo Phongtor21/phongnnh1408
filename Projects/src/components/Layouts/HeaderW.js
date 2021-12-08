@@ -54,7 +54,7 @@ const GridMenu = styled(Grid)(({
 export default function AutoGrid() {
     return (
         <div class="App-header">
-            <Link to="/home" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none" }}>
                 <img src={logo} className="App-logo" alt="logo" />
             </Link>
             <Box sx={{ flexGrow: 1 }} >
