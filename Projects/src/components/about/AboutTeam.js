@@ -15,7 +15,7 @@ const StyleBox = styled(Box)({
     display: 'flex'
 });
 
-export default function AboutTeam() {
+export default function AboutTeam({ aboutTeam }) {
     return (
         <>
             <Box sx={{ padding: '20px 0' }}>
@@ -24,14 +24,14 @@ export default function AboutTeam() {
                         marginRight: '16px',
                         fontSize: '18px'
                     }}>
-                    About
+                    Team
                 </Typography>
                 <StyleBox>
-                    <div class="scrollbar scrollbar-about" id="style-1">
-                        <div class="force-overflow">
+                    <div className="scrollbar scrollbar-about" id="style-4">
+                        <div className="force-overflow">
 
-                            {teamMock.map((member) => (
-                                <MemberCard member={member} />
+                            {aboutTeam.map((member, index) => (
+                                <MemberCard key={index} member={member} />
                             ))}
 
                         </div>

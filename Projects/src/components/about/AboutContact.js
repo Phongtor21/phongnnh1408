@@ -12,14 +12,12 @@ export default function AboutContact() {
                     marginRight: '16px',
                     fontSize: '18px'
                 }}>
-                About
+                Contact
             </Typography>
-            <div class="about-img">
-
-            {/* <iframe width="100%" height="280px" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=28%20duong%20thao%20dien%2C%20quan%202&key=AIzaSyBP2X7BZf05AX2VVeGxIgwap-oA_XkuWTQ"></iframe> */}
-                <div class="img">
-                    <Iframe className='map' width="100%" height="280px" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=28%20duong%20thao%20dien%2C%20quan%202&key=AIzaSyBP2X7BZf05AX2VVeGxIgwap-oA_XkuWTQ"></Iframe>
-                </div>
+            <div className="about-img">
+                
+                    <Iframe className='map' sx={{width: "100%", height: "280", border: 0}} loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=28%20duong%20thao%20dien%2C%20quan%202&key=AIzaSyBP2X7BZf05AX2VVeGxIgwap-oA_XkuWTQ"></Iframe>
+                
             </div>
             <Box sx={{ margin: '20px 0'}}>
                 <Typography>

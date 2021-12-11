@@ -17,19 +17,19 @@ export default function NewsCard({ news }) {
       borderRadius: 0,
       boxShadow: 'none',
     }}>
-      <Link href="/news-detail">
+      <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
           height: 175,
           width: 275,
         }}
           component="img"
-          alt="green iguana"
-          image={news.image}
+          alt={news.title}
+          image={`https://architecture-manage.herokuapp.com/images/${news.image}`}
         />
       </Link>
       <CardContent sx={{ padding: "0" }}>
         <CardActions sx={{ padding: "0" }}>
-          <Link href="/news-detail" sx={{
+          <Link href="/news/${news.slug}" sx={{
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
@@ -48,5 +48,5 @@ export default function NewsCard({ news }) {
 }
 
 NewsCard.propTypes = {
-  news: PropTypes.array.isRequired
+  news: PropTypes.object.isRequired
 };

@@ -53,7 +53,7 @@ const GridMenu = styled(Grid)(({
 
 export default function AutoGrid() {
     return (
-        <div class="App-header">
+        <div className="App-header">
             <Link to="/" style={{ textDecoration: "none" }}>
                 <img src={logo} className="App-logo" alt="logo" />
             </Link>

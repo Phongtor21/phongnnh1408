@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import SlideProject from "./slide/SlideProject";
 import { Typography } from "@mui/material";
-import SlideNews from "./slide/SlideNews";
-
+import newsApi from "../../api/newsApi";
+import LoadingScreen from "../LoandingScreen";
 
 const StyleBox = styled(Box)({
     // padding: '10px 255px',
@@ -28,31 +28,81 @@ const StyleBoxContent = styled(Box)({
 });
 
 export default function NewsDetail() {
-    return (
-        <StyleBox >
-            <SlideNews />
-            <StyleBoxContent>
-                <Box>
-                    <Typography variant="h5" sx={{ fontWeight: '900' }} >
-                        B U I L D I N G   A R C H E T E C
-                    </Typography>
-                    <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                        <div class="scrollbar scrollbar-detail" id="style-1">
-                            <div class="force-overflow">
-                                {[...new Array(50)]
-                                    .map(
-                                        () => `Cras mattis consectetur purus sit amet fermentum.
-                                            Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                            Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-                                    )
-                                    .join('\n')}
-                            </div>
-                        </div>
-                    </Typography>
-                </Box>
 
-            </StyleBoxContent>
-        </StyleBox>
+    const [news, setNews] = useState(null);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        const getNews = async () => {
+            try {
+                const response = await newsApi.getNews(pathname.split('/').pop());
+                const { news, prevNews, nextNews } = response
+                setNews({
+                    current: news,
+                    prevNews,
+                    nextNews
+                });
+
+            } catch (error) {
+                console.log('Failed to get news: ', error);
+            }
+        }
+
+        getNews();
+    }, []);
+
+    function checkButtonPrev() {
+        if (news.prevNews == null) {
+            return true;
+        }
+    }
+    function checkButtonNext() {
+        if (news.nextNews == null) {
+            return true;
+        }
+    }
+
+    return (
+        <>
+            {news && (
+                <>
+                    <StyleBox >
+                        <img className="img-news-detail" src={news.image} alt={news.name} />
+                        <StyleBoxContent>
+                            <Box>
+                                <Typography className="section-title" sx={{ fontWeight: '900' }} >
+                                    {news.name}
+                                </Typography>
+                                <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
+                                    <div class="scrollbar scrollbar-detail" id="style-4">
+                                        <div class="force-overflow">
+                                            {news.description}
+                                        </div>
+                                    </div>
+                                </Typography>
+                            </Box>
+
+                        </StyleBoxContent>
+                    </StyleBox>
+                    <div className='pagination'>
+                        <button
+                            disabled={checkButtonPrev()}
+                        // onClick={() => handlePageChange(currentPage - 1)}
+                        >
+                            <i className="fas fa-chevron-left"></i>
+                        </button>
+
+                        <button
+                            disabled={checkButtonNext()}
+                        // onClick={() => handlePageChange(currentPage + 1)}
+                        >
+                            <i className="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </>
+            )}
+            {!news && (<LoadingScreen />)}
+        </>
+
     )
 }

@@ -17,14 +17,14 @@ export default function ProjectCard({ project }) {
       borderRadius: 0,
       boxShadow: 'none'
     }}>
-      <Link href="/project-detail">
+      <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{
           height: 140,
           width: 210,
         }}
           component="img"
-          alt="green iguana"
-          image={project.image}
+          alt={project.title}
+          image={project.slug}
         />
       </Link>
       <CardContent sx={{ padding: "0" }}>

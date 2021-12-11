@@ -2,8 +2,10 @@ import * as React from 'react';
 import { styled } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import NewsCard from '../components/news/NewsCard';
-import newsMock from '../__mocks__/newsMock';
 import Pagination from '../components/Pagination/Pagination';
+import newsApi from '../api/newsApi';
+import { FooterW } from '../components/Layouts/FooterW';
+import LoadingScreen from '../components/LoandingScreen';
 
 const StyleBox = styled(Box)({
   // padding: '15px 310px',
@@ -15,37 +17,57 @@ const StyleBox = styled(Box)({
   alignContent: 'flex-start',
   flexDirection: 'colurmn',
   height: 'auto',
-  // marginBottom: '100px',
   zIndex: '100',
   position: 'relative'
 });
 
 export default function News() {
-  const [ pagination, getPagination ] = React.useState({
-    page: 1,
-    limit: 6,
-    totalRows: 12,
-  });
+  const [newsList, setNewsList] = React.useState(null);
   const [filters, setFilters] = React.useState({
-    limit: 10,
+    number: 6,
     page: 1,
   });
 
+  React.useEffect(() => {
+    const fetchNewsList = async () => {
+      try {
+        const response = await newsApi.listNews(filters.page, filters.number);
+        setNewsList(response);
+      } catch (error) {
+        console.log('Failed to fetch news list: ', error)
+      }
+    }
+
+    fetchNewsList();
+  }, [filters])
+  
   function handlePageChange(newPage) {
-    console.log('New page: ', newPage);
+    setFilters({
+      ...filters,
+      page: newPage,
+    })
   }
+
   return (
-    <React.Fragment >
-      <StyleBox >
-        {newsMock.map((news) => (
-          <NewsCard news={news} />
-        ))}
-        <Pagination
-        pagination={pagination}
-        onPageChange={handlePageChange}
-      />
-      </StyleBox>
-      
-    </React.Fragment >
+    <>
+      {newsList && (
+        <React.Fragment >
+          <StyleBox >
+            {newsList.news.map((news) => (
+              <NewsCard key={news._id} news={news} />
+            ))}
+
+          </StyleBox>
+          <Pagination
+            pagination={newsList.pagination}
+            onPageChange={handlePageChange}
+          />
+          <FooterW />
+        </React.Fragment >
+      )}
+      {!newsList && (<LoadingScreen/>)}
+    </>
+
+
   );
 }

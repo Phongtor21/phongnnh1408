@@ -5,6 +5,7 @@
 .App-logo {
   height: 30px;
   pointer-events: none;
+  margin: 5px 0;
 }
 * {
   margin: 0;
@@ -109,6 +110,7 @@ footer.content-footer {
   margin: 0 auto;
   position: relative;
   z-index: 100;
+  margin-bottom: 5px;
 }
 .App-footer {
   background-color: #fff;
@@ -456,6 +458,24 @@ ul {
 /* -------------FOOTER END----------------- */
 
 /* -------------BUTTON START----------------- */
+.pagination {
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 40%;
+	width: 80%;
+	/* margin: 0 auto; */
+	left: 10%;
+}
+.pagination button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
 
 .btn {
 	padding:15px 30px;
@@ -506,8 +526,9 @@ ul {
 }
 
 /* ======= About style ======= */
-.about {
-	margin-top: 20px;
+.about-img {
+	margin-top: 15px;
+	height: 280px;
 }
 .about .about-img img:hover {
     transform: scale(0.95);
@@ -568,10 +589,8 @@ ul {
 .scrollbar {
     background-color: white;
     float: left;
-    /* margin-bottom: 25px;
-    margin-left: 22px;
-    margin-top: 40px; */
-    width: 900px;
+
+    width: 100%;
        overflow-y: scroll;
 }
 .scrollbar-detail {
@@ -588,15 +607,42 @@ ul {
 .force-overflow {
 	display: flex;
 	flex-wrap: wrap;
-    /* min-height: 450px; */
+}
+
+#wrapper {
+	text-align: center;
+	margin: auto;
+}
+#style-4::-webkit-scrollbar,
+#style-5::-webkit-scrollbar,
+#style-6::-webkit-scrollbar,
+#style-7::-webkit-scrollbar,
+#style-8::-webkit-scrollbar,
+#style-9::-webkit-scrollbar,
+#style-10::-webkit-scrollbar,
+#style-11::-webkit-scrollbar {
+  	width: 10px;
+  	background-color: #F5F5F5;
+}
+#style-4::-webkit-scrollbar-track {
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+	background-color: #e9ecef;
+}
+  
+#style-4::-webkit-scrollbar-thumb {
+	background-color: #adb5bd;
+	/* border: 2px solid #555555; */
+}
+
+.img-news-detail {
+	width: 100%;
+	height: 500px;
 }
 
 /* ======= Map ======= */
 
 .map {
-    -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-            filter: grayscale(100%);
+    filter: grayscale(100%);
+	height: 280px;
+	width: 100%;
 }

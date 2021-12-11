@@ -11,32 +11,35 @@ Pagination.defaultProps = {
 };
 
 function Pagination(props) {
-    const {pagination, onPageChange} = props;
-    const { page, limit, totalRows } = pagination;
-    const totalPages = Math.ceil(totalRows / limit);
+    const { pagination, onPageChange } = props;
+    const { currentPage, totalPage } = pagination;
 
-    function handlePageChange(newPage){
+    function handlePageChange(newPage) {
         if (onPageChange) {
             onPageChange(newPage);
         }
     }
 
     return (
-        <div>
+        <div className='pagination'>
             <button
-                disabled={page <= 1}
-                onClick={() => handlePageChange(page - 1)}
+                // className='pagination'
+                disabled={currentPage <= 1}
+                onClick={() => handlePageChange(currentPage - 1)}
             >
-                Prev
+                <i class="fas fa-chevron-left"></i>
+
             </button>
-            
 
             <button
-                disabled={page >= totalPages}
-                onClick={() => handlePageChange(page + 1)}
+                // className='pagination'
+                disabled={currentPage >= totalPage}
+                onClick={() => handlePageChange(currentPage + 1)}
             >
-                Next
+                <i class="fas fa-chevron-right"></i>
             </button>
+
+
         </div>
     );
 }

@@ -4,7 +4,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import HomeSlide from '../components/home/HomeSlide';
 import { FooterW } from '../components/Layouts/FooterW';
-
+import homeApi from '../api/homeApi';
+import LoadingScreen from '../components/LoandingScreen';
 
 const StyleBoxHome = styled(Box)({
   // padding: '20px 200px',
@@ -21,13 +22,34 @@ const StyleBoxHome = styled(Box)({
 });
 
 
-export const Home = () => {
+const Home = () => {
+  const [home, setHome] = React.useState(null);
+
+  React.useEffect(() => {
+    const fetchHome = async () => {
+      try {
+        const response = await homeApi.allHome();
+        // setHome(response);
+      } catch (error) {
+        console.log('Failed to fetch about: ', error)
+      }
+    }
+    fetchHome();
+  }, [])
+
+  console.log(home)
+
   return (
     <>
-      <StyleBoxHome className="UTM-Avo">
+    {home && (
+      <StyleBoxHome >
         <HomeSlide />
-        <FooterW/>
+        <FooterW />
       </StyleBoxHome>
+    )}
+      {!home && (<LoadingScreen/>)}
     </>
   )
 };
+
+export default Home;
