@@ -22,16 +22,6 @@ const Router = () => {
         {path: '/projects/:slug', element: <ProjectDetail/> },
         {path: '/news/:slug', element: <NewsDetail/> },
     ])
-    // <Suspense fallback={<div>Loading...</div>}>
-    //     <Routes>
-    //         <Route path='/' element={<Home />} />
-    //         <Route path='/news' element={<News />} />
-    //         <Route path='/projects' element={<Projects />} />
-    //         <Route path='/about' element={<About />} />
-    //         <Route path='/projects/:slug' element={<ProjectDetail />} />
-    //         <Route path='/news-detail' element={<NewsDetail />} />
-    //     </Routes>
-    // </Suspense>
 
 };
 

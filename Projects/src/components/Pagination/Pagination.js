@@ -23,20 +23,18 @@ function Pagination(props) {
     return (
         <div className='pagination'>
             <button
-                // className='pagination'
                 disabled={currentPage <= 1}
                 onClick={() => handlePageChange(currentPage - 1)}
             >
-                <i class="fas fa-chevron-left"></i>
+                <i className="fas fa-chevron-left"></i>
 
             </button>
 
             <button
-                // className='pagination'
                 disabled={currentPage >= totalPage}
                 onClick={() => handlePageChange(currentPage + 1)}
             >
-                <i class="fas fa-chevron-right"></i>
+                <i className="fas fa-chevron-right"></i>
             </button>
 
 

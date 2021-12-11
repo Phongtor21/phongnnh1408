@@ -22,9 +22,6 @@ export default function SlideMenu() {
     
       <Carousel>
         {slideImages.map((slideImage, index) => (
-          // <div className="each-slide" key={index}>
-          //   <img className="img-slide" src={slideImage.url} alt={slideImage.caption} />
-          // </div>
           <Carousel.Item key={index}>
           <img
             className="d-block w-100 img-slide"

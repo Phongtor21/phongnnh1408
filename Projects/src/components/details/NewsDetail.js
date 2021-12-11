@@ -61,22 +61,30 @@ export default function NewsDetail() {
             return true;
         }
     }
+    function handleClick(newsCurrent) {
+        if(newsCurrent == null){
+            return `/news`
+        }
+        else {
+            return `/news/${newsCurrent.slug}`
+        }
+    }
 
     return (
         <>
             {news && (
                 <>
                     <StyleBox >
-                        <img className="img-news-detail" src={news.image} alt={news.name} />
+                        <img className="img-news-detail" src={news.current.image} alt={news.current.name} />
                         <StyleBoxContent>
                             <Box>
                                 <Typography className="section-title" sx={{ fontWeight: '900' }} >
-                                    {news.name}
+                                    {news.current.title}
                                 </Typography>
                                 <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                                    <div class="scrollbar scrollbar-detail" id="style-4">
-                                        <div class="force-overflow">
-                                            {news.description}
+                                    <div className="scrollbar scrollbar-detail" id="style-4">
+                                        <div className="force-overflow">
+                                            {news.current.description}
                                         </div>
                                     </div>
                                 </Typography>
@@ -85,19 +93,19 @@ export default function NewsDetail() {
                         </StyleBoxContent>
                     </StyleBox>
                     <div className='pagination'>
-                        <button
+                        <a
                             disabled={checkButtonPrev()}
-                        // onClick={() => handlePageChange(currentPage - 1)}
+                            href={handleClick(news.prevNews)}
                         >
                             <i className="fas fa-chevron-left"></i>
-                        </button>
+                        </a>
 
-                        <button
+                        <a
                             disabled={checkButtonNext()}
-                        // onClick={() => handlePageChange(currentPage + 1)}
+                            href={handleClick(news.nextNews)}
                         >
                             <i className="fas fa-chevron-right"></i>
-                        </button>
+                        </a>
                     </div>
                 </>
             )}

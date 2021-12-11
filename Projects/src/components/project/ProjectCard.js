@@ -23,13 +23,13 @@ export default function ProjectCard({ project }) {
           width: 210,
         }}
           component="img"
-          alt={project.title}
-          image={project.slug}
+          alt={project.name}
+          image={project.images[0]}
         />
       </Link>
       <CardContent sx={{ padding: "0" }}>
         <CardActions sx={{ padding: "0" }}>
-          <Link href="/project-detail" sx={{
+          <Link href={`/projects/${project.slug}`} sx={{
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
@@ -37,7 +37,7 @@ export default function ProjectCard({ project }) {
             ":hover": {
               color: '#6D6D6D'
             }
-          }}>{project.title}</Link>
+          }}>{project.name}</Link>
         </CardActions>
         <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px'}}>
           {project.description}

@@ -4,7 +4,7 @@ const homeApi = {
 
     // [GET] /home
     allHome: () => {
-        const url = `/home/`;
+        const url = `/`;
         return axiosClient.get(url);
     },
 

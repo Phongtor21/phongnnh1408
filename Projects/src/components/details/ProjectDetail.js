@@ -51,6 +51,8 @@ export default function ProjectDetail() {
         getProject();
     }, []);
 
+    console.log(project);
+
     function checkButtonPrev() {
         if (project.prevProject == null) {
             return true;

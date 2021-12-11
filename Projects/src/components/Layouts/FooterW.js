@@ -48,7 +48,7 @@ const GridMenu = styled(Grid)(({
 
 export const FooterW = () => {
     return (
-        <div class="content-footer">
+        <div className="content-footer">
             <Link to="/home" style={{ textDecoration: "none", pointerEvents: "none" }}>
                 <Typography sx={{
                     fontSize: "14px",
