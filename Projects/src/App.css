@@ -595,13 +595,12 @@ ul {
 }
 .scrollbar-detail {
 	height: 95px;
+	width: 100%;
 }
-.scrollbar-team {
-	height: 180px;
-}
+
 .scrollbar-about {
 	height: 360px;
-	width: auto;
+	width: 100%;
 }
 
 .force-overflow {
@@ -637,6 +636,10 @@ ul {
 .img-news-detail {
 	width: 100%;
 	height: 500px;
+}
+
+.description {
+	font-size: 10px;
 }
 
 /* ======= Map ======= */

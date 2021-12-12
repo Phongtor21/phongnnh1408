@@ -49,20 +49,10 @@ export default function NewsDetail() {
         }
 
         getNews();
-    }, []);
+    }, [pathname]);
 
-    function checkButtonPrev() {
-        if (news.prevNews == null) {
-            return true;
-        }
-    }
-    function checkButtonNext() {
-        if (news.nextNews == null) {
-            return true;
-        }
-    }
     function handleClick(newsCurrent) {
-        if(newsCurrent == null){
+        if (newsCurrent == null) {
             return `/news`
         }
         else {
@@ -75,16 +65,21 @@ export default function NewsDetail() {
             {news && (
                 <>
                     <StyleBox >
-                        <img className="img-news-detail" src={news.current.image} alt={news.current.name} />
+                        <img className="img-news-detail"
+                            src={`${process.env.REACT_APP_IMAGE_URL}/${news.current.image}`}
+                            alt={news.current.name}
+                        />
                         <StyleBoxContent>
-                            <Box>
+                            <Box sx={{ width: '100%'}}>
                                 <Typography className="section-title" sx={{ fontWeight: '900' }} >
                                     {news.current.title}
                                 </Typography>
                                 <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
                                     <div className="scrollbar scrollbar-detail" id="style-4">
-                                        <div className="force-overflow">
-                                            {news.current.description}
+                                        <div className="force-overflow"
+                                            dangerouslySetInnerHTML={{ __html: `${news.current.description}` }}
+                                        >
+                                            
                                         </div>
                                     </div>
                                 </Typography>
@@ -94,14 +89,14 @@ export default function NewsDetail() {
                     </StyleBox>
                     <div className='pagination'>
                         <a
-                            disabled={checkButtonPrev()}
+
                             href={handleClick(news.prevNews)}
                         >
                             <i className="fas fa-chevron-left"></i>
                         </a>
 
                         <a
-                            disabled={checkButtonNext()}
+
                             href={handleClick(news.nextNews)}
                         >
                             <i className="fas fa-chevron-right"></i>

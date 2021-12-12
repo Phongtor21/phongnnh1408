@@ -28,7 +28,7 @@ const About = () => {
         const fetchAbout = async () => {
             try {
                 const response = await aboutApi.allAbout();
-                // setAbout(response);
+                setAbout(response);
             } catch (error) {
                 console.log('Failed to fetch about: ', error)
             }
@@ -36,7 +36,6 @@ const About = () => {
         fetchAbout();
     }, [])
 
-    console.log(about)
 
     return (
         <>
@@ -46,8 +45,8 @@ const About = () => {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-7">
-                                    <AboutUs about={about.aboutUs} />
-                                    <AboutTeam aboutTeam={about.team} />
+                                    <AboutUs about={about.text} />
+                                    <AboutTeam />
                                 </div>
                                 <div className="col-md-5">
                                     <AboutContact />

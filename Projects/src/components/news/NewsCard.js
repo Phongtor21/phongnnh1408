@@ -24,7 +24,8 @@ export default function NewsCard({ news }) {
         }}
           component="img"
           alt={news.title}
-          image={`https://architecture-manage.herokuapp.com/images/${news.image}`}
+
+          image={`${process.env.REACT_APP_IMAGE_URL}/${news.image}`}
         />
       </Link>
       <CardContent sx={{ padding: "0" }}>
@@ -40,7 +41,7 @@ export default function NewsCard({ news }) {
           }}>{news.title}</Link>
         </CardActions>
         <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px' }}>
-          {news.description}
+          <div className='description' dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
         </Typography>
       </CardContent>
     </Card>

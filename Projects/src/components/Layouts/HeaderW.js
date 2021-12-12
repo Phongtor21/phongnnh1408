@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
-
 import { styled } from "@mui/material/styles";
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
-
 import Grid from '@mui/material/Grid';
 import logo from './logo.svg';
 import { Button } from '@mui/material';
+import menusApi from '../../api/menusApi';
 
 export const HeaderW = () => {
     return (
@@ -52,8 +50,25 @@ const GridMenu = styled(Grid)(({
 }));
 
 export default function AutoGrid() {
+    const [menu, setMenu] = React.useState(null);
+
+    React.useEffect(() => {
+        const fetchMenu = async () => {
+            try {
+                const response = await menusApi.allMenu();
+                setMenu(response);
+
+            } catch (error) {
+                console.log('Failed to fetch menu: ', error)
+            }
+        }
+        fetchMenu();
+    }, [])
+
     return (
-        <div className="App-header">
+        <>
+        {menu && (
+            <div className="App-header">
             <Link to="/" style={{ textDecoration: "none" }}>
                 <img src={logo} className="App-logo" alt="logo" />
             </Link>
@@ -62,7 +77,7 @@ export default function AutoGrid() {
                     <GridMenu item xs  >
                         <Link to="/projects" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                PROJECTS
+                                {menu[0].title}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
@@ -74,7 +89,7 @@ export default function AutoGrid() {
                     <GridMenu item xs>
                         <Link to="/news" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                NEWS
+                                {menu[1].title}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
@@ -86,13 +101,17 @@ export default function AutoGrid() {
                     <GridMenu item xs>
                         <Link to="/about" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                ABOUT
+                                {menu[2].title}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
                 </Grid>
             </Box>
         </div>
+        )}
+        {!menu && ('Loading...')}
+        </>
+        
     );
 }
 

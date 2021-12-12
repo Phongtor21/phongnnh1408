@@ -4,7 +4,7 @@ const aboutApi = {
 
     // [GET] /about
     allAbout: () => {
-        const url = `/about/`;
+        const url = `/about`;
         return axiosClient.get(url);
     },
 

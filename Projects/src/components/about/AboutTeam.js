@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import MemberCard from "./MemberCard";
-import teamMock from "../../__mocks__/teamMock";
 import { styled } from '@mui/material/styles';
+import architectsApi from "../../api/architectsApi";
 
 const StyleBox = styled(Box)({
     margin: '0 auto',
@@ -15,9 +15,24 @@ const StyleBox = styled(Box)({
     display: 'flex'
 });
 
-export default function AboutTeam({ aboutTeam }) {
+export default function AboutTeam() {
+    const [architects, setArchitects] = useState(null);
+
+    useEffect(() => {
+        const fetchArchitects = async () => {
+            try {
+                const response = await architectsApi.allArchitects();
+                setArchitects(response);
+            } catch (error) {
+                console.log('Failed to fetch architects: ', error)
+            }
+        }
+        fetchArchitects();
+    }, [])
+
     return (
         <>
+        {architects && (
             <Box sx={{ padding: '20px 0' }}>
                 <Typography className="section-title"
                     sx={{
@@ -30,7 +45,7 @@ export default function AboutTeam({ aboutTeam }) {
                     <div className="scrollbar scrollbar-about" id="style-4">
                         <div className="force-overflow">
 
-                            {aboutTeam.map((member, index) => (
+                            {architects.map((member, index) => (
                                 <MemberCard key={index} member={member} />
                             ))}
 
@@ -38,6 +53,8 @@ export default function AboutTeam({ aboutTeam }) {
                     </div>
                 </StyleBox>
             </Box>
+        )}
+            {!architects && ('Loading...')}
         </>
     )
 }

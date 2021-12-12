@@ -14,7 +14,7 @@ const LoadingScreen = () => {
 };
 
 const RootStyle = styled('div')({
-    height: '100vh',
+    height: '80vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'

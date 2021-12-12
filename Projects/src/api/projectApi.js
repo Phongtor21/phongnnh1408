@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient";
 
 const projectApi = {
-    // [GET] /projects
+    // [GET] /projects/page/number
     listProject: (page, number) => {
         const url = `/projects/${page}/${number}`;
         return axiosClient.get(url);

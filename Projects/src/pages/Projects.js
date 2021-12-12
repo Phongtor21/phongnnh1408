@@ -39,7 +39,7 @@ export default function Projects() {
     }
     fetchProjectList();
   }, [filters])
-  console.log(projectList)
+
   function handlePageChange(newPage) {
     setFilters({
       ...filters,

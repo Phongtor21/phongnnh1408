@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
-
 import { styled } from "@mui/material/styles";
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
-
 import Grid from '@mui/material/Grid';
 import { Button } from '@mui/material';
 import { Typography } from "@mui/material";
+import footerApi from '../../api/footerApi';
 
 
 const BootstrapButton = styled(Button)({
@@ -47,6 +45,23 @@ const GridMenu = styled(Grid)(({
 }));
 
 export const FooterW = () => {
+    const [footer, setFooter] = React.useState(null);
+
+    React.useEffect(() => {
+        const fetchBanners = async () => {
+            try {
+                const response = await footerApi.allFooter();
+                setFooter(response);
+
+            } catch (error) {
+                console.log('Failed to fetch banners: ', error)
+            }
+        }
+        fetchBanners();
+    }, [])
+
+    console.log(footer)
+
     return (
         <div className="content-footer">
             <Link to="/home" style={{ textDecoration: "none", pointerEvents: "none" }}>

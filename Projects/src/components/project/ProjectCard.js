@@ -24,7 +24,8 @@ export default function ProjectCard({ project }) {
         }}
           component="img"
           alt={project.name}
-          image={project.images[0]}
+          image={`${process.env.REACT_APP_IMAGE_URL}/${project.images[0]}`}
+          // https://architecture-manage.herokuapp.com/images
         />
       </Link>
       <CardContent sx={{ padding: "0" }}>
@@ -39,8 +40,8 @@ export default function ProjectCard({ project }) {
             }
           }}>{project.name}</Link>
         </CardActions>
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px'}}>
-          {project.description}
+        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px' }}>
+          <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
         </Typography>
       </CardContent>
     </Card>

@@ -49,18 +49,16 @@ export default function ProjectDetail() {
         }
 
         getProject();
-    }, []);
+    }, [pathname]);
 
     console.log(project);
 
-    function checkButtonPrev() {
-        if (project.prevProject == null) {
-            return true;
+    function handleClick(projectCurrent) {
+        if(projectCurrent == null){
+            return `/projects`
         }
-    }
-    function checkButtonNext() {
-        if (project.nextProject == null) {
-            return true;
+        else {
+            return `/projects/${projectCurrent.slug}`
         }
     }
 
@@ -79,7 +77,8 @@ export default function ProjectDetail() {
                                 <div className="scrollbar scrollbar-detail" id="style-4">
                                     <div className="force-overflow">
                                         <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                                            {project.current.description}
+                                            <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
+                                            
                                         </Typography>
                                     </div>
                                 </div>
@@ -89,7 +88,6 @@ export default function ProjectDetail() {
                                     <Typography variant="p" sx={{ color: '#000000' }}>
                                         TIME:
                                         <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
-                                            {/* {project.createAt} */}
                                             {moment(project.current.updatedAt).format('DD/MM/YYYY')}
                                         </Typography>
                                     </Typography>
@@ -106,19 +104,19 @@ export default function ProjectDetail() {
                     </StyleBox>
 
                     <div className='pagination'>
-                        <button
-                            disabled={checkButtonPrev()}
-                            onClick={`${process.env.REACT_APP_API_URL}/projects/${project.prevProject}`}
+                        <a
+                            
+                            href={handleClick(project.prevProject)}
                         >
                             <i className="fas fa-chevron-left"></i>
-                        </button>
+                        </a>
 
-                        <button
-                            disabled={checkButtonNext()}
-                            onClick={`${process.env.REACT_APP_API_URL}/projects/${project.nextProject}`}
+                        <a
+                            
+                            href={handleClick(project.nextProject)}
                         >
                             <i className="fas fa-chevron-right"></i>
-                        </button>
+                        </a>
                     </div>
                 </>
             )}

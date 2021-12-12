@@ -20,15 +20,15 @@ export default function MemberCard({ member }) {
         width: 110,
       }}
         component="img"
-        alt="green iguana"
-        image={member.image}
+        alt={member.name}
+        image={`${process.env.REACT_APP_IMAGE_URL}/${member.image}`}
       />
       <CardContent sx={{ padding: "0" }}>
         <CardActions sx={{ padding: "0", fontSize: '10px' }}>
-          {member.title}
+          {member.name}
         </CardActions>
         <Typography variant="body2" color="text.secondary" sx={{fontSize: '8px'}}>
-          {member.description}
+          {member.subtitle}
         </Typography>
       </CardContent>
     </Card>
