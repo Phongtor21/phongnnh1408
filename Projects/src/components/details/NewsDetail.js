@@ -86,22 +86,24 @@ export default function NewsDetail() {
                             </Box>
 
                         </StyleBoxContent>
+                        <Box sx={{ marginTop: '20px'}}>
+                            <div className='pagination'>
+                                <a
+                                    href={handleClick(news.prevNews)}
+                                >
+                                    Prev
+                                </a>
+                                <Typography sx={{fontSize: '18px'}}>
+                                    A7 Studio
+                                </Typography>
+                                <a
+                                    href={handleClick(news.nextNews)}
+                                >
+                                    Next
+                                </a>
+                            </div>
+                        </Box>
                     </StyleBox>
-                    <div className='pagination'>
-                        <a
-
-                            href={handleClick(news.prevNews)}
-                        >
-                            <i className="fas fa-chevron-left"></i>
-                        </a>
-
-                        <a
-
-                            href={handleClick(news.nextNews)}
-                        >
-                            <i className="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
                 </>
             )}
             {!news && (<LoadingScreen />)}

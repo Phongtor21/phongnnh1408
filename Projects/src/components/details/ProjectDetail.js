@@ -54,7 +54,7 @@ export default function ProjectDetail() {
     console.log(project);
 
     function handleClick(projectCurrent) {
-        if(projectCurrent == null){
+        if (projectCurrent == null) {
             return `/projects`
         }
         else {
@@ -78,7 +78,7 @@ export default function ProjectDetail() {
                                     <div className="force-overflow">
                                         <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
                                             <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
-                                            
+
                                         </Typography>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@ export default function ProjectDetail() {
                                     <Typography variant="p" sx={{ color: '#000000' }}>
                                         TIME:
                                         <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
-                                            {moment(project.current.updatedAt).format('DD/MM/YYYY')}
+                                            {moment(project.current.createAt).format('DD/MM/YYYY')}
                                         </Typography>
                                     </Typography>
                                     <br />
@@ -101,23 +101,27 @@ export default function ProjectDetail() {
                                 </ul>
                             </Box>
                         </StyleBoxContent>
+                        <Box sx={{ marginTop: '20px'}}>
+                            <div className='pagination'>
+                                <a
+                                    href={handleClick(project.prevProject)}
+                                >
+                                    Prev
+                                </a>
+                                <Typography sx={{fontSize: '18px'}}>
+                                    A7 Studio
+                                </Typography>
+                                <a
+                                    href={handleClick(project.nextProject)}
+                                >
+                                    Next
+                                </a>
+                            </div>
+                        </Box>
+
                     </StyleBox>
 
-                    <div className='pagination'>
-                        <a
-                            
-                            href={handleClick(project.prevProject)}
-                        >
-                            <i className="fas fa-chevron-left"></i>
-                        </a>
 
-                        <a
-                            
-                            href={handleClick(project.nextProject)}
-                        >
-                            <i className="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
                 </>
             )}
             {!project && (<LoadingScreen />)}

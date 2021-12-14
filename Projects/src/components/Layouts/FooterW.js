@@ -60,91 +60,105 @@ export const FooterW = () => {
         fetchBanners();
     }, [])
 
-    console.log(footer)
-
     return (
-        <div className="content-footer">
-            <Link to="/home" style={{ textDecoration: "none", pointerEvents: "none" }}>
-                <Typography sx={{
-                    fontSize: "14px",
-                    fontWeight: "200"
-                }}>
-                    A7 STUDIO
-                </Typography>
-            </Link>
-            <Box sx={{ flexGrow: 1 }} >
-                <Grid container spacing={3} >
-                    <GridMenu item xs  >
-                        <Link to="/projects" style={{ textDecoration: "none" }}>
-                            <BootstrapButton>
-                                FACEBOOK
-                            </BootstrapButton>
-                        </Link>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <BootstrapButton>
-                            |
-                        </BootstrapButton>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <Link to="/news" style={{ textDecoration: "none" }}>
-                            <BootstrapButton>
-                                INSTAGRAM
-                            </BootstrapButton>
-                        </Link>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <BootstrapButton>
-                            |
-                        </BootstrapButton>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <Link to="/about" style={{ textDecoration: "none" }}>
-                            <BootstrapButton>
-                                YOUTUBE
-                            </BootstrapButton>
-                        </Link>
-                    </GridMenu>
-                </Grid>
-            </Box>
-            <Box sx={{ flexGrow: 1 }} >
-                <Grid container spacing={3} sx={{ width: '350px' }}>
-                    <GridMenu item xs  >
-                        <DisabledButton >
-                            28 Thao Dien D2 HCM
-                        </DisabledButton>
-                    </GridMenu>
+        <>
+            {footer && (
+                <div className="content-footer">
+                    <Link to="/" style={{ textDecoration: "none", pointerEvents: "none" }}>
+                        <Typography sx={{
+                            fontSize: "14px",
+                            fontWeight: "200"
+                        }}>
+                            A7 STUDIO
+                        </Typography>
+                    </Link>
+                    <Box sx={{ flexGrow: 1 }} >
+                        <Grid container spacing={3} >
+                            <GridMenu item xs  >
+                                <a className='footer-button' href={footer[0].connect[0].link}>
+                                    <BootstrapButton>
+                                        {footer[0].connect[0].title}
+                                    </BootstrapButton>
+                                </a>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <BootstrapButton>
+                                    |
+                                </BootstrapButton>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <a className='footer-button' href={footer[0].connect[1].link}>
+                                    <BootstrapButton>
+                                        {footer[0].connect[1].title}
+                                    </BootstrapButton>
+                                </a>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <BootstrapButton>
+                                    |
+                                </BootstrapButton>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <a className='footer-button' href={footer[0].connect[2].link}>
+                                    <BootstrapButton>
+                                        {footer[0].connect[2].title}
+                                    </BootstrapButton>
+                                </a>
+                            </GridMenu>
+                        </Grid>
+                    </Box>
+                    <Box sx={{ flexGrow: 1 }} >
+                        <Grid container spacing={3} sx={{ width: '350px' }}>
+                            <GridMenu item xs  >
+                                <a className='footer-button' href={footer[0].contact[0].link}>
+                                    <DisabledButton >
+                                        {footer[0].contact[0].title}
+                                    </DisabledButton>
+                                </a>
+                            </GridMenu>
 
-                    <GridMenu item xs>
-                            <DisabledButton>
-                                +8497834531
-                            </DisabledButton>
-                    </GridMenu>
+                            <GridMenu item xs>
+                                <a className='footer-button' href={footer[0].contact[1].link}>
+                                    <DisabledButton>
+                                        {footer[0].contact[1].title}
+                                    </DisabledButton>
+                                </a>
+                            </GridMenu>
 
-                    <GridMenu item xs>
-                            <DisabledButton>
-                                A7studio@gmail.com
-                            </DisabledButton>
-                    </GridMenu>
-                </Grid>
-            </Box>
-            <Box sx={{ flexGrow: 1 }} >
+                            <GridMenu item xs>
+                                <a className='footer-button' href={footer[0].contact[2].link}>
+                                    <DisabledButton>
+                                        {footer[0].contact[2].title}
+                                    </DisabledButton>
+                                </a>
+                            </GridMenu>
+                        </Grid>
+                    </Box>
+                    <Box sx={{ flexGrow: 1 }} >
 
-                <Grid container spacing={3}>
-                    <GridMenu item xs  >
-                            <DisabledButton>
-                                FAG
-                            </DisabledButton>
-                    </GridMenu>
+                        <Grid container spacing={3}>
+                            <GridMenu item xs  >
+                                <a className='footer-button' href={footer[0].support[0].link}>
+                                    <DisabledButton>
+                                        {footer[0].support[0].title}
+                                    </DisabledButton>
+                                </a>
+                            </GridMenu>
 
-                    <GridMenu item xs>
-                            <DisabledButton>
-                                LEGAL
-                            </DisabledButton>
-                    </GridMenu>
-                </Grid>
-            </Box>
-        </div>
+                            <GridMenu item xs>
+                                <a className='footer-button' href={footer[0].support[1].link}>
+                                    <DisabledButton>
+                                        {footer[0].support[1].title}
+                                    </DisabledButton>
+                                </a>
+                            </GridMenu>
+                        </Grid>
+                    </Box>
+                </div>
+            )}
+            {!footer && ('')}
+        </>
+
     )
 };
 

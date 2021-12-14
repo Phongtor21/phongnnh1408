@@ -62,7 +62,6 @@ export default function News() {
             pagination={newsList.pagination}
             onPageChange={handlePageChange}
           />
-          <FooterW />
         </React.Fragment >
       )}
       {!newsList && (<LoadingScreen/>)}

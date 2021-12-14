@@ -6,7 +6,7 @@ export default function AboutUs({ about }) {
 
     return (
         <>
-            <Box sx={{ marginBottom: '20', height: '200px' }}>
+            <Box sx={{ marginBottom: '20', height: '250px' }}>
                 <Box
                     sx={{
                         display: 'flex',
@@ -27,8 +27,8 @@ export default function AboutUs({ about }) {
 
                 </Box>
 
-                <Typography variant='p' sx={{ fontSize: '12px' }}>
-                    <div dangerouslySetInnerHTML={{ __html: `${about}` }}></div>
+                <Typography variant='p' sx={{ fontSize: '12px', textOverflow: 'ellipsis', height: '100%' }}>
+                    <div className='text-description' dangerouslySetInnerHTML={{ __html: `${about}` }}></div>
                 </Typography>
 
             </Box>

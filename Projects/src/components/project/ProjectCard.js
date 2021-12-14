@@ -25,7 +25,6 @@ export default function ProjectCard({ project }) {
           component="img"
           alt={project.name}
           image={`${process.env.REACT_APP_IMAGE_URL}/${project.images[0]}`}
-          // https://architecture-manage.herokuapp.com/images
         />
       </Link>
       <CardContent sx={{ padding: "0" }}>

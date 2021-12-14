@@ -57,7 +57,6 @@ export default function AutoGrid() {
             try {
                 const response = await menusApi.allMenu();
                 setMenu(response);
-
             } catch (error) {
                 console.log('Failed to fetch menu: ', error)
             }
@@ -89,7 +88,7 @@ export default function AutoGrid() {
                     <GridMenu item xs>
                         <Link to="/news" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                {menu[1].title}
+                                {menu[2].title}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
@@ -101,7 +100,7 @@ export default function AutoGrid() {
                     <GridMenu item xs>
                         <Link to="/about" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                {menu[2].title}
+                                {menu[1].title}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
@@ -109,7 +108,7 @@ export default function AutoGrid() {
             </Box>
         </div>
         )}
-        {!menu && ('Loading...')}
+        {!menu && ('')}
         </>
         
     );
