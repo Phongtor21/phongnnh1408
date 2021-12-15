@@ -21,7 +21,7 @@ function Pagination(props) {
     }
 
     return (
-        <div className='pagination'>
+        <div className='pagination pagination-pages'>
             <button
                 disabled={currentPage <= 1}
                 onClick={() => handlePageChange(currentPage - 1)}

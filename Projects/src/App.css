@@ -465,6 +465,11 @@ ul {
 	display: flex;
 	justify-content: space-between;
 }
+.pagination-pages {
+	/* position: absolute; */
+    top: 50%;
+	margin: 0 20vh;
+}
 .pagination button{
     background-color: Transparent;
     background-repeat:no-repeat;
