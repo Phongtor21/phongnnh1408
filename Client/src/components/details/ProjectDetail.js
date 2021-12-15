@@ -101,7 +101,7 @@ export default function ProjectDetail() {
                                 </ul>
                             </Box>
                         </StyleBoxContent>
-                        <Box sx={{ marginTop: '20px'}}>
+                        <Box sx={{ marginTop: '40px'}}>
                             <div className='pagination'>
                                 <a
                                     href={handleClick(project.prevProject)}

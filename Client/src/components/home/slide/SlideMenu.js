@@ -27,7 +27,7 @@ export default function SlideMenu() {
         {imageSlide.banners.map((slideImage, index) => (
           <Carousel.Item key={index}>
           <img
-            className="d-block w-100 img-slide"
+            className="d-block w-100 img-slide-home"
             src={`${process.env.REACT_APP_IMAGE_URL}/${slideImage}`}
             alt={slideImage}
           />

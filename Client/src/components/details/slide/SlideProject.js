@@ -8,7 +8,7 @@ export default function SlideProject({ images }) {
       {images.map((image, index) => (
         <Carousel.Item key={index}>
           <img
-            className="d-block w-100 img-slide"
+            className="d-block w-100 img-slide-project"
             src={`${process.env.REACT_APP_IMAGE_URL}/${images[index]}`}
             alt={image}
           />

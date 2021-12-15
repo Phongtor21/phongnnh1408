@@ -24,10 +24,10 @@ export default function MemberCard({ member }) {
         image={`${process.env.REACT_APP_IMAGE_URL}/${member.image}`}
       />
       <CardContent sx={{ padding: "0" }}>
-        <CardActions sx={{ padding: "0", fontSize: '10px' }}>
+        <CardActions sx={{ padding: "0", fontSize: '12px' }}>
           {member.name}
         </CardActions>
-        <Typography variant="body2" color="text.secondary" sx={{fontSize: '8px'}}>
+        <Typography variant="body2" color="text.secondary" sx={{fontSize: '10px'}}>
           {member.subtitle}
         </Typography>
       </CardContent>

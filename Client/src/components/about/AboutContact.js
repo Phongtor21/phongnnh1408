@@ -15,9 +15,7 @@ export default function AboutContact() {
                 Contact
             </Typography>
             <div className="about-img">
-                
                     <Iframe className='map' sx={{width: "100%", height: "280", border: 0}} loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=28%20duong%20thao%20dien%2C%20quan%202&key=AIzaSyBP2X7BZf05AX2VVeGxIgwap-oA_XkuWTQ"></Iframe>
-                
             </div>
             <Box sx={{ margin: '20px 0'}}>
                 <Typography>
