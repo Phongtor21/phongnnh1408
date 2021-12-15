@@ -466,9 +466,10 @@ ul {
 	justify-content: space-between;
 }
 .pagination-pages {
-	/* position: absolute; */
-    top: 50%;
-	margin: 0 20vh;
+	width: 100%;
+	position: absolute;
+    top: 35%;
+	padding: 0 20vh;
 }
 .pagination button{
     background-color: Transparent;
