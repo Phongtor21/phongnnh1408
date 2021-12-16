@@ -10,9 +10,9 @@ const Logo = ({ sx }) => {
         <Box
             component='img'
             alt='A7_logo'
-            src='/logo.svg'
+            src='/a7_logo.svg'
             sx={{
-                width: '100px',
+                width: '50px',
                 ...sx
             }}
         />

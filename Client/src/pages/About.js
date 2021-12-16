@@ -1,66 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { styled } from '@mui/material/styles';
-import { Box } from "@mui/system";
-import AboutUs from "../components/about/AboutUs";
-import AboutTeam from "../components/about/AboutTeam";
-import AboutContact from "../components/about/AboutContact";
-import aboutApi from "../api/aboutApi";
-import LoadingScreen from "../components/LoandingScreen";
+import { Container } from '@mui/material';
 
-const StyleBox = styled(Box)({
-    width: 900,
-    margin: '0 auto',
-    backgroundColor: 'white',
-    height: 'auto',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
-    alignContent: 'flex-start',
-    flexDirection: 'colurmn',
-    position: 'relative',
-    zIndex: '100'
-});
-
+// components
+import Page from '../components/Page';
+import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
+import { AboutText } from '../components/about';
+// path
+import { PATH_DASHBOARD } from '../routes/path';
 
 const About = () => {
-    const [about, setAbout] = useState(null);
-
-    useEffect(() => {
-        const fetchAbout = async () => {
-            try {
-                const response = await aboutApi.allAbout();
-                setAbout(response);
-            } catch (error) {
-                console.log('Failed to fetch about: ', error)
-            }
-        }
-        fetchAbout();
-    }, [])
-
-
     return (
-        <>
-            {about && (
-                <StyleBox>
-                    <div id="about" className="about section-padding" data-scroll-index="1">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-7">
-                                    <AboutUs about={about.text} />
-                                    <AboutTeam />
-                                </div>
-                                <div className="col-md-5">
-                                    <AboutContact />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </StyleBox >
-            )}
-            {!about && (<LoadingScreen />)}
-        </>
-
-    )
+        <Page title='Thông tin A7 | A7 Studio'>
+            <Container sx={{ pb: 3 }}>
+                <HeaderBreadcrumbs
+                    header='Thông tin A7'
+                    links={[
+                        { name: 'Dashboard', href: PATH_DASHBOARD.root },
+                    ]}
+                />
+                <AboutText />
+            </Container>
+        </Page>
+    );
 };
 
 export default About;
