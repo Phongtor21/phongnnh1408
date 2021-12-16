@@ -1,20 +1,22 @@
-// components
-import LoadingScreen from './components/LoadingScreen';
-import Snackbar from './components/Snackbar';
-// hooks
-import useAuth from './hooks/useAuth';
-// 
-import Router from './routes';
-import ThemeConfig from './theme';
+import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import { HeaderW } from './components/Layouts/HeaderW';
+import { ThemeProvider, createTheme } from '@mui/material';
+import Router from './routes/index';
 
-const App = () => {
-  const { isInitialized } = useAuth();
+function App() {
   return (
-    <ThemeConfig>
-      <Snackbar />
-      {isInitialized ? <Router /> : <LoadingScreen />}
-    </ThemeConfig>
+    <ThemeProvider theme={createTheme({
+      typography: {
+        fontFamily: 'Avo',
+      }
+    })}>
+      <BrowserRouter>
+        <HeaderW />
+        <Router/>
+      </BrowserRouter>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
