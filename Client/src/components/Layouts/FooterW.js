@@ -108,7 +108,7 @@ export const FooterW = () => {
                         </Grid>
                     </Box>
                     <Box sx={{ flexGrow: 1 }} >
-                        <Grid container spacing={3} sx={{ width: '350px' }}>
+                        <Grid container spacing={3} sx={{ width: '320px' }}>
                             <GridMenu item xs  >
                                 <a className='footer-button' href={footer[0]?.contact[0]?.link}>
                                     <DisabledButton >
@@ -116,7 +116,6 @@ export const FooterW = () => {
                                     </DisabledButton>
                                 </a>
                             </GridMenu>
-
                             <GridMenu item xs>
                                 <a className='footer-button' href={footer[0]?.contact[1]?.link}>
                                     <DisabledButton>

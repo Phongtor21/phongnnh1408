@@ -34,7 +34,7 @@ export default function AboutTeam() {
     return (
         <>
             {architects && (
-                <Box sx={{ padding: '10px 0' }}>
+                <Box >
                     <Typography className="section-title"
                         sx={{
                             marginRight: '16px',

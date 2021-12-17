@@ -18,7 +18,7 @@ const BootstrapButton = styled(Button)({
     boxShadow: "none",
     boxSizing: "small",
     textTransform: "none",
-    fontSize: '12px',
+    fontSize: '14px',
     fontWeight: 300,
     color: "#333333",
     lineHeight: 0,
@@ -65,51 +65,51 @@ export default function AutoGrid() {
 
     return (
         <>
-        {menu && (
-            <div className="App-header">
-            <Link to="/" style={{ textDecoration: "none" }}>
-                <img src={logo} className="App-logo" alt="logo" />
-            </Link>
-            <Box sx={{ flexGrow: 1 }} >
-                <Grid container spacing={3}>
-                    <GridMenu item xs  >
-                        <Link to="/projects" style={{ textDecoration: "none" }}>
-                            <BootstrapButton>
-                                {menu[0]?.title || 'Chưa có'}
-                            </BootstrapButton>
-                        </Link>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <BootstrapButton>
-                            |
-                        </BootstrapButton>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <Link to="/news" style={{ textDecoration: "none" }}>
-                            <BootstrapButton>
-                                {menu[2]?.title || 'Chưa có'}
-                            </BootstrapButton>
-                        </Link>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <BootstrapButton>
-                            |
-                        </BootstrapButton>
-                    </GridMenu>
-                    <GridMenu item xs>
-                        <Link to="/about" style={{ textDecoration: "none" }}>
-                            <BootstrapButton>
-                                {menu[1]?.title || 'Chưa có'}
-                            </BootstrapButton>
-                        </Link>
-                    </GridMenu>
-                </Grid>
-            </Box>
-        </div>
-        )}
-        {!menu && ('')}
+            {menu && (
+                <div className="App-header">
+                    <Link to="/" style={{ textDecoration: "none" }}>
+                        <img src={logo} className="App-logo" alt="logo" />
+                    </Link>
+                    <Box sx={{ flexGrow: 1 }} >
+                        <Grid container spacing={3}>
+                            <GridMenu item xs  >
+                                <Link to="/projects" style={{ textDecoration: "none" }}>
+                                    <BootstrapButton>
+                                        {menu[0]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </Link>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <BootstrapButton>
+                                    |
+                                </BootstrapButton>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <Link to="/news" style={{ textDecoration: "none" }}>
+                                    <BootstrapButton>
+                                        {menu[1]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </Link>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <BootstrapButton>
+                                    |
+                                </BootstrapButton>
+                            </GridMenu>
+                            <GridMenu item xs>
+                                <Link to="/about" style={{ textDecoration: "none" }}>
+                                    <BootstrapButton>
+                                        {menu[2]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </Link>
+                            </GridMenu>
+                        </Grid>
+                    </Box>
+                </div>
+            )}
+            {!menu && ('')}
         </>
-        
+
     );
 }
 

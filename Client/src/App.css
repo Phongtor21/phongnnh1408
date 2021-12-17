@@ -106,9 +106,9 @@ footer.content-footer {
   font-size: 12px;
   font-weight: 200;
   color: white;
-  padding-top: 10px;
+  padding-top: 1vh;
   margin: 0 auto;
-  margin-bottom: 5px;
+  margin-bottom: 1vh;
 }
 .App-footer {
   background-color: #fff;
@@ -294,7 +294,7 @@ footer.content-footer {
 	bottom:0;
 	left:0;
 	right:0;
-	padding: 6vh 0 0;
+	padding: 5vh 0 0;
 	z-index:2;
 	-webkit-transform: translate3d(0,0,0);
 	background-color: #fff;
@@ -306,7 +306,7 @@ footer.content-footer {
 	font-size: 12px;
 	font-weight: 200;
 	color: white;
-	margin-bottom: 20px
+	/* margin-bottom: 2vh */
 }
 .footer-inner {
 	margin:0 auto;
@@ -486,7 +486,20 @@ ul {
     overflow: hidden;
     outline:none;
 }
-
+.button-transfer-page {
+	width: 26vh;
+	height: 24px;
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-decoration: none;
+}
+.button-transfer-page:hover{
+	color: #6c757d;
+}
+.button-next {
+	text-align: right;
+}
 .btn {
 	padding:15px 30px;
 	position:relative;
@@ -537,7 +550,7 @@ ul {
 
 /* ======= About style ======= */
 .about-img {
-	margin-top: 11px;
+	margin-top: 0.8vh;
 	height: 280px;
 }
 .about .about-img img:hover {
@@ -584,7 +597,7 @@ ul {
     text-transform: uppercase;
     color: #272727;
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 1.5vh;
     letter-spacing: 0.5px;
 }
 .section-title p {

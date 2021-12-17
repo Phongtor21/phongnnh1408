@@ -6,14 +6,14 @@ export default function AboutUs({ about }) {
 
     return (
         <>
-            <Box sx={{ marginBottom: '20', height: '34vh' }}>
+            <Box sx={{ marginBottom: '1vh', height: '34vh' }}>
                 <Box
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
                         px: 2,
                         padding: 0,
-                        marginBottom: '5px'
+                        // marginBottom: '0.5vh'
                     }}
                 >
                     <Typography className="section-title"
@@ -27,7 +27,7 @@ export default function AboutUs({ about }) {
 
                 </Box>
 
-                <Typography variant='p' sx={{ fontSize: '12px', textOverflow: 'ellipsis', height: '100%' }}>
+                <Typography variant='p' sx={{ fontSize: '12px', textOverflow: 'ellipsis' }}>
                     <div className='text-description' dangerouslySetInnerHTML={{ __html: `${about}` }}></div>
                 </Typography>
 

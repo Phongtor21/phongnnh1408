@@ -6,8 +6,8 @@ import HomeSlide from '../components/home/HomeSlide';
 import { FooterW } from '../components/Layouts/FooterW';
 
 const StyleBoxHome = styled(Box)({
-  // padding: '20px 200px',
-  maxWidth: '900px',
+  padding: '0 2vh',
+  maxWidth: '120vh',
   margin: '0 auto',
   backgroundColor: 'white',
   height: '65vh',

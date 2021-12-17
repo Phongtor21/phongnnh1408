@@ -8,7 +8,7 @@ import LoadingScreen from '../components/LoandingScreen';
 import { Grid } from '@mui/material';
 
 const StyleBox = styled(Box)({
-  padding: '0',
+  padding: '0 2vh',
   maxWidth: '120vh',
   margin: '2vh auto',
   backgroundColor: 'white',
@@ -54,14 +54,15 @@ export default function Projects() {
         <React.Fragment >
 
           <StyleBox >
-          <Grid container spacing={2}>
-              {projectList.projects.map((project) => (
-                <Grid item xs={3} sx={{ paddingTop: '0'}}>
-                  <ProjectCard key={project._id} project={project} />
-                </Grid>
-              ))}
-            </Grid>
-
+            <Box sx={{height: '80vh'}}>
+              <Grid container spacing={2}>
+                {projectList.projects.map((project) => (
+                  <Grid key={project._id} item xs={3} sx={{ paddingTop: '0' }}>
+                    <ProjectCard project={project} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
             <Pagination
               pagination={projectList.pagination}
               onPageChange={handlePageChange}

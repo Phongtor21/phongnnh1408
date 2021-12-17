@@ -11,16 +11,13 @@ import { Typography } from '@mui/material';
 export default function NewsCard({ news }) {
   return (
     <Card sx={{
-      maxWidth: 275,
-      height: 235,
-      // margin: '7px',
+      height: '32vh',
       borderRadius: 0,
       boxShadow: 'none',
     }}>
       <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
-          height: 175,
-          width: 275,
+          height: '24vh',
         }}
           component="img"
           alt={news.title}
@@ -40,7 +37,16 @@ export default function NewsCard({ news }) {
             }
           }}>{news.title}</Link>
         </CardActions>
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px' }}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            fontSize: '10px',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: 3,
+            overflow: 'hidden',
+          }}>
           <div className='description' dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
         </Typography>
       </CardContent>

@@ -8,8 +8,8 @@ import { Grid } from '@mui/material';
 import LoadingScreen from '../components/LoandingScreen';
 
 const StyleBox = styled(Box)({
-  // padding: '15px 310px',
-  maxWidth: 870,
+  padding: '0 2vh',
+  maxWidth: '120vh',
   margin: '2vh auto',
   backgroundColor: 'white',
   display: 'flex',
@@ -53,13 +53,16 @@ export default function News() {
       {newsList && (
         <React.Fragment >
           <StyleBox >
-            <Grid container spacing={2}>
-              {newsList.news.map((news) => (
-                <Grid item xs={4} sx={{ paddingTop: '0' }}>
-                  <NewsCard key={news._id} news={news} />
-                </Grid>
-              ))}
-            </Grid>
+            <Box sx={{height: '70vh'}}>
+              <Grid container spacing={2}>
+                {newsList.news.map((news) => (
+                  <Grid key={news._id} item xs={4} sx={{ paddingTop: '0' }}>
+                    <NewsCard news={news} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+
             <Pagination
               pagination={newsList.pagination}
               onPageChange={handlePageChange}

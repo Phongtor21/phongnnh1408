@@ -11,7 +11,6 @@ import { Typography } from '@mui/material';
 export default function ProjectCard({ project }) {
   return (
     <Card sx={{
-      maxWidth: '28vh',
       height: '25vh',
       borderRadius: 0,
       boxShadow: 'none'
@@ -19,7 +18,6 @@ export default function ProjectCard({ project }) {
       <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{
           height: '18vh',
-          width: '28vh',
         }}
           component="img"
           alt={project.name}
@@ -38,7 +36,15 @@ export default function ProjectCard({ project }) {
             }
           }}>{project.name}</Link>
         </CardActions>
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px' }}>
+        <Typography variant="body2"
+          color="text.secondary"
+          sx={{
+            fontSize: '10px',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: 2,
+            overflow: 'hidden',
+          }}>
           <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
         </Typography>
       </CardContent>
