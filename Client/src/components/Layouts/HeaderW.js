@@ -18,7 +18,7 @@ const BootstrapButton = styled(Button)({
     boxShadow: "none",
     boxSizing: "small",
     textTransform: "none",
-    fontSize: '10px',
+    fontSize: '12px',
     fontWeight: 300,
     color: "#333333",
     lineHeight: 0,
@@ -44,7 +44,6 @@ const GridMenu = styled(Grid)(({
     textAlign: 'center',
     boxShadow: "none",
     textTransform: "none",
-    // marginTop: "0",
     color: "#333333",
 
 }));

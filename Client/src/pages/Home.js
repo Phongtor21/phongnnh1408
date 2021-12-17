@@ -10,7 +10,7 @@ const StyleBoxHome = styled(Box)({
   maxWidth: '900px',
   margin: '0 auto',
   backgroundColor: 'white',
-  height: 'auto',
+  height: '65vh',
   justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
@@ -25,7 +25,6 @@ const Home = () => {
     <>
       <StyleBoxHome >
         <HomeSlide />
-
       </StyleBoxHome>
       <FooterW />
     </>

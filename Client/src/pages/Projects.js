@@ -5,17 +5,18 @@ import ProjectCard from '../components/project/ProjectCard';
 import Pagination from '../components/Pagination/Pagination';
 import projectApi from '../api/projectApi';
 import LoadingScreen from '../components/LoandingScreen';
+import { Grid } from '@mui/material';
 
 const StyleBox = styled(Box)({
   padding: '0',
-  maxWidth: 900,
-  margin: '0 auto',
+  maxWidth: '120vh',
+  margin: '2vh auto',
   backgroundColor: 'white',
   display: 'flex',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
   flexDirection: 'colurmn',
-  height: 'auto',
+  height: '80vh',
   zIndex: '100',
   position: 'relative'
 });
@@ -53,9 +54,14 @@ export default function Projects() {
         <React.Fragment >
 
           <StyleBox >
-            {projectList.projects.map((project) => (
-              <ProjectCard key={project._id} project={project} />
-            ))}
+          <Grid container spacing={2}>
+              {projectList.projects.map((project) => (
+                <Grid item xs={3} sx={{ paddingTop: '0'}}>
+                  <ProjectCard key={project._id} project={project} />
+                </Grid>
+              ))}
+            </Grid>
+
             <Pagination
               pagination={projectList.pagination}
               onPageChange={handlePageChange}

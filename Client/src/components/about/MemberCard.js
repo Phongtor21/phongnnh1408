@@ -9,15 +9,12 @@ import PropTypes from 'prop-types';
 export default function MemberCard({ member }) {
   return (
     <Card sx={{
-      maxWidth: 110,
-      margin: '5px',
-      height: 180,
+      height: '24vh',
       borderRadius: 0,
       boxShadow: 'none'
     }}>
       <CardMedia sx={{
-        height: 140,
-        width: 110,
+        height: '19vh',
       }}
         component="img"
         alt={member.name}

@@ -4,18 +4,19 @@ import Box from '@mui/material/Box';
 import NewsCard from '../components/news/NewsCard';
 import Pagination from '../components/Pagination/Pagination';
 import newsApi from '../api/newsApi';
+import { Grid } from '@mui/material';
 import LoadingScreen from '../components/LoandingScreen';
 
 const StyleBox = styled(Box)({
   // padding: '15px 310px',
   maxWidth: 870,
-  margin: '0 auto',
+  margin: '2vh auto',
   backgroundColor: 'white',
   display: 'flex',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
   flexDirection: 'colurmn',
-  height: 'auto',
+  height: '80vh',
   zIndex: '100',
   position: 'relative'
 });
@@ -52,9 +53,13 @@ export default function News() {
       {newsList && (
         <React.Fragment >
           <StyleBox >
-            {newsList.news.map((news) => (
-              <NewsCard key={news._id} news={news} />
-            ))}
+            <Grid container spacing={2}>
+              {newsList.news.map((news) => (
+                <Grid item xs={4} sx={{ paddingTop: '0' }}>
+                  <NewsCard key={news._id} news={news} />
+                </Grid>
+              ))}
+            </Grid>
             <Pagination
               pagination={newsList.pagination}
               onPageChange={handlePageChange}

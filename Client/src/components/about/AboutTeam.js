@@ -4,6 +4,7 @@ import { Box } from "@mui/system";
 import MemberCard from "./MemberCard";
 import { styled } from '@mui/material/styles';
 import architectsApi from "../../api/architectsApi";
+import { Grid } from '@mui/material';
 
 const StyleBox = styled(Box)({
     margin: '0 auto',
@@ -32,28 +33,30 @@ export default function AboutTeam() {
 
     return (
         <>
-        {architects && (
-            <Box sx={{ padding: '20px 0' }}>
-                <Typography className="section-title"
-                    sx={{
-                        marginRight: '16px',
-                        fontSize: '18px'
-                    }}>
-                    Team
-                </Typography>
-                <StyleBox>
-                    <div className="scrollbar scrollbar-about" id="style-4">
-                        <div className="force-overflow">
-
-                            {architects.map((member, index) => (
-                                <MemberCard key={index} member={member} />
-                            ))}
-
+            {architects && (
+                <Box sx={{ padding: '10px 0' }}>
+                    <Typography className="section-title"
+                        sx={{
+                            marginRight: '16px',
+                            fontSize: '18px'
+                        }}>
+                        Team
+                    </Typography>
+                    <StyleBox>
+                        <div className="scrollbar scrollbar-about" id="style-4">
+                            <div className="force-overflow">
+                                <Grid container spacing={1}>
+                                    {architects.map((member, index) => (
+                                        <Grid item xs={3} sx={{ paddingTop: '0' }}>
+                                            <MemberCard key={index} member={member} />
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            </div>
                         </div>
-                    </div>
-                </StyleBox>
-            </Box>
-        )}
+                    </StyleBox>
+                </Box>
+            )}
             {!architects && ('Loading...')}
         </>
     )

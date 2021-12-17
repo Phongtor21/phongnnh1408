@@ -13,7 +13,7 @@ export default function NewsCard({ news }) {
     <Card sx={{
       maxWidth: 275,
       height: 235,
-      margin: '7px',
+      // margin: '7px',
       borderRadius: 0,
       boxShadow: 'none',
     }}>

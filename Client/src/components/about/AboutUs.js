@@ -6,7 +6,7 @@ export default function AboutUs({ about }) {
 
     return (
         <>
-            <Box sx={{ marginBottom: '20', height: '250px' }}>
+            <Box sx={{ marginBottom: '20', height: '34vh' }}>
                 <Box
                     sx={{
                         display: 'flex',

@@ -8,10 +8,10 @@ import LoadingScreen from "../LoandingScreen";
 
 const StyleBox = styled(Box)({
     // padding: '10px 255px',
-    maxWidth: '900px',
+    maxWidth: '120vh',
     margin: '0 auto',
     backgroundColor: 'white',
-    height: 'auto',
+    height: '50vh',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
@@ -22,7 +22,7 @@ const StyleBox = styled(Box)({
 
 const StyleBoxContent = styled(Box)({
     display: 'flex',
-    maxWidth: '900px',
+    maxWidth: '120vh',
     margin: '0 auto',
     paddingTop: '20px'
 });
@@ -85,7 +85,7 @@ export default function NewsDetail() {
                             </Box>
 
                         </StyleBoxContent>
-                        <Box sx={{ marginTop: '40px'}}>
+                        <Box >
                             <div className='pagination'>
                                 <a
                                     href={handleClick(news.prevNews)}

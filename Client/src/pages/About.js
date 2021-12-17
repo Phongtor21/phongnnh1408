@@ -8,7 +8,7 @@ import aboutApi from "../api/aboutApi";
 import LoadingScreen from "../components/LoandingScreen";
 
 const StyleBox = styled(Box)({
-    maxWidth: 900,
+    maxWidth: '120vh',
     margin: '0 auto',
     backgroundColor: 'white',
     height: 'auto',

@@ -9,10 +9,10 @@ import moment from 'moment';
 import LoadingScreen from "../LoandingScreen";
 
 const StyleBox = styled(Box)({
-    maxWidth: '900px',
+    maxWidth: '120vh',
     margin: '0 auto',
     backgroundColor: 'white',
-    height: 'auto',
+    height: '50vh',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
@@ -23,7 +23,7 @@ const StyleBox = styled(Box)({
 
 const StyleBoxContent = styled(Box)({
     display: 'flex',
-    maxWidth: '900px',
+    maxWidth: '120vh',
     margin: '0 auto',
     paddingTop: '20px'
 });
@@ -101,7 +101,7 @@ export default function ProjectDetail() {
                                 
                             </Box>
                         </StyleBoxContent>
-                        <Box sx={{ marginTop: '40px'}}>
+                        <Box >
                             <div className='pagination'>
                                 <a
                                     href={handleClick(project.prevProject)}
