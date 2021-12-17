@@ -75,9 +75,9 @@ export const FooterW = () => {
                     <Box sx={{ flexGrow: 1 }} >
                         <Grid container spacing={3} >
                             <GridMenu item xs  >
-                                <a className='footer-button' href={footer[0].connect[0].link}>
+                                <a className='footer-button' href={footer[0]?.connect[0]?.link}>
                                     <BootstrapButton>
-                                        {footer[0].connect[0].title}
+                                        {footer[0]?.connect[0]?.title || 'Chưa có'}
                                     </BootstrapButton>
                                 </a>
                             </GridMenu>
@@ -87,9 +87,9 @@ export const FooterW = () => {
                                 </BootstrapButton>
                             </GridMenu>
                             <GridMenu item xs>
-                                <a className='footer-button' href={footer[0].connect[1].link}>
+                                <a className='footer-button' href={footer[0]?.connect[1]?.link}>
                                     <BootstrapButton>
-                                        {footer[0].connect[1].title}
+                                        {footer[0]?.connect[1]?.title || 'Chưa có'}
                                     </BootstrapButton>
                                 </a>
                             </GridMenu>
@@ -99,9 +99,9 @@ export const FooterW = () => {
                                 </BootstrapButton>
                             </GridMenu>
                             <GridMenu item xs>
-                                <a className='footer-button' href={footer[0].connect[2].link}>
+                                <a className='footer-button' href={footer[0]?.connect[2]?.link}>
                                     <BootstrapButton>
-                                        {footer[0].connect[2].title}
+                                        {footer[0]?.connect[2]?.title || 'Chưa có'}
                                     </BootstrapButton>
                                 </a>
                             </GridMenu>
@@ -110,25 +110,25 @@ export const FooterW = () => {
                     <Box sx={{ flexGrow: 1 }} >
                         <Grid container spacing={3} sx={{ width: '350px' }}>
                             <GridMenu item xs  >
-                                <a className='footer-button' href={footer[0].contact[0].link}>
+                                <a className='footer-button' href={footer[0]?.contact[0]?.link}>
                                     <DisabledButton >
-                                        {footer[0].contact[0].title}
+                                        {footer[0]?.contact[0]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
                             </GridMenu>
 
                             <GridMenu item xs>
-                                <a className='footer-button' href={footer[0].contact[1].link}>
+                                <a className='footer-button' href={footer[0]?.contact[1]?.link}>
                                     <DisabledButton>
-                                        {footer[0].contact[1].title}
+                                        {footer[0]?.contact[1]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
                             </GridMenu>
 
                             <GridMenu item xs>
-                                <a className='footer-button' href={footer[0].contact[2].link}>
+                                <a className='footer-button' href={footer[0]?.contact[2]?.link}>
                                     <DisabledButton>
-                                        {footer[0].contact[2].title}
+                                        {footer[0]?.contact[2]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
                             </GridMenu>
@@ -138,17 +138,17 @@ export const FooterW = () => {
 
                         <Grid container spacing={3}>
                             <GridMenu item xs  >
-                                <a className='footer-button' href={footer[0].support[0].link}>
+                                <a className='footer-button' href={footer[0]?.support[0]?.link}>
                                     <DisabledButton>
-                                        {footer[0].support[0].title}
+                                        {footer[0]?.support[0]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
                             </GridMenu>
 
                             <GridMenu item xs>
-                                <a className='footer-button' href={footer[0].support[1].link}>
+                                <a className='footer-button' href={footer[0]?.support[1]?.link}>
                                     <DisabledButton>
-                                        {footer[0].support[1].title}
+                                        {footer[0]?.support[1]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
                             </GridMenu>

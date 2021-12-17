@@ -75,7 +75,7 @@ export default function AutoGrid() {
                     <GridMenu item xs  >
                         <Link to="/projects" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                {menu[0].title}
+                                {menu[0]?.title || 'Chưa có'}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
@@ -87,7 +87,7 @@ export default function AutoGrid() {
                     <GridMenu item xs>
                         <Link to="/news" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                {menu[2].title}
+                                {menu[2]?.title || 'Chưa có'}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
@@ -99,7 +99,7 @@ export default function AutoGrid() {
                     <GridMenu item xs>
                         <Link to="/about" style={{ textDecoration: "none" }}>
                             <BootstrapButton>
-                                {menu[1].title}
+                                {menu[1]?.title || 'Chưa có'}
                             </BootstrapButton>
                         </Link>
                     </GridMenu>
