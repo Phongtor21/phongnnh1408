@@ -45,7 +45,7 @@ export default function NewsCard({ news }) {
             fontSize: '12px',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: 4,
+            WebkitLineClamp: 3,
             overflow: 'hidden',
           }}>
           <div dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
