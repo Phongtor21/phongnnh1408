@@ -11,7 +11,7 @@ import LoadingScreen from "../LoandingScreen";
 const StyleBox = styled(Box)({
     padding: '0 2vh',
     maxWidth: '120vh',
-    margin: '0 auto',
+    margin: '12px auto',
     backgroundColor: 'white',
     height: '50vh',
     justifyContent: 'space-around',
@@ -21,7 +21,12 @@ const StyleBox = styled(Box)({
     position: 'relative',
     zIndex: '100'
 });
-
+const StyleArchitect = styled(Grid)(({ theme }) => ({
+    padding: '32px 0 0 15px',
+    [theme.breakpoints.down('md')]: {
+        padding: '10px 0',
+    }
+}));
 
 export default function ProjectDetail() {
     const [project, setProject] = useState(null);
@@ -63,47 +68,52 @@ export default function ProjectDetail() {
                 <>
                     <StyleBox>
                         <SlideProject images={project.current.images} />
-                        
-                            <Grid container sx={{ maxWidth: '120vh', paddingTop: '20px'}}>
-                                <Grid item xs={9.065}>
-                                    <Typography variant="section-title" sx={{ fontSize: '18px',height: '35px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
-                                        {project.current.name}
-                                    </Typography>
 
-                                    <div className="scrollbar scrollbar-detail" id="style-4">
-                                        <div className="force-overflow">
-                                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                                                <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
+                        <Grid container
+                            direction={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }}
+                            sx={{
+                                maxWidth: '120vh',
+                                paddingTop: '20px'
+                            }}>
+                            <Grid item xs={9.065}>
+                                <Typography variant="section-title" sx={{ fontSize: '18px', height: '35px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
+                                    {project.current.name}
+                                </Typography>
 
-                                            </Typography>
-                                        </div>
+                                <div className="scrollbar scrollbar-detail" id="style-4">
+                                    <div className="force-overflow">
+                                        <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
+                                            <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
+
+                                        </Typography>
                                     </div>
-                                </Grid>
-                                <Grid item xs={2.935} sx={{padding: '32px 0 0 15px'}} >
-                                    <Typography variant="p" sx={{ color: '#000000', marginTop: '20px', fontSize: '14px' }}>
-                                        TIME:
-                                        <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px', fontSize: '14px' }}>
-                                            {moment(project.current.createAt).format('DD/MM/YYYY')}
-                                        </Typography>
-                                    </Typography>
-                                    <br />
-                                    <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }} >
-                                        ARCHITECT:
-                                        <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
-                                            {project.current.architect.name}
-                                        </Typography>
-                                    </Typography>
-                                </Grid>
+                                </div>
                             </Grid>
+                            <StyleArchitect item xs={2.935} >
+                                <Typography variant="p" sx={{ color: '#000000', marginTop: '20px', fontSize: '14px' }}>
+                                    TIME:
+                                    <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px', fontSize: '14px' }}>
+                                        {moment(project.current.createAt).format('DD/MM/YYYY')}
+                                    </Typography>
+                                </Typography>
+                                <br />
+                                <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }} >
+                                    ARCHITECT:
+                                    <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
+                                        {project.current.architect.name}
+                                    </Typography>
+                                </Typography>
+                            </StyleArchitect>
+                        </Grid>
 
-                        <Box >
+                        <Box sx={{ paddingTop: '20px' }} >
                             <div className='pagination'>
                                 {project.prevProject && (
                                     <a
                                         className="button-transfer-page"
                                         href={handleClick(project.prevProject)}
                                     >
-                                        PREVIOUS <br/>
+                                        PREVIOUS <br />
                                         {project.prevProject.name}
                                     </a>
                                 )}
@@ -116,7 +126,7 @@ export default function ProjectDetail() {
                                         className="button-transfer-page button-next"
                                         href={handleClick(project.nextProject)}
                                     >
-                                        NEXT <br/>
+                                        NEXT <br />
                                         {project.nextProject.name}
                                     </a>
                                 )}

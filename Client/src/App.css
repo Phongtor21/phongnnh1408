@@ -166,7 +166,7 @@ footer.content-footer {
 
 .img-slide-home{
 	width: 120vh;
-	height: 75vh;
+	height: 70vh;
 }
 .img-slide-project{
 	width: 120vh;
@@ -471,11 +471,11 @@ ul {
 .pagination {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 1.5vh;
+	margin-top: 2vh;
 }
 .pagination-pages {
 	width: 100%;
-	/* padding: 0 10px; */
+	font-size: 14px;
 }
 .pagination button{
     background-color: Transparent;

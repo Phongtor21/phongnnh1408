@@ -8,9 +8,9 @@ import { FooterW } from '../components/Layouts/FooterW';
 const StyleBoxHome = styled(Box)(({ theme }) => ({
   padding: '0 2vh',
   maxWidth: '120vh',
-  margin: '0 auto',
+  margin: '2vh auto',
   backgroundColor: 'white',
-  height: '77vh',
+  height: '74vh',
   justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignContent: 'flex-start',

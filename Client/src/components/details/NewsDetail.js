@@ -85,7 +85,7 @@ export default function NewsDetail() {
                             </Box>
 
                         </StyleBoxContent>
-                        <Box >
+                        <Box sx={{paddingTop: '20px'}} >
                             <div className='pagination'>
                                 {news.prevNews && (
                                     <a

@@ -29,7 +29,7 @@ function Pagination(props) {
                 disabled={currentPage <= 1}
                 onClick={() => handlePageChange(currentPage - 1)}
             >
-                Prev
+                PREVIOUS
             </button>
             <Typography>
                 {currentPage > 1 && (
@@ -52,7 +52,7 @@ function Pagination(props) {
                 disabled={currentPage >= totalPage}
                 onClick={() => handlePageChange(currentPage + 1)}
             >
-                Next
+                NEXT
             </button>
 
 

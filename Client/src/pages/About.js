@@ -9,7 +9,7 @@ import LoadingScreen from "../components/LoandingScreen";
 
 const StyleBox = styled(Box)({
     maxWidth: '120vh',
-    margin: '0 auto',
+    margin: '2vh auto',
     backgroundColor: 'white',
     height: 'auto',
     justifyContent: 'space-around',
