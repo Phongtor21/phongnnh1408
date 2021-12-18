@@ -54,10 +54,10 @@ export default function Projects() {
         <React.Fragment >
 
           <StyleBox >
-            <Box sx={{height: '80vh'}}>
+            <Box sx={{ height: {xs:'auto', sm:'80vh'}}}>
               <Grid container spacing={1}>
                 {projectList.projects.map((project) => (
-                  <Grid key={project._id} item xs={3} sx={{ paddingTop: '0' }}>
+                  <Grid key={project._id} item xs={12} sm={3} sx={{ paddingTop: '0' }}>
                     <ProjectCard project={project} />
                   </Grid>
                 ))}

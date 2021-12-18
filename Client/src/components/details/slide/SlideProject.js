@@ -14,7 +14,7 @@ const SlideProject = ({ images }) => {
         alignItems="stretch"
         columnSpacing={1}
       >
-        <Grid item md={9}>
+        <Grid item xs={12} md={9}>
           <FocusImage>
             <Box
               component='img'
@@ -29,7 +29,7 @@ const SlideProject = ({ images }) => {
             />
           </FocusImage>
         </Grid>
-        <Grid item md={3}>
+        <Grid item xs={12} md={3}>
           <ScrollWrapper
             spacing={1}
             direction={{ xs: 'row', sm: 'row', md: 'column', lg: 'column' }}

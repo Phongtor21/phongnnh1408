@@ -11,13 +11,13 @@ import { Typography } from '@mui/material';
 export default function NewsCard({ news }) {
   return (
     <Card sx={{
-      height: '37vh',
+      height: {xs:'auto', sm: '37vh'},
       borderRadius: 0,
       boxShadow: 'none',
     }}>
       <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
-          height: '26vh',
+          height: {xs:'auto', sm: '26vh'},
         }}
           component="img"
           alt={news.title}

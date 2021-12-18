@@ -11,13 +11,13 @@ import { Typography } from '@mui/material';
 export default function ProjectCard({ project }) {
   return (
     <Card sx={{
-      height: '25vh',
+      height: {xs:'auto', sm: '25vh'},
       borderRadius: 0,
       boxShadow: 'none'
     }}>
       <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{
-          height: '16vh',
+          height: {xs:'auto', sm: '16vh'},
         }}
           component="img"
           alt={project.name}

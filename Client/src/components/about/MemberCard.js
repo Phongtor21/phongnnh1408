@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 export default function MemberCard({ member }) {
   return (
     <Card sx={{
-      height: '23vh',
+      height: {xs: '25vh', md: '23vh'},
       borderRadius: 0,
       boxShadow: 'none'
     }}>
