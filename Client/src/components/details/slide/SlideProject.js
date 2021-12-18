@@ -1,74 +1,94 @@
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Grid, Box, Stack } from '@mui/material';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 const SlideProject = ({ images }) => {
   const [index, setIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Grid
-      container
-      alignItems="stretch"
-      columnSpacing={1}
-    >
-      <Grid item md={9}>
-        <FocusImage>
-          <Box
-            component='img'
-            src={`${process.env.REACT_APP_IMAGE_URL}/${images[index]}`}
-            alt={images[index]}
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }}
-          />
-        </FocusImage>
+    <>
+      <Grid
+        container
+        alignItems="stretch"
+        columnSpacing={1}
+      >
+        <Grid item md={9}>
+          <FocusImage>
+            <Box
+              component='img'
+              src={`${process.env.REACT_APP_IMAGE_URL}/${images[index]}`}
+              alt={images[index]}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+              onClick={() => setIsOpen(true)}
+            />
+          </FocusImage>
+        </Grid>
+        <Grid item md={3}>
+          <ScrollWrapper
+            spacing={1}
+            direction={{ xs: 'row', sm: 'row', md: 'column', lg: 'column' }}
+          >
+            {images.map((image, i) => {
+              return (
+                <Image key={i}>
+                  <Box
+                    component='img'
+                    src={`${process.env.REACT_APP_IMAGE_URL}/${image}`}
+                    alt={image}
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      opacity: `${index === i ? '1' : '0.7'}`
+                    }}
+                    onClick={() => setIndex(i)}
+                  />
+                </Image>
+              )
+            })}
+          </ScrollWrapper>
+        </Grid>
       </Grid>
-      <Grid item md={3}>
-        <ScrollWrapper spacing={1}>
-          {images.map((image, i) => {
-            return (
-              <Image key={i}>
-                <Box
-                  component='img'
-                  src={`${process.env.REACT_APP_IMAGE_URL}/${image}`}
-                  alt={image}
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    opacity: `${index === i ? '1' : '0.7'}`
-                  }}
-                  onClick={() => setIndex(i)}
-                />
-              </Image>
-            )
-          })}
-        </ScrollWrapper>
-      </Grid>
-    </Grid>
+      {isOpen && (
+        <Lightbox
+          mainSrc={`${process.env.REACT_APP_IMAGE_URL}/${images[index]}`}
+          nextSrc={`${process.env.REACT_APP_IMAGE_URL}/${images[(index + 1) % images.length]}`}
+          prevSrc={`${process.env.REACT_APP_IMAGE_URL}/${images[(index + images.length - 1) % images.length]}`}
+          onCloseRequest={() => setIsOpen(false)}
+          onMovePrevRequest={() => setIndex((index + images.length - 1) % images.length)}
+          onMoveNextRequest={() => setIndex((index + 1) % images.length)}
+        />
+      )}
+    </>
   )
 };
 
 const FocusImage = styled('div')({
   width: '100%',
   height: '50vh',
-  position: 'relative',
   cursor: 'pointer'
 });
 
-const ScrollWrapper = styled(Stack)({
+const ScrollWrapper = styled(Stack)(({ theme }) => ({
   maxHeight: '50vh',
-  overflowY: 'scroll',
+  overflow: 'scroll',
   '&::-webkit-scrollbar': {
     display: 'none'
+  },
+  [theme.breakpoints.down('md')]: {
+    marginTop: theme.spacing(1)
   }
-});
+}));
 
 const Image = styled('div')({
   height: 'calc((50vh / 3) - 5px)',
-  cursor: 'pointer',
-  position: 'relative'
+  cursor: 'pointer'
 });
 
 export default SlideProject;
