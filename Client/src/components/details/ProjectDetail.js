@@ -23,7 +23,7 @@ const StyleBox = styled(Box)({
 });
 const StyleArchitect = styled(Grid)(({ theme }) => ({
     padding: '32px 0 0 15px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
         padding: '10px 0',
     }
 }));
@@ -70,7 +70,7 @@ export default function ProjectDetail() {
                         <SlideProject images={project.current.images} />
 
                         <Grid container
-                            direction={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }}
+                            direction={{ xs: 'column', sm: 'row', md: 'row', lg: 'row' }}
                             sx={{
                                 maxWidth: '120vh',
                                 paddingTop: '20px'

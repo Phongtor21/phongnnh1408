@@ -14,7 +14,7 @@ const SlideProject = ({ images }) => {
         alignItems="stretch"
         columnSpacing={1}
       >
-        <Grid item xs={12} md={9}>
+        <Grid item xs={12} sm={9}>
           <FocusImage>
             <Box
               component='img'
@@ -29,10 +29,10 @@ const SlideProject = ({ images }) => {
             />
           </FocusImage>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} sm={3}>
           <ScrollWrapper
             spacing={1}
-            direction={{ xs: 'row', sm: 'row', md: 'column', lg: 'column' }}
+            direction={{ xs: 'row', sm: 'column', md: 'column', lg: 'column' }}
           >
             {images.map((image, i) => {
               return (
@@ -81,7 +81,7 @@ const ScrollWrapper = styled(Stack)(({ theme }) => ({
   '&::-webkit-scrollbar': {
     display: 'none'
   },
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('sm')]: {
     marginTop: theme.spacing(1)
   }
 }));
