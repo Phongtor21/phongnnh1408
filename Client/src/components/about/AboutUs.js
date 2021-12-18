@@ -13,7 +13,6 @@ export default function AboutUs({ about }) {
                         alignItems: 'center',
                         px: 2,
                         padding: 0,
-                        // marginBottom: '0.5vh'
                     }}
                 >
                     <Typography className="section-title"

@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 35px;
+  height: 40px;
   pointer-events: none;
   margin: 5px 0;
 }
@@ -14,18 +14,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* ::-webkit-scrollbar {
-	width: 11px;
-	height: 11px;
-}
-::-webkit-scrollbar-thumb {
-	background: gray;
-    border-radius: 10px;
-    border: 2px solid #f5f8fa;
-}
-::-webkit-scrollbar-thumb:hover {
-	background-color: #bbb;
-} */
 .bold-filter.inline-filter .count-folio div  {
 	float:left;
 	width:50%;
@@ -33,12 +21,10 @@
 	font-weight:900;
 }
 a {
-  /* text-decoration: none; */
   position: relative;
   color: #000;
 }
 a:-webkit-any-link {
-  /* color: -webkit-link; */
   cursor: pointer;
 }
 img {
@@ -180,7 +166,7 @@ footer.content-footer {
 
 .img-slide-home{
 	width: 120vh;
-	height: 65vh;
+	height: 75vh;
 }
 .img-slide-project{
 	width: 120vh;
@@ -501,8 +487,8 @@ ul {
 }
 .button-transfer-page {
 	width: 26vh;
-	height: 24px;
-	white-space: nowrap; 
+	font-size: 14px;
+	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-decoration: none;
@@ -625,18 +611,20 @@ ul {
 .scrollbar {
     background-color: white;
     float: left;
-
+	
     width: 100%;
-       overflow-y: scroll;
+    overflow-y: scroll;
 }
 .scrollbar-detail {
 	height: 20vh;
 	width: 100%;
+	overflow: auto;
 }
 
 .scrollbar-about {
 	height: 48vh;
 	width: 100%;
+	overflow: auto;
 }
 
 .force-overflow {
@@ -653,13 +641,11 @@ ul {
   	background-color: #F5F5F5;
 }
 #style-4::-webkit-scrollbar-track {
-	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
 	background-color: #e9ecef;
 }
   
 #style-4::-webkit-scrollbar-thumb {
 	background-color: #adb5bd;
-	/* border: 2px solid #555555; */
 }
 
 .img-news-detail {
@@ -667,9 +653,6 @@ ul {
 	height: 50vh;
 }
 
-.description {
-	font-size: 10px;
-}
 
 /* ======= Map ======= */
 

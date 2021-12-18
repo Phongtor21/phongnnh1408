@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import SlideProject from "./slide/SlideProject";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import projectApi from "../../api/projectApi";
 import moment from 'moment';
 import LoadingScreen from "../LoandingScreen";
@@ -22,34 +22,6 @@ const StyleBox = styled(Box)({
     zIndex: '100'
 });
 
-const StyleBoxContent = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    maxWidth: '120vh',
-    margin: '0 auto',
-    paddingTop: '20px',
-    [theme.breakpoints.down('sm')]: {
-        display: 'block',
-    }
-}));
-
-const StyleContent = styled(Box)(({ theme }) => ({
-    width: '77%',
-    [theme.breakpoints.down('sm')]: {
-        width: '100%',
-    }
-}));
-
-const StyleArchitect = styled(Box)(({ theme }) => ({
-    width: '23%',
-    marginTop: '32px',
-    marginLeft: '15px',
-    wordBreak: 'break-all',
-    [theme.breakpoints.down('sm')]: {
-        wordBreak: 'normal',
-        marginLeft: '0',
-        width: '100%',
-    }
-}));
 
 export default function ProjectDetail() {
     const [project, setProject] = useState(null);
@@ -91,38 +63,39 @@ export default function ProjectDetail() {
                 <>
                     <StyleBox>
                         <SlideProject images={project.current.images} />
-                        <StyleBoxContent>
-                            <StyleContent >
-                                <Typography variant="h5" sx={{ height: '35px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
-                                    {project.current.name}
-                                </Typography>
+                        
+                            <Grid container sx={{ maxWidth: '120vh', paddingTop: '20px'}}>
+                                <Grid item xs={9.065}>
+                                    <Typography variant="section-title" sx={{ fontSize: '18px',height: '35px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
+                                        {project.current.name}
+                                    </Typography>
 
-                                <div className="scrollbar scrollbar-detail" id="style-4">
-                                    <div className="force-overflow">
-                                        <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                                            <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
+                                    <div className="scrollbar scrollbar-detail" id="style-4">
+                                        <div className="force-overflow">
+                                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
+                                                <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
 
-                                        </Typography>
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
-                            </StyleContent>
-                            <StyleArchitect >
-                                <Typography variant="p" sx={{ color: '#000000', maxWidth: '100%' }}>
-                                    TIME:
-                                    <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
-                                        {moment(project.current.createAt).format('DD/MM/YYYY')}
+                                </Grid>
+                                <Grid item xs={2.935} sx={{padding: '32px 0 0 15px'}} >
+                                    <Typography variant="p" sx={{ color: '#000000', marginTop: '20px', fontSize: '14px' }}>
+                                        TIME:
+                                        <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px', fontSize: '14px' }}>
+                                            {moment(project.current.createAt).format('DD/MM/YYYY')}
+                                        </Typography>
                                     </Typography>
-                                </Typography>
-                                <br />
-                                <Typography variant="p" sx={{ color: '#000000' }} >
-                                    ARCHITECT:
-                                    <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
-                                        {project.current.architect.name}
+                                    <br />
+                                    <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }} >
+                                        ARCHITECT:
+                                        <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
+                                            {project.current.architect.name}
+                                        </Typography>
                                     </Typography>
-                                </Typography>
+                                </Grid>
+                            </Grid>
 
-                            </StyleArchitect>
-                        </StyleBoxContent>
                         <Box >
                             <div className='pagination'>
                                 {project.prevProject && (
@@ -130,6 +103,7 @@ export default function ProjectDetail() {
                                         className="button-transfer-page"
                                         href={handleClick(project.prevProject)}
                                     >
+                                        PREVIOUS <br/>
                                         {project.prevProject.name}
                                     </a>
                                 )}
@@ -142,6 +116,7 @@ export default function ProjectDetail() {
                                         className="button-transfer-page button-next"
                                         href={handleClick(project.nextProject)}
                                     >
+                                        NEXT <br/>
                                         {project.nextProject.name}
                                     </a>
                                 )}

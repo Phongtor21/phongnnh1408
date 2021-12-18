@@ -71,7 +71,7 @@ export default function NewsDetail() {
                         />
                         <StyleBoxContent>
                             <Box sx={{ width: '100%' }}>
-                                <Typography className="section-title" sx={{ fontWeight: '900' }} >
+                                <Typography className="section-title" sx={{ fontSize: '18px', fontWeight: '900', marginBottom: '10px' }} >
                                     {news.current.title}
                                 </Typography>
                                 <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
@@ -87,24 +87,12 @@ export default function NewsDetail() {
                         </StyleBoxContent>
                         <Box >
                             <div className='pagination'>
-                                {/* <a
-                                    className="button-transfer-page"
-                                    href={handleClick(news.prevNews)}
-                                >
-                                    {news.prevNews.title}
-                                </a>
-
-                                <a
-                                    className="button-transfer-page button-next"
-                                    href={handleClick(news.nextNews)}
-                                >
-                                    Next
-                                </a> */}
                                 {news.prevNews && (
                                     <a
                                         className="button-transfer-page"
                                         href={handleClick(news.prevNews)}
                                     >
+                                        PREVIOUS <br/>
                                         {news.prevNews.title}
                                     </a>
                                 )}
@@ -117,6 +105,7 @@ export default function NewsDetail() {
                                         className="button-transfer-page button-next"
                                         href={handleClick(news.nextNews)}
                                     >
+                                        NEXT <br/>
                                         {news.nextNews.title}
                                     </a>
                                 )}

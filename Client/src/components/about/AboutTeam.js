@@ -6,15 +6,18 @@ import { styled } from '@mui/material/styles';
 import architectsApi from "../../api/architectsApi";
 import { Grid } from '@mui/material';
 
-const StyleBox = styled(Box)({
+const StyleBox = styled(Box)(({ theme }) => ({
     margin: '0 auto',
     backgroundColor: 'white',
     height: 'auto',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
     flexDirection: 'colurmn',
-    display: 'flex'
-});
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+        margin: '20px auto',
+    }
+}));
 
 export default function AboutTeam() {
     const [architects, setArchitects] = useState(null);
@@ -51,6 +54,12 @@ export default function AboutTeam() {
                                             <MemberCard key={index} member={member} />
                                         </Grid>
                                     ))}
+                                    {architects.map((member, index) => (
+                                        <Grid item xs={3} sx={{ paddingTop: '0' }}>
+                                            <MemberCard key={index} member={member} />
+                                        </Grid>
+                                    ))}
+
                                 </Grid>
                             </div>
                         </div>

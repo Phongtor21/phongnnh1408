@@ -11,13 +11,13 @@ import { Typography } from '@mui/material';
 export default function NewsCard({ news }) {
   return (
     <Card sx={{
-      height: '32vh',
+      height: '37vh',
       borderRadius: 0,
       boxShadow: 'none',
     }}>
       <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
-          height: '24vh',
+          height: '26vh',
         }}
           component="img"
           alt={news.title}
@@ -25,13 +25,14 @@ export default function NewsCard({ news }) {
           image={`${process.env.REACT_APP_IMAGE_URL}/${news.image}`}
         />
       </Link>
-      <CardContent sx={{ padding: "0" }}>
+      <CardContent sx={{ padding: "4px 0" }}>
         <CardActions sx={{ padding: "0" }}>
           <Link href={`/news/${news.slug}`} sx={{
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
-            fontSize: '12px',
+            fontSize: '14px',
+            whiteSpace: 'nowrap',
             ":hover": {
               color: '#6D6D6D'
             }
@@ -41,13 +42,13 @@ export default function NewsCard({ news }) {
           variant="body2"
           color="text.secondary"
           sx={{
-            fontSize: '10px',
+            fontSize: '12px',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: 3,
+            WebkitLineClamp: 4,
             overflow: 'hidden',
           }}>
-          <div className='description' dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
+          <div dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
         </Typography>
       </CardContent>
     </Card>
