@@ -73,7 +73,7 @@ export default function ProjectDetail() {
                             direction={{ xs: 'column', sm: 'row', md: 'row', lg: 'row' }}
                             sx={{
                                 maxWidth: '120vh',
-                                paddingTop: '20px'
+                                paddingTop: { xs: '10px', md: '20px' }
                             }}>
                             <Grid item xs={9.065}>
                                 <Typography variant="section-title" sx={{ fontSize: '18px', height: '35px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
@@ -106,7 +106,7 @@ export default function ProjectDetail() {
                             </StyleArchitect>
                         </Grid>
 
-                        <Box sx={{ paddingTop: '20px' }} >
+                        <Box sx={{ paddingTop: { xs: '0', md: '20px' } }} >
                             <div className='pagination'>
                                 {project.prevProject && (
                                     <a

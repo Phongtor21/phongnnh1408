@@ -20,12 +20,15 @@ const StyleBox = styled(Box)({
     zIndex: '100'
 });
 
-const StyleBoxContent = styled(Box)({
+const StyleBoxContent = styled(Box)(({ theme }) => ({
     display: 'flex',
     maxWidth: '120vh',
     margin: '0 auto',
-    paddingTop: '20px'
-});
+    paddingTop: '20px',
+    [theme.breakpoints.down('md')]: {
+        paddingTop: '10px',
+    }
+}));
 
 export default function NewsDetail() {
 
@@ -50,7 +53,7 @@ export default function NewsDetail() {
 
         getNews();
     }, [pathname]);
-    
+
     function handleClick(newsCurrent) {
         if (newsCurrent == null) {
             return `/news`
@@ -71,7 +74,7 @@ export default function NewsDetail() {
                         />
                         <StyleBoxContent>
                             <Box sx={{ width: '100%' }}>
-                                <Typography className="section-title" sx={{ fontSize: '18px', fontWeight: '900', marginBottom: '10px' }} >
+                                <Typography className="section-title" sx={{ fontSize: '18px', fontWeight: '900', marginBottom: '5px' }} >
                                     {news.current.title}
                                 </Typography>
                                 <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
@@ -85,27 +88,27 @@ export default function NewsDetail() {
                             </Box>
 
                         </StyleBoxContent>
-                        <Box sx={{paddingTop: '20px'}} >
+                        <Box sx={{ paddingTop: { xs: '0', md: '20px' } }} >
                             <div className='pagination'>
                                 {news.prevNews && (
                                     <a
                                         className="button-transfer-page"
                                         href={handleClick(news.prevNews)}
                                     >
-                                        PREVIOUS <br/>
+                                        PREVIOUS <br />
                                         {news.prevNews.title}
                                     </a>
                                 )}
                                 {!news.prevNews && (
                                     <button className="button-transfer-page" disabled={true}></button>
                                 )}
-                                
+
                                 {news.nextNews && (
                                     <a
                                         className="button-transfer-page button-next"
                                         href={handleClick(news.nextNews)}
                                     >
-                                        NEXT <br/>
+                                        NEXT <br />
                                         {news.nextNews.title}
                                     </a>
                                 )}

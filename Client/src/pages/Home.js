@@ -29,8 +29,9 @@ const Home = () => {
     <>
       <StyleBoxHome >
         <HomeSlide />
+        <FooterW />
       </StyleBoxHome>
-      <FooterW />
+      
     </>
   )
 };
