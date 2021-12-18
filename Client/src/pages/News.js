@@ -53,7 +53,7 @@ export default function News() {
       {newsList && (
         <React.Fragment >
           <StyleBox >
-            <Box sx={{height: '70vh'}}>
+            <Box sx={{height: '80vh'}}>
               <Grid container spacing={2}>
                 {newsList.news.map((news) => (
                   <Grid key={news._id} item xs={4} sx={{ paddingTop: '0' }}>

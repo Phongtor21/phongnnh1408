@@ -33,14 +33,14 @@ const StyleBoxContent = styled(Box)(({ theme }) => ({
 }));
 
 const StyleContent = styled(Box)(({ theme }) => ({
-    width: '80%',
+    width: '77%',
     [theme.breakpoints.down('sm')]: {
         width: '100%',
     }
 }));
 
 const StyleArchitect = styled(Box)(({ theme }) => ({
-    width: '20%',
+    width: '23%',
     marginTop: '32px',
     marginLeft: '15px',
     wordBreak: 'break-all',
