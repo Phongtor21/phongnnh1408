@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import { Box, Button, Drawer, Typography } from '@mui/material';
+import { Box, Drawer } from '@mui/material';
 
 // components
 import Hidden from '../../components/Hidden';
@@ -32,21 +31,6 @@ const MainSidebar = ({ isOpenSidebar, onCloseSidebar }) => {
             </Box>
 
             <SidebarSection navConfig={SIDEBAR_CONFIG} />
-
-            <Box sx={{ flexGrow: 1 }} />
-
-            <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
-                <Typography gutterBottom variant='subtitle1' sx={{ color: 'grey.800' }}>
-                    Xin chào, Pihe
-                </Typography>
-                <Typography variant='body2' sx={{ mb: 2, color: 'grey.600' }}>
-                    Cần trợ giúp?
-                    <br /> Kiểm tra hướng dẫn của chúng tôi
-                </Typography>
-                <Button fullWidth to='/' variant='contained' component={RouterLink}>
-                    Hướng dẫn
-                </Button>
-            </Box>
         </>
     );
     return (

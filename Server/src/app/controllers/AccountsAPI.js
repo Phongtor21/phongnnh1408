@@ -65,7 +65,57 @@ class AccountsAPI {
                 })
                 return;
             }
-            const { email, oldPassword, newPassword, newPasswordConfirm } = req.body;
+            const { email, securityCode, newPassword, newPasswordConfirm } = req.body;
+            const account = await Account
+                .findOne({ email: email });
+            if (!account) {
+                res.json({
+                    status: 'error',
+                    message: 'Email không tồn tại!'
+                })
+                return;
+            }
+            if (newPassword !== newPasswordConfirm) {
+                res.json({
+                    status: 'error',
+                    message: 'Mật khẩu mới không đồng bộ!'
+                })
+                return;
+            }
+            const isRightPassword = process.env.SECURITY_CODE === securityCode;
+            if (!isRightPassword) {
+                res.json({
+                    status: 'error',
+                    message: 'Mã bảo vệ không đúng!'
+                })
+                return;
+            }
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+            account.password = hashedPassword;
+            await account.save();
+            res.json({
+                statusText: 'success',
+                message: 'Cài lại mật khẩu thành công'
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    // [PUT] /accounts
+    async editAccount(req, res) {
+        try {
+            const { newEmail, ...body } = req.body;
+            const areFilled = Object.values(body).every(field => field !== '');
+            if (!areFilled) {
+                res.json({
+                    status: 'error',
+                    message: 'Không được bỏ trống!'
+                })
+                return;
+            }
+            const { email, oldPassword, newPassword, newPasswordConfirm } = body;
             const account = await Account
                 .findOne({ email: email });
             if (!account) {
@@ -93,6 +143,18 @@ class AccountsAPI {
             const saltRounds = 10;
             const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
             account.password = hashedPassword;
+            if (newEmail) {
+                const isExistEmail = await Account
+                    .count({ email: newEmail });
+                if (isExistEmail > 0) {
+                    res.json({
+                        status: 'error',
+                        message: 'Email mới đã tồn tại!'
+                    })
+                    return;
+                }
+                account.email = newEmail;
+            }
             await account.save();
             res.json({
                 statusText: 'success',

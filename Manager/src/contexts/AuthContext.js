@@ -49,7 +49,8 @@ const AuthContext = createContext({
     ...initialState,
     login: () => Promise.resolve(),
     logout: () => Promise.resolve(),
-    resetPassword: () => Promise.resolve()
+    resetPassword: () => Promise.resolve(),
+    editAccount: () => Promise.resolve()
 });
 
 const AuthProvider = ({ children }) => {
@@ -89,8 +90,18 @@ const AuthProvider = ({ children }) => {
             type: 'LOGIN'
         });
     };
-    const resetPassword = async (email, oldPassword, newPassword, newPasswordConfirm) => {
-        const res = await accountApi.resetPassword(email, oldPassword, newPassword, newPasswordConfirm);
+    const resetPassword = async (email, securityCode, newPassword, newPasswordConfirm) => {
+        const res = await accountApi.resetPassword(email, securityCode, newPassword, newPasswordConfirm);
+        if (res.status === 'error') {
+            return res;
+        }
+        setToken(null);
+        dispatch({
+            type: 'LOGOUT'
+        });
+    };
+    const editAccount = async (email, newEmail, oldPassword, newPassword, newPasswordConfirm) => {
+        const res = await accountApi.editAccount(email, newEmail, oldPassword, newPassword, newPasswordConfirm);
         if (res.status === 'error') {
             return res;
         }
@@ -111,7 +122,8 @@ const AuthProvider = ({ children }) => {
                 ...state,
                 login,
                 logout,
-                resetPassword
+                resetPassword,
+                editAccount
             }}
         >
             {children}

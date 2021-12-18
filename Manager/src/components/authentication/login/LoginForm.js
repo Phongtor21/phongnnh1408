@@ -1,5 +1,5 @@
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Stack, TextField, Alert } from '@mui/material';
+import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
+import { Stack, TextField, Alert, Link } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { FormikProvider, Form, useFormik } from 'formik';
 
@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 // utils
 import { loginSchema } from '../../../utils/yupSchemas';
 // path
-import { PATH_DASHBOARD } from '../../../routes/path';
+import { PATH_DASHBOARD, PATH_AUTHENTICATION } from '../../../routes/path';
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -58,6 +58,16 @@ const LoginForm = () => {
                         error={Boolean(touched.password && errors.password)}
                         helperText={touched.password && errors.password}
                     />
+                    <Stack direction='row' alignItems='center' justifyContent='end'>
+                        <Link
+                            variant='overline'
+                            component={RouterLink}
+                            to={PATH_AUTHENTICATION.resetPassword}
+                            sx={{ fontStyle: 'italic' }}
+                        >
+                            Quên mật khẩu
+                        </Link>
+                    </Stack>
                     {errors.afterSubmit && <Alert severity='error'>{errors.afterSubmit}</Alert>}
                     <LoadingButton type='submit' variant='contained' loading={isSubmitting}>
                         Đăng nhập

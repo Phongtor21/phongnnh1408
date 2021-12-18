@@ -7,29 +7,30 @@ import { useConfirm } from 'material-ui-confirm';
 // hooks
 import useAuth from '../../../hooks/useAuth';
 // utils
-import { resetPasswordSchema } from '../../../utils/yupSchemas';
+import { editAccountSchema } from '../../../utils/yupSchemas';
 // path
 import { PATH_AUTHENTICATION } from '../../../routes/path';
 
-const ResetPasswordForm = () => {
+const EditAccountForm = () => {
     const navigate = useNavigate();
     const confirm = useConfirm();
-    const { resetPassword } = useAuth();
+    const { editAccount } = useAuth();
     const formik = useFormik({
         initialValues: {
             email: '',
-            securityCode: '',
+            newEmail: '',
+            oldPassword: '',
             newPassword: '',
             newPasswordConfirm: ''
         },
-        validationSchema: resetPasswordSchema,
+        validationSchema: editAccountSchema,
         onSubmit: async (values, { setErrors, resetForm }) => {
             try {
                 await confirm({
-                    title: 'Cài lại mật khẩu',
-                    content: <Alert severity='info'>Yêu cầu đăng nhập lại sau khi cài lại mật khẩu!</Alert>
+                    title: 'Cập nhật tài khoản',
+                    content: <Alert severity='info'>Yêu cầu đăng nhập lại sau khi cập nhật tài khoản!</Alert>
                 });
-                const res = await resetPassword(values.email, values.securityCode, values.newPassword, values.newPasswordConfirm);
+                const res = await editAccount(values.email, values.newEmail, values.oldPassword, values.newPassword, values.newPasswordConfirm);
                 if (res) {
                     setErrors({ afterSubmit: res.message });
                     return;
@@ -51,17 +52,24 @@ const ResetPasswordForm = () => {
                 >
                     <TextField
                         fullWidth
-                        label='Email'
+                        label='Email cũ'
                         {...getFieldProps('email')}
                         error={Boolean(touched.email && errors.email)}
                         helperText={touched.email && errors.email}
                     />
                     <TextField
                         fullWidth
-                        label='Mã bảo vệ'
-                        {...getFieldProps('securityCode')}
-                        error={Boolean(touched.securityCode && errors.securityCode)}
-                        helperText={touched.securityCode && errors.securityCode}
+                        label='Email mới'
+                        {...getFieldProps('newEmail')}
+                        helperText='Chỉ điền trường này nếu muốn cập nhật Email!'
+                    />
+                    <TextField
+                        fullWidth
+                        label='Mật khẩu cũ'
+                        type='password'
+                        {...getFieldProps('oldPassword')}
+                        error={Boolean(touched.oldPassword && errors.oldPassword)}
+                        helperText={touched.oldPassword && errors.oldPassword}
                     />
                     <TextField
                         fullWidth
@@ -89,4 +97,4 @@ const ResetPasswordForm = () => {
     );
 };
 
-export default ResetPasswordForm;
+export default EditAccountForm;

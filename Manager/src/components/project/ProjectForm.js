@@ -149,6 +149,7 @@ const ProjectForm = ({ isEdit, project }) => {
                                     <Typography variant='subtitle2'>Mô tả dự án</Typography>
                                     <QuillEditor
                                         id='project-description'
+                                        value={values.description}
                                         onChange={handleChange}
                                     />
                                 </div>

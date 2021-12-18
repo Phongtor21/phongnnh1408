@@ -15,7 +15,8 @@ const ROOT_FOOTER = '/footer';
 
 export const PATH_AUTHENTICATION = {
     login: path(ROOT_AUTHENTICATION, '/login'),
-    resetPassword: path(ROOT_AUTHENTICATION, '/reset-password')
+    resetPassword: path(ROOT_AUTHENTICATION, '/reset-password'),
+    editAccount: path(ROOT_AUTHENTICATION, '/edit-account')
 };
 
 export const PATH_DASHBOARD = {

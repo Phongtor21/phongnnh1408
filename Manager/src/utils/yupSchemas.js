@@ -51,6 +51,27 @@ export const resetPasswordSchema = yup.object().shape({
         .string()
         .email('Trường này phải là email!')
         .required('Không được bỏ trống!'),
+    securityCode: yup
+        .string()
+        .required('Không được bỏ trống!'),
+    newPassword: yup
+        .string()
+        .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{3,}$/,
+            'Ít nhất 3 ký tự. Gồm 1 chữ, 1 số và 1 ký tự đặc biệt!')
+        .required('Không được bỏ trống!'),
+    newPasswordConfirm: yup
+        .string()
+        .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{3,}$/,
+            'Ít nhất 3 ký tự. Gồm 1 chữ, 1 số và 1 ký tự đặc biệt!')
+        .oneOf([yup.ref('newPassword'), null], 'Mật khẩu mới không đồng bộ!')
+        .required('Không được bỏ trống!')
+});
+
+export const editAccountSchema = yup.object().shape({
+    email: yup
+        .string()
+        .email('Trường này phải là email!')
+        .required('Không được bỏ trống!'),
     oldPassword: yup
         .string()
         .required('Không được bỏ trống!'),

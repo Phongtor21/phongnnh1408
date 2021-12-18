@@ -29,10 +29,22 @@ const accountApi = {
     },
 
     // [POST] /accounts/reset-password
-    resetPassword: (email, oldPassword, newPassword, newPasswordConfirm) => {
+    resetPassword: (email, securityCode, newPassword, newPasswordConfirm) => {
         const url = '/accounts/reset-password';
         return axiosInstance.post(url, {
             email,
+            securityCode,
+            newPassword,
+            newPasswordConfirm
+        });
+    },
+
+    // [PUT] /accounts
+    editAccount: (email, newEmail, oldPassword, newPassword, newPasswordConfirm) => {
+        const url = '/accounts';
+        return axiosInstance.put(url, {
+            email,
+            newEmail,
             oldPassword,
             newPassword,
             newPasswordConfirm

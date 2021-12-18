@@ -9,8 +9,9 @@ const verifyToken = require('../app/middlewares/verifyToken');
 router.get('/verify', verifyToken, (req, res) => {
     res.json(!!req.account._id);
 });
+router.put('/', verifyToken, accountsAPI.editAccount);
 router.post('/refreshToken', accountsAPI.refreshToken);
-router.post('/reset-password', verifyToken, accountsAPI.resetPassword);
+router.post('/reset-password', accountsAPI.resetPassword);
 router.post('/login', accountsAPI.login);
 router.post('/register', accountsAPI.register);
 

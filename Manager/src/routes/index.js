@@ -25,7 +25,8 @@ const Router = () => {
             path: 'auth',
             children: [
                 { path: 'login', element: <Login /> },
-                { path: 'reset-password', element: <ResetPassword /> }
+                { path: 'reset-password', element: <ResetPassword /> },
+                { path: 'edit-account', element: <EditAccount /> }
             ]
         },
         {
@@ -88,6 +89,7 @@ export default Router;
 // Authentication
 const Login = Loadable(lazy(() => import('../pages/authentication/Login')));
 const ResetPassword = Loadable(lazy(() => import('../pages/authentication/ResetPassword')));
+const EditAccount = Loadable(lazy(() => import('../pages/authentication/EditAccount')));
 
 // Main
 const Dashboard = Loadable(lazy(() => import('../pages/Dashboard')));

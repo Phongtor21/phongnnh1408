@@ -53,8 +53,8 @@ const MainAppbar = ({ onOpenSidebar }) => {
                     direction='row'
                     alignItems='center'
                 >
-                    <Tooltip title='Đổi mật khẩu'>
-                        <IconButton onClick={() => navigate(PATH_AUTHENTICATION.resetPassword)}>
+                    <Tooltip title='Cập nhật tài khoản'>
+                        <IconButton onClick={() => navigate(PATH_AUTHENTICATION.editAccount)}>
                             <VpnKey />
                         </IconButton>
                     </Tooltip>

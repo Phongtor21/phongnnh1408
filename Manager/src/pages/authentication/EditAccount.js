@@ -4,15 +4,15 @@ import { Stack, Typography } from '@mui/material';
 // components
 import Page from '../../components/Page';
 import Logo from '../../components/Logo';
-import { ResetPasswordForm } from '../../components/authentication/reset-password';
+import { EditAccountForm } from '../../components/authentication/edit-account';
 
-const ResetPassword = () => (
-    <Page title='Cài lại mật khẩu | A7 Studio'>
+const EditAccount = () => (
+    <Page title='Cập nhật tài khoản | A7 Studio'>
         <RootStyle>
             <Stack alignItems='center'>
                 <Logo sx={{ width: '70px', height: '70px' }} />
-                <Typography variant='subtitle2' my={1}>Cài lại mật khẩu</Typography>
-                <ResetPasswordForm />
+                <Typography variant='subtitle2' my={1}>Cập nhật tài khoản</Typography>
+                <EditAccountForm />
             </Stack>
         </RootStyle>
     </Page>
@@ -25,4 +25,4 @@ const RootStyle = styled('div')({
     justifyContent: 'center'
 });
 
-export default ResetPassword;
+export default EditAccount;
