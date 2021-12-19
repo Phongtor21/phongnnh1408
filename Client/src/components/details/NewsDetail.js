@@ -74,7 +74,7 @@ export default function NewsDetail() {
                         />
                         <StyleBoxContent>
                             <Box sx={{ width: '100%' }}>
-                                <Typography className="section-title" sx={{ fontSize: '18px', fontWeight: '900', marginBottom: '5px' }} >
+                                <Typography className="section-title" sx={{ fontSize: '18px', fontWeight: '900' }} >
                                     {news.current.title}
                                 </Typography>
                                 <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
