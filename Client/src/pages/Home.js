@@ -10,7 +10,7 @@ const StyleBoxHome = styled(Box)(({ theme }) => ({
   maxWidth: '120vh',
   margin: '1vh auto',
   backgroundColor: 'white',
-  height: '75vh',
+  height: '70vh',
   justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
