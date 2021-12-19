@@ -22,7 +22,7 @@ const StyleBox = styled(Box)({
     zIndex: '100'
 });
 const StyleArchitect = styled(Grid)(({ theme }) => ({
-    padding: '32px 0 0 15px',
+    padding: '3.2vh 0 0 15px',
     [theme.breakpoints.down('sm')]: {
         padding: '10px 0',
     }
@@ -73,7 +73,7 @@ export default function ProjectDetail() {
                             direction={{ xs: 'column', sm: 'row', md: 'row', lg: 'row' }}
                             sx={{
                                 maxWidth: '120vh',
-                                paddingTop: { xs: '10px', md: '20px' }
+                                paddingTop: { xs: '10px', md: '2vh' }
                             }}>
                             <Grid item xs={9.065}>
                                 <Typography className="section-title" sx={{ fontSize: '18px', height: 'auto', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
@@ -114,7 +114,7 @@ export default function ProjectDetail() {
                                             className="button-transfer-page"
                                             href={handleClick(project.prevProject)}
                                         >
-                                            PREVIOUS
+                                            P R E V I O U S
                                             <br />
                                             <div className="button-transfer-page-title">
                                                 {project.prevProject.name}
@@ -134,7 +134,7 @@ export default function ProjectDetail() {
                                         className="button-transfer-page button-next"
                                         href={handleClick(project.nextProject)}
                                     >
-                                        NEXT
+                                        N E X T
                                         <br />
                                         <div className="button-transfer-page-title">
                                             {project.nextProject.name}

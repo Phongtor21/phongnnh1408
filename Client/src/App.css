@@ -152,7 +152,7 @@ footer.content-footer {
 
 .img-slide-home{
 	width: 120vh;
-	max-height: 75vh;
+	height: 75vh;
 }
 .img-slide-project{
 	width: 120vh;
@@ -454,7 +454,8 @@ ul {
 .pagination {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 1.3vh;
+	/* margin-top: 1.5vh; */
+	margin-bottom: -2px;
 }
 .pagination-pages {
 	width: 100%;
@@ -479,6 +480,7 @@ ul {
 }
 .button-transfer-page-title{
 	color: #000000;
+	margin-top: -0.5vh;
 }
 .button-transfer-page:hover{
 	color: #000000;

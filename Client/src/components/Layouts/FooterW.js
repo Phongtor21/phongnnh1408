@@ -43,35 +43,35 @@ const GridMenu = styled(Grid)(({
     marginTop: "2px",
     color: "#333333",
 }));
-const MenuItem ={
+const MenuItem = {
     textDecoration: "none",
     textAlign: 'center',
     textTransform: "none",
     color: "#333333",
-    paddingBottom:"10px",
+    paddingBottom: "10px",
     width: "1vh"
 }
-const LineItemL ={
+const LineItemL = {
     textDecoration: "none",
     textAlign: 'center',
     textTransform: "none",
     color: "#333333",
-    paddingLeft:"10px",
-    paddingRight:"10px"
+    paddingLeft: "10px",
+    paddingRight: "10px"
 }
-const LineItemR ={
+const LineItemR = {
     textDecoration: "none",
     textAlign: 'center',
     textTransform: "none",
     color: "#333333",
-    paddingRight:"4px",
-    paddingLeft:"12px",
-    
+    paddingRight: "4px",
+    paddingLeft: "12px",
+
 }
-const LogoItem ={
+const LogoItem = {
     textDecoration: "none",
-    paddingBottom:"3vh",
-    paddingTop:"0vh"
+    paddingBottom: "3vh",
+    paddingTop: "0vh"
 }
 export const FooterW = () => {
     const [footer, setFooter] = React.useState(null);
@@ -96,12 +96,82 @@ export const FooterW = () => {
                     <Link to="/" style={LogoItem}>
                         <Typography sx={{
                             fontSize: "16px",
-                            color:"#333333"
+                            color: "#333333"
                         }}>
                             A7 STUDIO
                         </Typography>
                     </Link>
-                    <Box sx={{ flexGrow: 1 }} style={{paddingBottom:"2vh",paddingTop:"0vh"}}>
+                    <Box sx={{ flexGrow: 1 }} style={{ marginBottom: "3vh" }}>
+                        <Grid container
+                            spacing={3}
+
+                        >
+                            <li item xs={3} >
+                                <a className='footer-button' href={footer[0]?.contact[0]?.link}>
+                                    <DisabledButton>
+                                        {footer[0]?.connect[0]?.title || 'Chưa có'}
+                                    </DisabledButton>
+                                </a>
+                            </li>
+                            <li item xs={3}>
+                                <Link to="" style={LineItemL}>|</Link>
+                            </li>
+                            <li item xs={3}>
+                                <a className='footer-button' href={footer[0]?.contact[1]?.link}>
+                                    <DisabledButton>
+                                        {footer[0]?.connect[1]?.title || 'Chưa có'}
+                                    </DisabledButton>
+                                </a>
+                            </li>
+                            <li item xs={3}>
+                                <Link to="" style={LineItemR}>|</Link>
+                            </li>
+                            <li item xs={3}>
+                                <a className='footer-button' href={footer[0]?.contact[2]?.link}>
+                                    <DisabledButton>
+                                        {footer[0]?.connect[2]?.title || 'Chưa có'}
+                                    </DisabledButton>
+                                </a>
+                            </li>
+                        </Grid>
+
+                    </Box>
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid container
+                            spacing={3}
+
+                        >
+                            <li item xs={3} >
+                                <a className='footer-button' href={footer[0]?.connect[0]?.link}>
+                                    <BootstrapButton>
+                                        {footer[0]?.contact[0]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </a>
+                            </li>
+                            <li item xs={3}>
+                                <Link to="" style={LineItemL}>&nbsp;</Link>
+                            </li>
+                            <li item xs={3}>
+                                <a className='footer-button' href={footer[0]?.connect[1]?.link}>
+                                    <BootstrapButton>
+                                        {footer[0]?.contact[1]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </a>
+                            </li>
+                            <li item xs={3}>
+                                <Link to="" style={LineItemR}>&nbsp;</Link>
+                            </li>
+                            <li item xs={3}>
+                                <a className='footer-button' href={footer[0]?.connect[2]?.link}>
+                                    <BootstrapButton>
+                                        {footer[0]?.contact[2]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </a>
+                            </li>
+                        </Grid>
+
+                    </Box>
+                    {/* <Box sx={{ flexGrow: 1 }} style={{paddingBottom:"2vh",paddingTop:"0vh"}}>
                         <Grid container spacing={3}  >
                             <li item xs >
                                 <a className='footer-button' href={footer[0]?.connect[0]?.link}>
@@ -133,7 +203,36 @@ export const FooterW = () => {
                         </Grid>
                         
                     </Box>
-                    <Box sx={{ flexGrow: 1 }}>
+                    <Box sx={{ flexGrow: 1 }} style={{paddingBottom:"2vh",paddingTop:"0vh"}}>
+                        <Grid container spacing={3}  >
+                            <li item xs >
+                                <a className='footer-button' href={footer[0]?.connect[0]?.link}>
+                                    <BootstrapButton>
+                                        {footer[0]?.connect[0]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </a>
+                            </li>
+                            
+                            <li item xs>
+                            <a className='footer-button' href={footer[0]?.connect[1]?.link}>
+                                    <BootstrapButton>
+                                        {footer[0]?.connect[1]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </a>
+                            </li>
+                            
+                            <li item xs>
+                                <a className='footer-button' href={footer[0]?.connect[2]?.link}>
+                                    <BootstrapButton>
+                                        {footer[0]?.connect[2]?.title || 'Chưa có'}
+                                    </BootstrapButton>
+                                </a>
+                            </li>
+                        </Grid>
+                        
+                    </Box> */}
+
+                    {/* <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={3} >
                             <li item xs >
                                 <a className='footer-button' href={footer[0]?.support[0]?.link}>
@@ -154,7 +253,7 @@ export const FooterW = () => {
                             </li>
                            
                         </Grid>
-                    </Box>
+                    </Box> */}
                 </div>
             )}
             {!footer && ('')}

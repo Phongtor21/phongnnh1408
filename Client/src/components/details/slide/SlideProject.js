@@ -45,7 +45,7 @@ const SlideProject = ({ images }) => {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      opacity: `${index === i ? '1' : '0.3'}`
+                      opacity: `${index === i ? '1' : '0.1'}`
                     }}
                     onClick={() => setIndex(i)}
                   />

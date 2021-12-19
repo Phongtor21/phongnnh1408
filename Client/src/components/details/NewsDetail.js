@@ -24,7 +24,7 @@ const StyleBoxContent = styled(Box)(({ theme }) => ({
     display: 'flex',
     maxWidth: '120vh',
     margin: '0 auto',
-    paddingTop: '20px',
+    paddingTop: '2vh',
     [theme.breakpoints.down('md')]: {
         paddingTop: '10px',
     }

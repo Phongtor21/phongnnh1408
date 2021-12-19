@@ -18,7 +18,7 @@ const BootstrapButton = styled(Button)({
     boxShadow: "none",
     boxSizing: "small",
     textTransform: "none",
-    fontSize: '14px',
+    fontSize: '12px',
     fontWeight: 300,
     color: "#333333",
     lineHeight: 0,
