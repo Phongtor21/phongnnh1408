@@ -45,9 +45,34 @@ const GridMenu = styled(Grid)(({
     boxShadow: "none",
     textTransform: "none",
     color: "#333333",
-
+    
 }));
-
+const MenuItem ={
+    textDecoration: "none",
+    textAlign: 'center',
+    textTransform: "none",
+    color: "#333333",
+    paddingBottom:"10px"
+}
+const LineItemL ={
+    textDecoration: "none",
+    textAlign: 'center',
+    textTransform: "none",
+    color: "#333333",
+    paddingLeft:"6px"
+}
+const LineItemR ={
+    textDecoration: "none",
+    textAlign: 'center',
+    textTransform: "none",
+    color: "#333333",
+    paddingRight:"6px"
+}
+const LogoItem ={
+    textDecoration: "none",
+    paddingBottom:"3vh",
+    paddingTop:"1vh"
+}
 export default function AutoGrid() {
     const [menu, setMenu] = React.useState(null);
 
@@ -67,45 +92,44 @@ export default function AutoGrid() {
         <>
             {menu && (
                 <div className="App-header">
-                    <Link to="/" style={{ textDecoration: "none" }}>
+                    <Link to="/" style={LogoItem}>
                         <img src={logo} className="App-logo" alt="logo" />
                     </Link>
                     <Box sx={{ flexGrow: 1 }} >
                         <Grid container spacing={3}>
-                            <GridMenu item xs  >
-                                <Link to="/projects" style={{ textDecoration: "none" }}>
+                            
+                            <li item xs >
+                            <Link to="/projects" style={MenuItem}>
                                     <BootstrapButton>
                                         {menu[0]?.title || 'Chưa có'}
                                     </BootstrapButton>
-                                </Link>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <BootstrapButton>
-                                    |
-                                </BootstrapButton>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <Link to="/news" style={{ textDecoration: "none" }}>
+                            </Link>
+                            </li>
+                            <li item xs>
+                            <Link to="" style={LineItemL }>|</Link>
+                            </li>
+                            <li item xs>
+                            <Link to="/news" style={MenuItem}>
                                     <BootstrapButton>
                                         {menu[1]?.title || 'Chưa có'}
                                     </BootstrapButton>
-                                </Link>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <BootstrapButton>
-                                    |
-                                </BootstrapButton>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <Link to="/about" style={{ textDecoration: "none" }}>
+                            </Link>
+                            </li>
+                            <li item xs>
+                            <Link to="" style={LineItemR }>|</Link>
+                            </li>
+                            <li item xs>
+                            <Link to="/about" style={MenuItem}>
                                     <BootstrapButton>
                                         {menu[2]?.title || 'Chưa có'}
                                     </BootstrapButton>
-                                </Link>
-                            </GridMenu>
+                            </Link>
+                            </li>
                         </Grid>
                     </Box>
+                    
                 </div>
+                
             )}
             {!menu && ('')}
         </>

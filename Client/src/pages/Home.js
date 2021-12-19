@@ -3,7 +3,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import HomeSlide from '../components/home/HomeSlide';
-import { FooterW } from '../components/Layouts/FooterW';
+
 
 const StyleBoxHome = styled(Box)(({ theme }) => ({
   padding: '0 2vh',
@@ -18,7 +18,7 @@ const StyleBoxHome = styled(Box)(({ theme }) => ({
   position: 'relative',
   zIndex: '100',
   [theme.breakpoints.down('md')]: {
-    height: '73vh',
+    height: '70vh',
   },
   
 }));
@@ -29,7 +29,7 @@ const Home = () => {
     <>
       <StyleBoxHome >
         <HomeSlide />
-        <FooterW />
+       
       </StyleBoxHome>
       
     </>

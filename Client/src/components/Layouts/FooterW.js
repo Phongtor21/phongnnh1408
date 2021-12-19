@@ -12,7 +12,7 @@ const BootstrapButton = styled(Button)({
     boxShadow: "none",
     boxSizing: "small",
     textTransform: "none",
-    fontSize: '10px',
+    fontSize: '12px',
     fontWeight: 300,
     color: "#333333",
     lineHeight: 0,
@@ -43,7 +43,36 @@ const GridMenu = styled(Grid)(({
     marginTop: "2px",
     color: "#333333",
 }));
-
+const MenuItem ={
+    textDecoration: "none",
+    textAlign: 'center',
+    textTransform: "none",
+    color: "#333333",
+    paddingBottom:"10px",
+    width: "1vh"
+}
+const LineItemL ={
+    textDecoration: "none",
+    textAlign: 'center',
+    textTransform: "none",
+    color: "#333333",
+    paddingLeft:"10px",
+    paddingRight:"10px"
+}
+const LineItemR ={
+    textDecoration: "none",
+    textAlign: 'center',
+    textTransform: "none",
+    color: "#333333",
+    paddingRight:"4px",
+    paddingLeft:"12px",
+    
+}
+const LogoItem ={
+    textDecoration: "none",
+    paddingBottom:"3vh",
+    paddingTop:"0vh"
+}
 export const FooterW = () => {
     const [footer, setFooter] = React.useState(null);
 
@@ -64,93 +93,66 @@ export const FooterW = () => {
         <>
             {footer && (
                 <div className="content-footer App-footer">
-                    <Link to="/" style={{ textDecoration: "none", pointerEvents: "none" }}>
+                    <Link to="/" style={LogoItem}>
                         <Typography sx={{
-                            fontSize: "14px",
-                            fontWeight: "200"
+                            fontSize: "16px",
+                            color:"#333333"
                         }}>
                             A7 STUDIO
                         </Typography>
                     </Link>
-                    <Box sx={{ flexGrow: 1 }} >
-                        <Grid container spacing={3} >
-                            <GridMenu item xs  >
+                    <Box sx={{ flexGrow: 1 }} style={{paddingBottom:"2vh",paddingTop:"0vh"}}>
+                        <Grid container spacing={3}  >
+                            <li item xs >
                                 <a className='footer-button' href={footer[0]?.connect[0]?.link}>
                                     <BootstrapButton>
                                         {footer[0]?.connect[0]?.title || 'Chưa có'}
                                     </BootstrapButton>
                                 </a>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <BootstrapButton>
-                                    |
-                                </BootstrapButton>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <a className='footer-button' href={footer[0]?.connect[1]?.link}>
+                            </li>
+                            <li item xs>
+                                <Link to="" style={LineItemL }>|</Link>
+                            </li>
+                            <li item xs>
+                            <a className='footer-button' href={footer[0]?.connect[1]?.link}>
                                     <BootstrapButton>
                                         {footer[0]?.connect[1]?.title || 'Chưa có'}
                                     </BootstrapButton>
                                 </a>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <BootstrapButton>
-                                    |
-                                </BootstrapButton>
-                            </GridMenu>
-                            <GridMenu item xs>
+                            </li>
+                            <li item xs>
+                                <Link to="" style={LineItemR }>|</Link>
+                            </li>
+                            <li item xs>
                                 <a className='footer-button' href={footer[0]?.connect[2]?.link}>
                                     <BootstrapButton>
                                         {footer[0]?.connect[2]?.title || 'Chưa có'}
                                     </BootstrapButton>
                                 </a>
-                            </GridMenu>
+                            </li>
                         </Grid>
+                        
                     </Box>
-                    <Box sx={{ flexGrow: 1 }} >
-                        <Grid container spacing={3} sx={{ width: '320px' }}>
-                            <GridMenu item xs  >
-                                <a className='footer-button' href={footer[0]?.contact[0]?.link}>
-                                    <DisabledButton >
-                                        {footer[0]?.contact[0]?.title || 'Chưa có'}
-                                    </DisabledButton>
-                                </a>
-                            </GridMenu>
-                            <GridMenu item xs>
-                                <a className='footer-button' href={footer[0]?.contact[1]?.link}>
-                                    <DisabledButton>
-                                        {footer[0]?.contact[1]?.title || 'Chưa có'}
-                                    </DisabledButton>
-                                </a>
-                            </GridMenu>
-
-                            <GridMenu item xs>
-                                <a className='footer-button' href={footer[0]?.contact[2]?.link}>
-                                    <DisabledButton>
-                                        {footer[0]?.contact[2]?.title || 'Chưa có'}
-                                    </DisabledButton>
-                                </a>
-                            </GridMenu>
-                        </Grid>
-                    </Box>
-                    <Box sx={{ flexGrow: 1 }} >
-
-                        <Grid container spacing={3}>
-                            <GridMenu item xs  >
+                    <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={3} >
+                            <li item xs >
                                 <a className='footer-button' href={footer[0]?.support[0]?.link}>
                                     <DisabledButton>
                                         {footer[0]?.support[0]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
-                            </GridMenu>
-
-                            <GridMenu item xs>
+                            </li>
+                            <li item xs >
+                               
+                            </li>
+                            <li item xs>
                                 <a className='footer-button' href={footer[0]?.support[1]?.link}>
                                     <DisabledButton>
                                         {footer[0]?.support[1]?.title || 'Chưa có'}
                                     </DisabledButton>
                                 </a>
-                            </GridMenu>
+                            </li>
+                           
                         </Grid>
                     </Box>
                 </div>
