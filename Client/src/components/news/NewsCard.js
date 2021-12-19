@@ -17,7 +17,7 @@ export default function NewsCard({ news }) {
     }}>
       <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
-          height: {xs:'auto', sm: '26vh'},
+          height: {xs:'auto', sm: '28vh'},
         }}
           component="img"
           alt={news.title}
@@ -31,7 +31,7 @@ export default function NewsCard({ news }) {
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
-            fontSize: '14px',
+            fontSize: '12px',
             whiteSpace: 'nowrap',
             ":hover": {
               color: '#6D6D6D'
@@ -42,7 +42,7 @@ export default function NewsCard({ news }) {
           variant="body2"
           color="text.secondary"
           sx={{
-            fontSize: '12px',
+            fontSize: '10px',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: 3,

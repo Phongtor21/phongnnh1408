@@ -76,7 +76,7 @@ export default function ProjectDetail() {
                                 paddingTop: { xs: '10px', md: '20px' }
                             }}>
                             <Grid item xs={9.065}>
-                                <Typography variant="section-title" sx={{ fontSize: '18px', height: '35px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
+                                <Typography className="section-title" sx={{ fontSize: '18px', height: 'auto', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
                                     {project.current.name}
                                 </Typography>
 
@@ -109,13 +109,21 @@ export default function ProjectDetail() {
                         <Box sx={{ paddingTop: { xs: '0', lg: '20px' } }} >
                             <div className='pagination'>
                                 {project.prevProject && (
-                                    <a
-                                        className="button-transfer-page"
-                                        href={handleClick(project.prevProject)}
-                                    >
-                                        PREVIOUS <br />
-                                        {project.prevProject.name}
-                                    </a>
+                                    <div>
+                                        <a
+                                            className="button-transfer-page"
+                                            href={handleClick(project.prevProject)}
+                                        >
+                                            PREVIOUS
+                                            <br />
+                                            <div className="button-transfer-page-title">
+                                                {project.prevProject.name}
+                                            </div>
+
+                                        </a>
+
+                                    </div>
+
                                 )}
                                 {!project.prevProject && (
                                     <button className="button-transfer-page" disabled={true}></button>
@@ -126,8 +134,11 @@ export default function ProjectDetail() {
                                         className="button-transfer-page button-next"
                                         href={handleClick(project.nextProject)}
                                     >
-                                        NEXT <br />
-                                        {project.nextProject.name}
+                                        NEXT
+                                        <br />
+                                        <div className="button-transfer-page-title">
+                                            {project.nextProject.name}
+                                        </div>
                                     </a>
                                 )}
                                 {!project.nextProject && (

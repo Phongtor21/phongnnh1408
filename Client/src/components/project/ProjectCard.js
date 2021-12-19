@@ -17,7 +17,7 @@ export default function ProjectCard({ project }) {
     }}>
       <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{
-          height: {xs:'auto', sm: '16vh'},
+          height: {xs:'auto', sm: '18vh'},
         }}
           component="img"
           alt={project.name}
@@ -30,7 +30,7 @@ export default function ProjectCard({ project }) {
             color: '#000000',
             textDecoration: 'none',
             fontWeight: '300',
-            fontSize: '14px',
+            fontSize: '12px',
             whiteSpace: 'nowrap',
             ":hover": {
               color: '#6D6D6D'
@@ -41,7 +41,7 @@ export default function ProjectCard({ project }) {
           variant="body2"
           color="text.secondary"
           sx={{
-            fontSize: '12px',
+            fontSize: '10px',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: 2,

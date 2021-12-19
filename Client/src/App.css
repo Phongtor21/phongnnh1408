@@ -454,7 +454,7 @@ ul {
 .pagination {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 1.5vh;
+	margin-top: 1.3vh;
 }
 .pagination-pages {
 	width: 100%;
@@ -469,15 +469,19 @@ ul {
     outline:none;
 }
 .button-transfer-page {
-	width: 26vh;
+	color: #6c757d;
+	max-width: 26vh;
 	font-size: 14px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-decoration: none;
 }
+.button-transfer-page-title{
+	color: #000000;
+}
 .button-transfer-page:hover{
-	color: #6c757d;
+	color: #000000;
 }
 .button-next {
 	text-align: right;
@@ -572,7 +576,7 @@ ul {
     background: #c5a47e;
 }
 .section-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;   
     line-height: 1em;
     font-family: 'Khand', sans-serif;

@@ -40,7 +40,7 @@ export default function AboutTeam() {
                 <Box >
                     <Typography className="section-title"
                         sx={{
-                            marginRight: '16px',
+                            marginBottom: '6px',
                             fontSize: '18px'
                         }}>
                         Team
