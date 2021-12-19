@@ -95,7 +95,7 @@ export default function NewsDetail() {
                                         className="button-transfer-page"
                                         href={handleClick(news.prevNews)}
                                     >
-                                        PREVIOUS
+                                        P R E V
                                         <br />
                                         <div className="button-transfer-page-title">
                                             {news.prevNews.title}
@@ -111,7 +111,7 @@ export default function NewsDetail() {
                                         className="button-transfer-page button-next"
                                         href={handleClick(news.nextNews)}
                                     >
-                                        NEXT
+                                        N E X T
                                         <br />
                                         <div className="button-transfer-page-title">
                                             {news.nextNews.title}

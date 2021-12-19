@@ -54,12 +54,6 @@ export default function AboutTeam() {
                                             <MemberCard key={index} member={member} />
                                         </Grid>
                                     ))}
-                                    {architects.map((member, index) => (
-                                        <Grid item xs={3} sx={{ paddingTop: '0' }}>
-                                            <MemberCard key={index} member={member} />
-                                        </Grid>
-                                    ))}
-
                                 </Grid>
                             </div>
                         </div>

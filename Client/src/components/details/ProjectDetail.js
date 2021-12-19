@@ -114,7 +114,7 @@ export default function ProjectDetail() {
                                             className="button-transfer-page"
                                             href={handleClick(project.prevProject)}
                                         >
-                                            P R E V I O U S
+                                            P R E V
                                             <br />
                                             <div className="button-transfer-page-title">
                                                 {project.prevProject.name}
