@@ -36,7 +36,15 @@ const SlideProject = ({ images }) => {
           >
             {images.map((image, i) => {
               return (
-                <Image key={i}>
+                <Image
+                  key={i}
+                  sx={{
+                    ':after': {
+                      opacity: index === i ? 1 : 0
+                    }
+                  }}
+                  onClick={() => setIndex(i)}
+                >
                   <Box
                     component='img'
                     src={`${process.env.REACT_APP_IMAGE_URL}/${image}`}
@@ -44,10 +52,8 @@ const SlideProject = ({ images }) => {
                     sx={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
-                      opacity: `${index === i ? '1' : '0.1'}`
+                      objectFit: 'cover'
                     }}
-                    onClick={() => setIndex(i)}
                   />
                 </Image>
               )
@@ -87,8 +93,20 @@ const ScrollWrapper = styled(Stack)(({ theme }) => ({
 }));
 
 const Image = styled('div')({
+  position: 'relative',
   height: 'calc((50vh / 3) - 5px)',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  ':after': {
+    content: '""',
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    background: 'rgba(0,0,0,0.6)',
+    opacity: 0,
+    transition: 'opacity 0.3s'
+  }
 });
 
 export default SlideProject;

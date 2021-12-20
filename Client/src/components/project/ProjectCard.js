@@ -14,7 +14,7 @@ export default function ProjectCard({ project }) {
       height: {xs:'auto', sm: '25vh'},
       borderRadius: 0,
       boxShadow: 'none',
-      filter: 'grayscale(0.7)',
+      filter: 'grayscale(1)',
       transition: 'filter 0.3s',
       ':hover': {
         filter: 'grayscale(0)',
