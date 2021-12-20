@@ -49,7 +49,7 @@ export default function ProjectCard({ project }) {
             fontSize: '10px',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: 2,
+            WebkitLineClamp: {xs: '1', lg: '2'},
             overflow: 'hidden',
           }}>
           <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
