@@ -13,7 +13,12 @@ export default function ProjectCard({ project }) {
     <Card sx={{
       height: {xs:'auto', sm: '25vh'},
       borderRadius: 0,
-      boxShadow: 'none'
+      boxShadow: 'none',
+      filter: 'grayscale(0.7)',
+      transition: 'filter 0.3s',
+      ':hover': {
+        filter: 'grayscale(0)',
+      }
     }}>
       <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{

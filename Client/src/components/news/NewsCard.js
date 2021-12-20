@@ -14,6 +14,11 @@ export default function NewsCard({ news }) {
       height: {xs:'auto', sm: '37vh'},
       borderRadius: 0,
       boxShadow: 'none',
+      filter: 'grayscale(0.7)',
+      transition: 'filter 0.3s',
+      ':hover': {
+        filter: 'grayscale(0)',
+      }
     }}>
       <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
