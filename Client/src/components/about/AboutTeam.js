@@ -46,7 +46,7 @@ export default function AboutTeam() {
                         Team
                     </Typography>
                     <StyleBox>
-                        <div className="scrollbar scrollbar-about" id="style-4">
+                        <div className="scrollbar scrollbar-about-team" id="style-4">
                             <div className="force-overflow">
                                 <Grid container spacing={1}>
                                     {architects.map((member, index) => (
