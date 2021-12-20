@@ -610,12 +610,16 @@ ul {
 	overflow: auto;
 }
 
-.scrollbar-about {
+.scrollbar-about-team {
 	height: 48vh;
 	width: 100%;
 	overflow: auto;
 }
-
+.scrollbar-about-us {
+	height: 24vh;
+	width: 100%;
+	overflow: auto;
+}
 .force-overflow {
 	display: flex;
 	flex-wrap: wrap;
@@ -652,7 +656,7 @@ ul {
 }
 .text-description {
 	width: 100%; 
-	height: 24vh;
+	height: auto;
 	overflow: hidden;
 	text-overflow: ellipsis; 
 }
