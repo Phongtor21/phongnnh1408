@@ -1,6 +1,6 @@
 import React from "react";
 import Iframe from "react-iframe";
-import { Typography, Box, getTableFooterUtilityClass } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import address from './address.svg';
 import phone from './phone.svg';
 import mail from './mail.svg';
