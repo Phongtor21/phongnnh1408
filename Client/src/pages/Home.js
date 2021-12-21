@@ -8,7 +8,10 @@ import HomeSlide from '../components/home/HomeSlide';
 const StyleBoxHome = styled(Box)(({ theme }) => ({
   padding: '0 2vh',
   maxWidth: '120vh',
-  margin: '1vh auto',
+  marginTop:"1vh",
+  marginBottom:"1vh",
+  marginLeft:"auto",
+  marginRight:"auto",
   backgroundColor: 'white',
   height: '70vh',
   justifyContent: 'space-around',

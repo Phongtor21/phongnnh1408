@@ -122,48 +122,48 @@ export default function AutoGrid() {
             {menu && (
                
                 <div className="App-header">
-                <Link to="/" style={LogoItem}>
-                    <img src={logo} className="App-logo" alt="logo" />
-                </Link>
-                <Box className=" "
-                    sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    p: 0,
-                    marginTop:"-2vh",
-                    marginBottom:"1vh",
-                    fontSize: "12px",
-                    }}
-                >
-                    <Item style={itemHead}>
-                        <Link to="/projects" style={{textDecoration: "none",}}>
-                                    <BootstrapButton>
-                                        {menu[0]?.title || 'Chưa có'}
-                                    </BootstrapButton>
-                         </Link>
-                        
-                    </Item>
-                    <Item style={itemHead}>|</Item>
-                    <Item style={itemHead}>
-                         
-                        <Link to="/news" style={{textDecoration: "none",}}>
-                                    <BootstrapButton  >
-                                        {menu[1]?.title || 'Chưa có'}
-                                    </BootstrapButton>
-                         </Link>
-                    </Item>
-                    <Item style={itemHead}>|</Item>
-                    <Item style={itemHead}>
-                         <Link to="/about" style={{textDecoration: "none",}}>
-                                    <BootstrapButton>
-                                        {menu[2]?.title || 'Chưa có'}
-                                    </BootstrapButton>
-                         </Link>    
-                    </Item>
-                </Box>
+                    <Link to="/" style={LogoItem}>
+                        <img src={logo} className="App-logo" alt="logo" />
+                    </Link>
+                    <Box className=" "
+                        sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        p: 0,
+                        marginTop:"-2.5vh",
+                        marginBottom:"0.5vh",
+                        fontSize: "12px",
+                        }}
+                    >
+                        <Item style={itemHead}>
+                            <Link to="/projects" style={{textDecoration: "none",}}>
+                                        <BootstrapButton>
+                                            {menu[0]?.title || 'Chưa có'}
+                                        </BootstrapButton>
+                            </Link>
+                            
+                        </Item>
+                        <Item style={itemHead}>|</Item>
+                        <Item style={itemHead}>
+                            
+                            <Link to="/news" style={{textDecoration: "none",}}>
+                                        <BootstrapButton  >
+                                            {menu[1]?.title || 'Chưa có'}
+                                        </BootstrapButton>
+                            </Link>
+                        </Item>
+                        <Item style={itemHead}>|</Item>
+                        <Item style={itemHead}>
+                            <Link to="/about" style={{textDecoration: "none",}}>
+                                        <BootstrapButton>
+                                            {menu[2]?.title || 'Chưa có'}
+                                        </BootstrapButton>
+                            </Link>    
+                        </Item>
+                    </Box>
                 
                 
-            </div>
+                </div>
                 
             )}
             {!menu && ('')}

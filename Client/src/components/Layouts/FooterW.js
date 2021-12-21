@@ -114,18 +114,18 @@ export const FooterW = () => {
         
         <>
             {footer && (
-                <div style={{ width: "100%", height:"10vh" }}>
+                <div style={{ width: "100%", height:"10vh", marginTop:"1.5vh" }}>
                     <Link to="/" style={LogoItem}  >
                         <Typography sx={{
                             fontSize: "16px",
                             fontWeight:500,
                             color: "#333333",
-                            marginBottom: '3px',
+                            
                             
                             display: "flex",
                             justifyContent: "center",
                             p: 0,
-                            marginTop:"16px",
+                            
                             
                         }}>
                             A7 STUDIO
@@ -151,7 +151,7 @@ export const FooterW = () => {
                         <Item style={itemFoot}>|</Item>
                         <Item style={itemFoot}>
                             <a className='footer-button' href={footer[0]?.connect[1]?.link}>
-                                    <BootstrapButton style={{ marginLeft:"-4px",marginRight:"-4px" }}>
+                                    <BootstrapButton >
                                         {footer[0]?.connect[1]?.title || 'Chưa có'}
                                     </BootstrapButton>
                             </a>
