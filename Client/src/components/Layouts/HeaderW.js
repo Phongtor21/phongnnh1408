@@ -40,38 +40,41 @@ const BootstrapButton = styled(Button)({
 });
 
 
-const GridMenu = styled(Grid)(({
-    textAlign: 'center',
-    boxShadow: "none",
-    textTransform: "none",
-    color: "#333333",
+// const GridMenu = styled(Grid)(({
+//     textAlign: 'center',
+//     boxShadow: "none",
+//     textTransform: "none",
+//     color: "#333333",
     
-}));
+// }));
 const MenuItem ={
     textDecoration: "none",
     textAlign: 'center',
     textTransform: "none",
     color: "#333333",
-    paddingBottom:"10px"
+    paddingBottom:"4vh"
 }
 const LineItemL ={
     textDecoration: "none",
     textAlign: 'center',
     textTransform: "none",
     color: "#333333",
-    paddingLeft:"6px"
+    paddingRight:"1px",
+    paddingLeft:"12px"
 }
 const LineItemR ={
     textDecoration: "none",
     textAlign: 'center',
     textTransform: "none",
     color: "#333333",
-    paddingRight:"6px"
+    paddingRight:"12px",
+    paddingLeft:"1px"
 }
 const LogoItem ={
     textDecoration: "none",
-    paddingBottom:"3vh",
-    paddingTop:"1vh"
+    paddingBottom:"2vh",
+    paddingTop:"0.5vh",
+    marginBottom:"1vh",
 }
 export default function AutoGrid() {
     const [menu, setMenu] = React.useState(null);
