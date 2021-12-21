@@ -6,7 +6,36 @@ import Grid from '@mui/material/Grid';
 import logo from './logo.svg';
 import { Button } from '@mui/material';
 import menusApi from '../../api/menusApi';
-
+import PropTypes from "prop-types";
+function Item(props) {
+    const { sx, ...other } = props;
+    return (
+      <Box
+        sx={{
+          bgcolor: "primary.main",
+          color: "white",
+          p: 1,
+          m: 1,
+          borderRadius: 0,
+          textAlign: "center",
+          fontSize: "1rem",
+          fontWeight: "700",
+          ...sx
+        }}
+        {...other}
+      />
+    );
+  }
+  
+  Item.propTypes = {
+    sx: PropTypes.oneOfType([
+      PropTypes.arrayOf(
+        PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+      ),
+      PropTypes.func,
+      PropTypes.object
+    ])
+  };
 export const HeaderW = () => {
     return (
         <div>
@@ -14,6 +43,7 @@ export const HeaderW = () => {
         </div>
     )
 };
+  
 const BootstrapButton = styled(Button)({
     boxShadow: "none",
     boxSizing: "small",
@@ -24,8 +54,7 @@ const BootstrapButton = styled(Button)({
     lineHeight: 0,
     padding: 0,
     backgroundColor: "#ffff",
-    marginLeft: "-24px",
-    marginRight: "-24px",
+     
     "&:hover": {
         backgroundColor: "#fff",
         color: "#999999",
@@ -36,40 +65,37 @@ const BootstrapButton = styled(Button)({
         backgroundColor: "#fff",
         borderColor: "#fff"
     },
-
 });
 
+ 
 
-// const GridMenu = styled(Grid)(({
-//     textAlign: 'center',
-//     boxShadow: "none",
-//     textTransform: "none",
-//     color: "#333333",
-    
-// }));
-const MenuItem ={
-    textDecoration: "none",
-    textAlign: 'center',
+const itemHead = {
+    // magrinRight: "1.5vh",
+    // marginLeft: "1.5vh",
+    boxShadow: "none",
+    boxSizing: "small",
     textTransform: "none",
+    fontSize: '12px',
+    fontWeight: 300,
     color: "#333333",
-    paddingBottom:"4vh"
-}
-const LineItemL ={
+    lineHeight: 0,
+    padding: 0,
+    backgroundColor: "#ffff",
+     
+    "&:hover": {
+        backgroundColor: "#fff",
+        color: "#999999",
+        boxShadow: "none"
+    },
+    "&:active": {
+        boxShadow: "none",
+        backgroundColor: "#fff",
+        borderColor: "#fff"
+    },
     textDecoration: "none",
-    textAlign: 'center',
-    textTransform: "none",
-    color: "#333333",
-    paddingRight:"1px",
-    paddingLeft:"12px"
 }
-const LineItemR ={
-    textDecoration: "none",
-    textAlign: 'center',
-    textTransform: "none",
-    color: "#333333",
-    paddingRight:"12px",
-    paddingLeft:"1px"
-}
+
+ 
 const LogoItem ={
     textDecoration: "none",
     paddingBottom:"2vh",
@@ -94,44 +120,50 @@ export default function AutoGrid() {
     return (
         <>
             {menu && (
+               
                 <div className="App-header">
-                    <Link to="/" style={LogoItem}>
-                        <img src={logo} className="App-logo" alt="logo" />
-                    </Link>
-                    <Box sx={{ flexGrow: 1 }} >
-                        <Grid container spacing={3}>
-                            
-                            <li item xs >
-                            <Link to="/projects" style={MenuItem}>
+                <Link to="/" style={LogoItem}>
+                    <img src={logo} className="App-logo" alt="logo" />
+                </Link>
+                <Box className=" "
+                    sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    p: 0,
+                    marginTop:"-2vh",
+                    marginBottom:"1vh",
+                    fontSize: "12px",
+                    }}
+                >
+                    <Item style={itemHead}>
+                        <Link to="/projects" style={{textDecoration: "none",}}>
                                     <BootstrapButton>
                                         {menu[0]?.title || 'Chưa có'}
                                     </BootstrapButton>
-                            </Link>
-                            </li>
-                            <li item xs>
-                            <Link to="" style={LineItemL }>|</Link>
-                            </li>
-                            <li item xs>
-                            <Link to="/news" style={MenuItem}>
-                                    <BootstrapButton>
+                         </Link>
+                        
+                    </Item>
+                    <Item style={itemHead}>|</Item>
+                    <Item style={itemHead}>
+                         
+                        <Link to="/news" style={{textDecoration: "none",}}>
+                                    <BootstrapButton  >
                                         {menu[1]?.title || 'Chưa có'}
                                     </BootstrapButton>
-                            </Link>
-                            </li>
-                            <li item xs>
-                            <Link to="" style={LineItemR }>|</Link>
-                            </li>
-                            <li item xs>
-                            <Link to="/about" style={MenuItem}>
+                         </Link>
+                    </Item>
+                    <Item style={itemHead}>|</Item>
+                    <Item style={itemHead}>
+                         <Link to="/about" style={{textDecoration: "none",}}>
                                     <BootstrapButton>
                                         {menu[2]?.title || 'Chưa có'}
                                     </BootstrapButton>
-                            </Link>
-                            </li>
-                        </Grid>
-                    </Box>
-                    
-                </div>
+                         </Link>    
+                    </Item>
+                </Box>
+                
+                
+            </div>
                 
             )}
             {!menu && ('')}
