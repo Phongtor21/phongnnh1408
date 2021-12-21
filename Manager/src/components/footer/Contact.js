@@ -65,7 +65,7 @@ const Contact = ({ contact }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 1'
+                            label='Địa chỉ'
                             {...getFieldProps('contactOne')}
                             error={Boolean(touched.contactOne && errors.contactOne)}
                             helperText={touched.contactOne && errors.contactOne}
@@ -73,7 +73,7 @@ const Contact = ({ contact }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 1'
+                            label='Liên kết địa chỉ'
                             {...getFieldProps('contactOneLink')}
                             error={Boolean(touched.contactOneLink && errors.contactOneLink)}
                             helperText={touched.contactOneLink && errors.contactOneLink}
@@ -87,7 +87,7 @@ const Contact = ({ contact }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 2'
+                            label='Số điện thoại'
                             {...getFieldProps('contactTwo')}
                             error={Boolean(touched.contactTwo && errors.contactTwo)}
                             helperText={touched.contactTwo && errors.contactTwo}
@@ -95,7 +95,7 @@ const Contact = ({ contact }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 2'
+                            label='Liên kết số điện thoại'
                             {...getFieldProps('contactTwoLink')}
                             error={Boolean(touched.contactTwoLink && errors.contactTwoLink)}
                             helperText={touched.contactTwoLink && errors.contactTwoLink}
@@ -109,7 +109,7 @@ const Contact = ({ contact }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 3'
+                            label='Email'
                             {...getFieldProps('contactThree')}
                             error={Boolean(touched.contactThree && errors.contactThree)}
                             helperText={touched.contactThree && errors.contactThree}
@@ -117,7 +117,7 @@ const Contact = ({ contact }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 3'
+                            label='Liên kết email'
                             {...getFieldProps('contactThreeLink')}
                             error={Boolean(touched.contactThreeLink && errors.contactThreeLink)}
                             helperText={touched.contactThreeLink && errors.contactThreeLink}

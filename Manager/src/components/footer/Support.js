@@ -13,23 +13,25 @@ const Support = ({ support }) => {
     const { setSnackbar } = useSnackbar();
     const formik = useFormik({
         initialValues: {
-            supportOne: support[0]?.title || '',
+            supportOne: 'GOOGLE MAP',
+            // supportOne: support[0]?.title || '',
             supportOneLink: support[0]?.link || '',
-            supportTwo: support[1]?.title || '',
-            supportTwoLink: support[1]?.link || '',
+            // supportTwo: support[1]?.title || '',
+            // supportTwoLink: support[1]?.link || '',
         },
         validationSchema: footerSupportSchema,
         onSubmit: async values => {
-            const { supportOne, supportOneLink, supportTwo, supportTwoLink } = values;
+            const { supportOne, supportOneLink } = values;
+            // const { supportOne, supportOneLink, supportTwo, supportTwoLink } = values;
             const support = [
                 {
                     title: supportOne,
                     link: supportOneLink
                 },
-                {
-                    title: supportTwo,
-                    link: supportTwoLink
-                }
+                // {
+                //     title: supportTwo,
+                //     link: supportTwoLink
+                // }
             ];
             const res = await footerApi.editSupport({
                 support
@@ -50,7 +52,7 @@ const Support = ({ support }) => {
                 <Stack
                     spacing={2}
                 >
-                    <Typography variant='subtitle2'>FAQ-Legal</Typography>
+                    <Typography variant='subtitle2'>Google Map</Typography>
                     <Stack
                         direction='row'
                         alignItems='center'
@@ -59,7 +61,8 @@ const Support = ({ support }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 1'
+                            label='GOOGLE MAP'
+                            disabled
                             {...getFieldProps('supportOne')}
                             error={Boolean(touched.supportOne && errors.supportOne)}
                             helperText={touched.supportOne && errors.supportOne}
@@ -67,13 +70,13 @@ const Support = ({ support }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 1'
+                            label='Liên kết google map'
                             {...getFieldProps('supportOneLink')}
                             error={Boolean(touched.supportOneLink && errors.supportOneLink)}
                             helperText={touched.supportOneLink && errors.supportOneLink}
                         />
                     </Stack>
-                    <Stack
+                    {/* <Stack
                         direction='row'
                         alignItems='center'
                         spacing={2}
@@ -94,7 +97,7 @@ const Support = ({ support }) => {
                             error={Boolean(touched.supportTwoLink && errors.supportTwoLink)}
                             helperText={touched.supportTwoLink && errors.supportTwoLink}
                         />
-                    </Stack>
+                    </Stack> */}
                     <LoadingButton type='submit' variant='contained' loading={isSubmitting}>
                         Lưu
                     </LoadingButton>

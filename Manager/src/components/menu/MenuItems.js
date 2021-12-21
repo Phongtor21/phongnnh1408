@@ -13,9 +13,9 @@ const MenuItems = ({ menus }) => {
     const { setSnackbar } = useSnackbar();
     const formik = useFormik({
         initialValues: {
-            navOne: menus[0]?.title || '',
-            navTwo: menus[1]?.title || '',
-            navThree: menus[2]?.title || '',
+            navOne: menus.filter(menu => menu.key === 'navOne')[0]?.title || '',
+            navTwo: menus.filter(menu => menu.key === 'navTwo')[0]?.title || '',
+            navThree: menus.filter(menu => menu.key === 'navThree')[0]?.title || '',
         },
         validationSchema: menuSchema,
         onSubmit: async values => {

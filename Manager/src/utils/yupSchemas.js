@@ -143,16 +143,16 @@ export const footerContactSchema = yup.object().shape({
 });
 
 export const footerSupportSchema = yup.object().shape({
-    supportOne: yup
-        .string()
-        .required('Không được bỏ trống!'),
+    // supportOne: yup
+    //     .string()
+    //     .required('Không được bỏ trống!'),
     supportOneLink: yup
         .string()
         .required('Không được bỏ trống!'),
-    supportTwo: yup
-        .string()
-        .required('Không được bỏ trống!'),
-    supportTwoLink: yup
-        .string()
-        .required('Không được bỏ trống!')
+    // supportTwo: yup
+    //     .string()
+    //     .required('Không được bỏ trống!'),
+    // supportTwoLink: yup
+    //     .string()
+    //     .required('Không được bỏ trống!')
 });
