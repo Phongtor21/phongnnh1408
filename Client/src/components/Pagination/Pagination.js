@@ -15,7 +15,6 @@ function Pagination(props) {
     const { pagination, onPageChange } = props;
     const { currentPage, totalPage } = pagination;
 
-    // const currentPage;
 
     function handlePageChange(newPage) {
         if (onPageChange) {
@@ -25,36 +24,59 @@ function Pagination(props) {
 
     return (
         <div className='pagination pagination-pages'>
-            <button
-                disabled={currentPage <= 1}
-                onClick={() => handlePageChange(currentPage - 1)}
-            >
-                P R E V
-            </button>
+            {currentPage > 1 && (
+                <button
+                    disabled={currentPage <= 1}
+                    onClick={() => handlePageChange(currentPage - 1)}
+                >
+                    P R E V
+                </button>
+            )}
+            {currentPage <= 1 && (
+                <button
+                    disabled={true}
+                >
+                    &emsp;
+                    &emsp;
+                </button>
+            )}
             <Typography>
                 {currentPage > 1 && (
-                    <button disabled={true}>
+                    <button
+                        className='button-page-number'
+                        onClick={() => handlePageChange(currentPage - 1)}
+                    >
                         {currentPage - 1}
                     </button>
                 )}
                 &nbsp;&nbsp;
                 <button>
                     {currentPage}
-                </button>&nbsp;&nbsp;
+                </button >&nbsp;&nbsp;
                 {currentPage < totalPage && (
-                    <button disabled={true}>
+                    <button
+                        className='button-page-number'
+                        onClick={() => handlePageChange(currentPage + 1)}
+                    >
                         {currentPage + 1}
                     </button>
                 )}
-
             </Typography>
-            <button
-                disabled={currentPage >= totalPage}
-                onClick={() => handlePageChange(currentPage + 1)}
-            >
-                N E X T
-            </button>
-
+            {currentPage < totalPage && (
+                <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                >
+                    N E X T
+                </button>
+            )}
+            {currentPage >= totalPage && (
+                <button
+                    disabled={true}
+                >
+                    &emsp;
+                    &emsp;
+                </button>
+            )}
 
         </div>
     );

@@ -21,12 +21,7 @@ const StyleBox = styled(Box)({
     position: 'relative',
     zIndex: '100'
 });
-const StyleArchitect = styled(Grid)(({ theme }) => ({
-    padding: '3.2vh 0 0 15px',
-    [theme.breakpoints.down('sm')]: {
-        padding: '10px 0',
-    }
-}));
+
 
 export default function ProjectDetail() {
     const [project, setProject] = useState(null);
@@ -68,17 +63,17 @@ export default function ProjectDetail() {
                 <>
                     <StyleBox>
                         <SlideProject images={project.current.images} />
-
+                        <Typography className="section-title" sx={{ fontSize: '18px', height: 'auto', paddingTop: { xs: '10px', md: '2vh' }, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
+                            {project.current.name}
+                        </Typography>
                         <Grid container
                             direction={{ xs: 'column', sm: 'row', md: 'row', lg: 'row' }}
                             sx={{
                                 maxWidth: '120vh',
-                                paddingTop: { xs: '10px', md: '2vh' }
+                                
                             }}>
                             <Grid item xs={9.065}>
-                                <Typography className="section-title" sx={{ fontSize: '18px', height: 'auto', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} >
-                                    {project.current.name}
-                                </Typography>
+
 
                                 <div className="scrollbar scrollbar-detail" id="style-4">
                                     <div className="force-overflow">
@@ -89,8 +84,8 @@ export default function ProjectDetail() {
                                     </div>
                                 </div>
                             </Grid>
-                            <StyleArchitect item xs={2.935} >
-                                <Typography variant="p" sx={{ color: '#000000', marginTop: '20px', fontSize: '14px' }}>
+                            <Grid item xs={2.935} sx={{ paddingLeft: '15px', marginTop: '-5px'}}>
+                                <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }}>
                                     TIME:
                                     <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px', fontSize: '14px' }}>
                                         {moment(project.current.createAt).format('DD/MM/YYYY')}
@@ -103,7 +98,7 @@ export default function ProjectDetail() {
                                         {project.current.architect.name}
                                     </Typography>
                                 </Typography>
-                            </StyleArchitect>
+                            </Grid>
                         </Grid>
 
                         <Box sx={{ paddingTop: { xs: '0', lg: '20px' } }} >

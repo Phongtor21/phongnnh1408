@@ -488,6 +488,9 @@ ul {
 .button-next {
 	text-align: right;
 }
+.button-page-number {
+	color: #dee2e6;
+}
 .btn {
 	padding:15px 30px;
 	position:relative;
