@@ -6,7 +6,7 @@ export default function AboutUs({ about }) {
 
     return (
         <>
-            <Box sx={{ height: { xs: '34vh', sm: '30vh' } }}>
+            <Box sx={{ height: { xs: '34vh', sm: '28vh' } }}>
                 <Box
                     sx={{
                         display: 'flex',

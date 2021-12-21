@@ -50,8 +50,8 @@ export default function AboutTeam() {
                             <div className="force-overflow">
                                 <Grid container spacing={1}>
                                     {architects.map((member, index) => (
-                                        <Grid item xs={3} sx={{ paddingTop: '0' }}>
-                                            <MemberCard key={index} member={member} />
+                                        <Grid item xs={3} key={index} sx={{ paddingTop: '0' }}>
+                                            <MemberCard  member={member} />
                                         </Grid>
                                     ))}
                                 </Grid>
