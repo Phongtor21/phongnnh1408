@@ -43,7 +43,7 @@ export default function AboutContact() {
                     <Typography variant="p" sx={{ fontSize: '12px', color: '#000000' }}>
                         <img src={address} className="iconABOUT" alt="logo" style={{ width: '1.5vh' }} />
                         <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
-                            {footer[0]?.contact[2]?.title || 'Chưa có'}
+                            {footer[0]?.contact[0]?.title || 'Chưa có'}
                         </Typography>
                     </Typography>
                     <br />
@@ -57,7 +57,7 @@ export default function AboutContact() {
                     <Typography variant="p" sx={{ fontSize: '12px', marginTop: '80px', color: '#000000' }} >
                         <img src={mail} className="iconABOUT" alt="logo" style={{ width: '1.5vh' }} />
                         <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
-                            {footer[0]?.contact[0]?.title || 'Chưa có'}
+                            {footer[0]?.contact[2]?.title || 'Chưa có'}
                         </Typography>
                     </Typography>
                 </Box>
