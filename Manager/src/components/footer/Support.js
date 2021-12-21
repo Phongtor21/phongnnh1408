@@ -1,4 +1,4 @@
-import { Stack, Typography, TextField } from '@mui/material';
+import { Stack, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { FormikProvider, Form, useFormik } from 'formik';
 
@@ -52,7 +52,7 @@ const Support = ({ support }) => {
                 <Stack
                     spacing={2}
                 >
-                    <Typography variant='subtitle2'>Google Map</Typography>
+                    {/* <Typography variant='subtitle2'>Google Map</Typography> */}
                     <Stack
                         direction='row'
                         alignItems='center'
@@ -61,7 +61,6 @@ const Support = ({ support }) => {
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='GOOGLE MAP'
                             disabled
                             {...getFieldProps('supportOne')}
                             error={Boolean(touched.supportOne && errors.supportOne)}
