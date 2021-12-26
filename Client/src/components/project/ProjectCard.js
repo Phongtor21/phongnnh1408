@@ -38,29 +38,29 @@ export default function ProjectCard({ project }) {
             textTransform: 'uppercase',
             fontWeight: '300',
             fontSize: '12px',
-            whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
+            lineHeight: '16px',
             maxWidth:'100%',
             ":hover": {
               color: '#6D6D6D'
             }
           }}>{project.name}</Link>
         </CardActions>
-        <Typography
+        {/* <Typography
           variant="body2"
           color="text.secondary"
           sx={{
             fontSize: '10px',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: {xs: '1', lg: '2'},
+            WebkitLineClamp: '1',
             overflow: 'hidden',
             textAlign: 'justify',
             textJustify: 'distribute'
           }}>
           <div dangerouslySetInnerHTML={{ __html: `${project.subtitle}` }}></div>
-        </Typography>
+        </Typography> */}
       </CardContent>
     </Card>
   );
