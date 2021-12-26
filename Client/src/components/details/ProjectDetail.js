@@ -22,6 +22,11 @@ const StyleBox = styled(Box)({
     zIndex: '100'
 });
 
+const StyleTitlePage = styled('div')(({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+        display: 'none'
+    }
+}));
 
 export default function ProjectDetail() {
     const [project, setProject] = useState(null);
@@ -109,9 +114,9 @@ export default function ProjectDetail() {
                                         >
                                             P R E V
                                             <br />
-                                            <div className="button-transfer-page-title">
+                                            <StyleTitlePage className="button-transfer-page-title">
                                                 {project.prevProject.name}
-                                            </div>
+                                            </StyleTitlePage>
                                         </a>
                                 )}
                                 {!project.prevProject && (
@@ -124,9 +129,9 @@ export default function ProjectDetail() {
                                     >
                                         N E X T
                                         <br />
-                                        <div className="button-transfer-page-title">
+                                        <StyleTitlePage className="button-transfer-page-title">
                                             {project.nextProject.name}
-                                        </div>
+                                        </StyleTitlePage>
                                     </a>
                                 )}
                                 {!project.nextProject && (
