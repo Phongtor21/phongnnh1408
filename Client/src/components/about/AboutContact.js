@@ -1,10 +1,25 @@
 import React from "react";
 import Iframe from "react-iframe";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Link } from "@mui/material";
 import address from './address.svg';
 import phone from './phone.svg';
 import mail from './mail.svg';
 import footerApi from "../../api/footerApi";
+import { styled } from '@mui/material/styles';
+
+const StyleLink = styled(Link)({
+    textDecoration: 'none',
+    fontSize: '12px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: '100%',
+    marginLeft: '10px',
+    color: '#6D6D6D',
+    ":hover": {
+        color: '#6D6D6D',
+    }
+});
 
 export default function AboutContact() {
     const [footer, setFooter] = React.useState(null);
@@ -44,23 +59,23 @@ export default function AboutContact() {
                         </Typography>
                         <Typography variant="p" sx={{ fontSize: '12px', color: '#000000' }}>
                             <img src={address} className="iconABOUT" alt="logo" style={{ width: '1.5vh' }} />
-                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
+                            <StyleLink href={footer[0]?.contact[0]?.link || '#'} sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
                                 {footer[0]?.contact[0]?.title || 'Chưa có'}
-                            </Typography>
+                            </StyleLink>
                         </Typography>
                         <br />
                         <Typography variant="p" sx={{ fontSize: '12px', marginTop: '80px', color: '#000000' }} >
                             <img src={phone} className="iconABOUT" alt="logo" style={{ width: '1.5vh' }} />
-                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
+                            <StyleLink href={`tel:${footer[0]?.contact[1]?.link || '#'}`} sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
                                 {footer[0]?.contact[1]?.title || 'Chưa có'}
-                            </Typography>
+                            </StyleLink>
                         </Typography>
                         <br />
                         <Typography variant="p" sx={{ fontSize: '12px', marginTop: '80px', color: '#000000' }} >
                             <img src={mail} className="iconABOUT" alt="logo" style={{ width: '1.5vh' }} />
-                            <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
+                            <StyleLink href={`mailto:${footer[0]?.contact[2]?.link || '#'}`} sx={{ fontSize: '12px', color: '#6D6D6D', marginLeft: '10px' }}>
                                 {footer[0]?.contact[2]?.title || 'Chưa có'}
-                            </Typography>
+                            </StyleLink>
                         </Typography>
                     </Box>
                 </>
