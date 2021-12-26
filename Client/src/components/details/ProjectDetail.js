@@ -77,14 +77,13 @@ export default function ProjectDetail() {
 
                                 <div className="scrollbar scrollbar-detail" id="style-4">
                                     <div className="force-overflow">
-                                        <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D' }}>
-                                            <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }}></div>
-
+                                        <Typography variant="p" sx={{ fontSize: '12px', color: '#6D6D6D', textAlign: 'justify', textJustify: 'distribute' }}>
+                                            <div dangerouslySetInnerHTML={{ __html: `${project.current.description}` }} className="content-detail"></div>
                                         </Typography>
                                     </div>
                                 </div>
                             </Grid>
-                            <Grid item xs={2.935} sx={{ paddingLeft: '15px', marginTop: '-5px'}}>
+                            <Grid item xs={2.935} sx={{ paddingLeft: { xs: '0', sm: '15px' }, marginTop: { xs: '0', sm: '-5px' }}}>
                                 <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }}>
                                     TIME:
                                     <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px', fontSize: '14px' }}>
@@ -104,7 +103,6 @@ export default function ProjectDetail() {
                         <Box sx={{ paddingTop: { xs: '0', lg: '20px' } }} >
                             <div className='pagination'>
                                 {project.prevProject && (
-                                    <div>
                                         <a
                                             className="button-transfer-page"
                                             href={handleClick(project.prevProject)}
@@ -114,16 +112,11 @@ export default function ProjectDetail() {
                                             <div className="button-transfer-page-title">
                                                 {project.prevProject.name}
                                             </div>
-
                                         </a>
-
-                                    </div>
-
                                 )}
                                 {!project.prevProject && (
                                     <button className="button-transfer-page" disabled={true}></button>
                                 )}
-
                                 {project.nextProject && (
                                     <a
                                         className="button-transfer-page button-next"

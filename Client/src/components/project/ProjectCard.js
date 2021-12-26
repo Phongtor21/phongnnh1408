@@ -12,6 +12,7 @@ export default function ProjectCard({ project }) {
   return (
     <Card sx={{
       height: {xs:'auto', sm: '25vh'},
+      maxWidth: '50vh',
       borderRadius: 0,
       boxShadow: 'none',
       filter: 'grayscale(1)',
@@ -22,7 +23,7 @@ export default function ProjectCard({ project }) {
     }}>
       <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{
-          height: {xs:'auto', sm: '18vh'},
+          height: {xs:'35vh', sm: '18vh'},
         }}
           component="img"
           alt={project.name}
@@ -55,9 +56,10 @@ export default function ProjectCard({ project }) {
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: {xs: '1', lg: '2'},
             overflow: 'hidden',
-            
+            textAlign: 'justify',
+            textJustify: 'distribute'
           }}>
-          <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
+          <div dangerouslySetInnerHTML={{ __html: `${project.subtitle}` }}></div>
         </Typography>
       </CardContent>
     </Card>

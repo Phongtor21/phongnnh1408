@@ -28,7 +28,7 @@ export default function AboutUs({ about }) {
                 <div className="scrollbar scrollbar-about-us" id="style-4">
                     <div className="force-overflow">
                         <Typography variant='p' sx={{ fontSize: '12px' }}>
-                            <div className='text-description' dangerouslySetInnerHTML={{ __html: `${about}` }}></div>
+                            <div className='text-description content-detail' dangerouslySetInnerHTML={{ __html: `${about}` }}></div>
                         </Typography>
                     </div>
                 </div>

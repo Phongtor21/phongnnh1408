@@ -12,6 +12,7 @@ export default function NewsCard({ news }) {
   return (
     <Card sx={{
       height: {xs:'auto', sm: '37vh'},
+      maxWidth: '50vh',
       borderRadius: 0,
       boxShadow: 'none',
       filter: 'grayscale(1)',
@@ -22,7 +23,7 @@ export default function NewsCard({ news }) {
     }}>
       <Link href={`/news/${news.slug}`}>
         <CardMedia sx={{
-          height: {xs:'auto', sm: '28vh'},
+          height: {xs:'35vh', sm: '30vh'},
         }}
           component="img"
           alt={news.title}
@@ -38,16 +39,18 @@ export default function NewsCard({ news }) {
             textTransform: 'uppercase',
             fontWeight: '300',
             fontSize: '12px',
-            whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             maxWidth:'100%',
+            textAlign: 'justify',
+            textJustify: 'distribute',
+            lineHeight: '16px',
             ":hover": {
               color: '#6D6D6D'
             }
           }}>{news.title}</Link>
         </CardActions>
-        <Typography
+        {/* <Typography
           variant="body2"
           color="text.secondary"
           sx={{
@@ -56,9 +59,11 @@ export default function NewsCard({ news }) {
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: {xs: '2', lg: '3'},
             overflow: 'hidden',
+            textAlign: 'justify',
+            textJustify: 'distribute'
           }}>
           <div dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
-        </Typography>
+        </Typography> */}
       </CardContent>
     </Card>
   );
