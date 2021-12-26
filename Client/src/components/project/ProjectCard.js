@@ -34,9 +34,13 @@ export default function ProjectCard({ project }) {
           <Link href={`/projects/${project.slug}`} sx={{
             color: '#000000',
             textDecoration: 'none',
+            textTransform: 'uppercase',
             fontWeight: '300',
             fontSize: '12px',
             whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            maxWidth:'100%',
             ":hover": {
               color: '#6D6D6D'
             }
@@ -51,6 +55,7 @@ export default function ProjectCard({ project }) {
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: {xs: '1', lg: '2'},
             overflow: 'hidden',
+            
           }}>
           <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
         </Typography>

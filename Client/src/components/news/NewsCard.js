@@ -35,9 +35,13 @@ export default function NewsCard({ news }) {
           <Link href={`/news/${news.slug}`} sx={{
             color: '#000000',
             textDecoration: 'none',
+            textTransform: 'uppercase',
             fontWeight: '300',
             fontSize: '12px',
             whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            maxWidth:'100%',
             ":hover": {
               color: '#6D6D6D'
             }

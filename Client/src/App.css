@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 .App-logo {
@@ -482,6 +483,10 @@ ul {
 .button-transfer-page-title{
 	color: #000000;
 	margin-top: -0.5vh;
+	max-width: 26vh;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .button-transfer-page:hover{
 	color: #000000;
@@ -634,7 +639,7 @@ ul {
 	margin: auto;
 }
 #style-4::-webkit-scrollbar {
-  	width: 7px;
+  	width: 8px;
   	background-color: #F5F5F5;
 }
 #style-4::-webkit-scrollbar-track {

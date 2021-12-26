@@ -56,11 +56,7 @@ const SIDEBAR_CONFIG = [
     {
         subheader: 'Ứng dụng',
         items: [
-            {
-                title: 'Điều hướng',
-                path: PATH_DASHBOARD.menu,
-                icon: ICONS.menu
-            },
+           
             {
                 title: 'Ảnh trang chủ',
                 path: PATH_DASHBOARD.banner,

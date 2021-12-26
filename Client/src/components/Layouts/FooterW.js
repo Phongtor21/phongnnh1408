@@ -175,7 +175,7 @@ export const FooterW = () => {
                         }}
                     >
                         <Item style={itemFoot}>
-                            <a className='footer-button' href={footer[0]?.connect[0]?.link}>
+                            <a className='footer-button' href={footer[0]?.contact[0]?.link}>
                                     <BootstrapButton>
                                         {footer[0]?.contact[0]?.title || 'Chưa có'}
                                     </BootstrapButton>
@@ -183,7 +183,7 @@ export const FooterW = () => {
                         </Item>
                         <Item style={itemFoot}> </Item>
                         <Item style={itemFoot}>
-                            <a className='footer-button' href={footer[0]?.connect[1]?.link}>
+                            <a className='footer-button' href={footer[0]?.contact[1]?.link}>
                                     <BootstrapButton>
                                         {footer[0]?.contact[1]?.title || 'Chưa có'}
                                     </BootstrapButton>
@@ -191,7 +191,7 @@ export const FooterW = () => {
                         </Item>
                         <Item style={itemFoot}> </Item>
                         <Item style={itemFoot}>
-                            <a className='footer-button' href={footer[0]?.connect[2]?.link}>
+                            <a className='footer-button' href={footer[0]?.contact[2]?.link}>
                                     <BootstrapButton>
                                         {footer[0]?.contact[2]?.title || 'Chưa có'}
                                     </BootstrapButton>

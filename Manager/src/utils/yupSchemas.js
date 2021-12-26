@@ -3,7 +3,8 @@ import * as yup from 'yup';
 export const createProjectSchema = yup.object().shape({
     name: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
+        .max(100, 'Tối đa 50 ký tự'),
     architectId: yup
         .mixed()
         .required('Không được bỏ trống!'),
@@ -19,7 +20,8 @@ export const createProjectSchema = yup.object().shape({
 export const createNewsSchema = yup.object().shape({
     title: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
+        .max(100, 'Tối đa 50 ký tự'),
     image: yup
         .mixed()
         .required('Không được bỏ trống!'),
