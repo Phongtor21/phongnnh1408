@@ -138,6 +138,7 @@ export const footerContactSchema = yup.object().shape({
         .required('Không được bỏ trống!'),
     contactThree: yup
         .string()
+        .email('Trường này phải là email!')
         .required('Không được bỏ trống!'),
     contactThreeLink: yup
         .string()
@@ -145,9 +146,9 @@ export const footerContactSchema = yup.object().shape({
 });
 
 export const footerSupportSchema = yup.object().shape({
-    // supportOne: yup
-    //     .string()
-    //     .required('Không được bỏ trống!'),
+    supportOne: yup
+        .string()
+        .required('Không được bỏ trống!'),
     supportOneLink: yup
         .string()
         .required('Không được bỏ trống!'),

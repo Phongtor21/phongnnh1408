@@ -56,16 +56,15 @@ const Support = ({ support }) => {
                     <Stack
                         direction='row'
                         alignItems='center'
-                        spacing={2}
                     >
-                        <TextField
+                        {/* <TextField
                             fullWidth
                             variant='standard'
                             disabled
                             {...getFieldProps('supportOne')}
                             error={Boolean(touched.supportOne && errors.supportOne)}
                             helperText={touched.supportOne && errors.supportOne}
-                        />
+                        /> */}
                         <TextField
                             fullWidth
                             variant='standard'

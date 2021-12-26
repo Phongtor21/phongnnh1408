@@ -13,11 +13,11 @@ const Connect = ({ connect }) => {
     const { setSnackbar } = useSnackbar();
     const formik = useFormik({
         initialValues: {
-            connectOne: connect[0]?.title || '',
+            connectOne: connect[0]?.title || 'FACEBOOK',
             connectOneLink: connect[0]?.link || '',
-            connectTwo: connect[1]?.title || '',
+            connectTwo: connect[1]?.title || 'YOUTUBE',
             connectTwoLink: connect[1]?.link || '',
-            connectThree: connect[2]?.title || '',
+            connectThree: connect[2]?.title || 'INSTAGRAM',
             connectThreeLink: connect[2]?.link || '',
         },
         validationSchema: footerConnectSchema,
@@ -60,20 +60,19 @@ const Connect = ({ connect }) => {
                     <Stack
                         direction='row'
                         alignItems='center'
-                        spacing={2}
                     >
-                        <TextField
+                        {/* <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 1'
+                            disabled
                             {...getFieldProps('connectOne')}
                             error={Boolean(touched.connectOne && errors.connectOne)}
                             helperText={touched.connectOne && errors.connectOne}
-                        />
+                        /> */}
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 1'
+                            label='Liên kết Facebook'
                             {...getFieldProps('connectOneLink')}
                             error={Boolean(touched.connectOneLink && errors.connectOneLink)}
                             helperText={touched.connectOneLink && errors.connectOneLink}
@@ -82,20 +81,19 @@ const Connect = ({ connect }) => {
                     <Stack
                         direction='row'
                         alignItems='center'
-                        spacing={2}
                     >
-                        <TextField
+                        {/* <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 2'
+                            disabled
                             {...getFieldProps('connectTwo')}
                             error={Boolean(touched.connectTwo && errors.connectTwo)}
                             helperText={touched.connectTwo && errors.connectTwo}
-                        />
+                        /> */}
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 2'
+                            label='Liên kết Youtube'
                             {...getFieldProps('connectTwoLink')}
                             error={Boolean(touched.connectTwoLink && errors.connectTwoLink)}
                             helperText={touched.connectTwoLink && errors.connectTwoLink}
@@ -104,20 +102,19 @@ const Connect = ({ connect }) => {
                     <Stack
                         direction='row'
                         alignItems='center'
-                        spacing={2}
                     >
-                        <TextField
+                        {/* <TextField
                             fullWidth
                             variant='standard'
-                            label='Tiêu đề 3'
+                            disabled
                             {...getFieldProps('connectThree')}
                             error={Boolean(touched.connectThree && errors.connectThree)}
                             helperText={touched.connectThree && errors.connectThree}
-                        />
+                        /> */}
                         <TextField
                             fullWidth
                             variant='standard'
-                            label='Liên kết 3'
+                            label='Liên kết Instagram'
                             {...getFieldProps('connectThreeLink')}
                             error={Boolean(touched.connectThreeLink && errors.connectThreeLink)}
                             helperText={touched.connectThreeLink && errors.connectThreeLink}
