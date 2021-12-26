@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const Project = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 50
     },
     slug: {
         type: String,
@@ -20,7 +21,6 @@ const Project = new Schema({
     },
     subtitle: {
         type: String,
-        required: true,
         default: '',
         maxlength: 100
     },

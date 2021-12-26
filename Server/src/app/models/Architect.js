@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const Architect = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 50
     },
     image: {
         type: String,
@@ -14,7 +15,7 @@ const Architect = new Schema({
     subtitle: {
         type: String,
         default: '',
-        maxlength: 100
+        maxlength: 50
     }
 }, {
     timestamps: true

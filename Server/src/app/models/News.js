@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const News = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 80
     },
     slug: {
         type: String,

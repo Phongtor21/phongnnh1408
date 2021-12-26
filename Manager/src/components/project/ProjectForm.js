@@ -37,12 +37,13 @@ const ProjectForm = ({ isEdit, project }) => {
             name: project?.name || '',
             images: project?.images || [],
             architectId: project?.architectId || null,
-            subtitle: project?.subtitle || '',
+            // subtitle: project?.subtitle || '',
             description: project?.description || '',
         },
         validationSchema: createProjectSchema,
         onSubmit: async (values, { resetForm }) => {
-            const { name, images, architectId, subtitle, description } = values;
+            const { name, images, architectId, description } = values;
+            // const { name, images, architectId, subtitle, description } = values;
             var formData = new FormData();
             formData.append('name', name);
             images.forEach(image => {
@@ -53,7 +54,7 @@ const ProjectForm = ({ isEdit, project }) => {
                 }
             });
             formData.append('architectId', architectId);
-            formData.append('subtitle', subtitle);
+            // formData.append('subtitle', subtitle);
             formData.append('description', description);
             if (isEdit) {
                 dispatch(editProject({
@@ -131,13 +132,13 @@ const ProjectForm = ({ isEdit, project }) => {
                                     error={Boolean(touched.name && errors.name)}
                                     helperText={touched.name && errors.name}
                                 />
-                                <TextField
+                                {/* <TextField
                                     fullWidth
                                     label='Tiêu đề phụ'
                                     {...getFieldProps('subtitle')}
                                     error={Boolean(touched.subtitle && errors.subtitle)}
                                     helperText={touched.subtitle && errors.subtitle}
-                                />
+                                /> */}
                                 <div>
                                     <Typography variant='subtitle2'>Kiến trúc sư phụ trách</Typography>
                                     <ProjectInCharge architectId={values.architectId} handleSelect={handleSelect} />

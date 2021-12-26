@@ -8,10 +8,10 @@ export const createProjectSchema = yup.object().shape({
     architectId: yup
         .mixed()
         .required('Không được bỏ trống!'),
-    subtitle: yup
-        .string()
-        .required('Không được bỏ trống!')
-        .max(100, 'Tối đa 100 ký tự'),
+    // subtitle: yup
+    //     .string()
+    //     .required('Không được bỏ trống!')
+    //     .max(100, 'Tối đa 100 ký tự'),
     images: yup
         .array()
         .min(1, 'Không được bỏ trống!'),
