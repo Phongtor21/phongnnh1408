@@ -487,6 +487,7 @@ ul {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	text-transform: uppercase;
 }
 .button-transfer-page:hover{
 	color: #000000;
