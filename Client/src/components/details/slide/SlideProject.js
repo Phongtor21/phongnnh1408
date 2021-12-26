@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { Grid, Box, Stack } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
@@ -30,10 +30,7 @@ const SlideProject = ({ images }) => {
           </FocusImage>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <ScrollWrapper
-            spacing={1}
-            direction={{ xs: 'row', sm: 'column', md: 'column', lg: 'column' }}
-          >
+          <ScrollWrapper>
             {images.map((image, i) => {
               return (
                 <Image
@@ -81,9 +78,10 @@ const FocusImage = styled('div')({
   cursor: 'pointer'
 });
 
-const ScrollWrapper = styled(Stack)(({ theme }) => ({
+const ScrollWrapper = styled('div')(({ theme }) => ({
   maxHeight: '50vh',
   overflow: 'scroll',
+  whiteSpace: 'nowrap',
   '&::-webkit-scrollbar': {
     display: 'none'
   },
@@ -92,10 +90,11 @@ const ScrollWrapper = styled(Stack)(({ theme }) => ({
   }
 }));
 
-const Image = styled('div')({
+const Image = styled('div')(({ theme }) => ({
   position: 'relative',
   height: 'calc((50vh / 3) - 5px)',
   cursor: 'pointer',
+  margin: `0 0 ${theme.spacing(1)} 0`,
   ':after': {
     content: '""',
     position: 'absolute',
@@ -106,7 +105,15 @@ const Image = styled('div')({
     background: 'rgba(0,0,0,0.6)',
     opacity: 0,
     transition: 'opacity 0.3s'
+  },
+  '&:last-child': {
+    margin: 0
+  },
+  [theme.breakpoints.down('sm')]: {
+    display: 'inline-block',
+    width: 'calc(33% - 4px)',
+    margin: `0 ${theme.spacing(1)} 0 0`
   }
-});
+}));
 
 export default SlideProject;

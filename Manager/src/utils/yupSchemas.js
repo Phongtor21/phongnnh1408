@@ -4,7 +4,7 @@ export const createProjectSchema = yup.object().shape({
     name: yup
         .string()
         .required('Không được bỏ trống!')
-        .max(100, 'Tối đa 50 ký tự'),
+        .max(50, 'Tối đa 50 ký tự'),
     architectId: yup
         .mixed()
         .required('Không được bỏ trống!'),
@@ -21,7 +21,7 @@ export const createNewsSchema = yup.object().shape({
     title: yup
         .string()
         .required('Không được bỏ trống!')
-        .max(100, 'Tối đa 50 ký tự'),
+        .max(80, 'Tối đa 80 ký tự'),
     image: yup
         .mixed()
         .required('Không được bỏ trống!'),
@@ -30,7 +30,12 @@ export const createNewsSchema = yup.object().shape({
 export const createArchitectSchema = yup.object().shape({
     name: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
+        .max(50, 'Tối đa 50 ký tự'),
+    subtitle: yup
+        .string()
+        .required('Không được bỏ trống!')
+        .max(50, 'Tối đa 50 ký tự'),
     image: yup
         .mixed()
         .required('Không được bỏ trống!'),
