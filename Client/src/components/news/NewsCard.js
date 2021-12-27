@@ -12,7 +12,7 @@ export default function NewsCard({ news }) {
   return (
     <Card sx={{
       height: {xs:'auto', sm: '37vh'},
-      maxWidth: '50vh',
+      maxWidth: '100%',
       borderRadius: 0,
       boxShadow: 'none',
       filter: 'grayscale(1)',

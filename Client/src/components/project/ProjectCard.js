@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
   return (
     <Card sx={{
       height: {xs:'auto', sm: '25vh'},
-      maxWidth: '50vh',
+      maxWidth: '100%',
       borderRadius: 0,
       boxShadow: 'none',
       filter: 'grayscale(1)',
