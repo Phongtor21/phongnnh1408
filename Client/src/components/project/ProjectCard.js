@@ -52,21 +52,21 @@ export default function ProjectCard({ project }) {
             
           }}>{project.name}</Link>
         </CardActions>
-         <Typography
+         {/* <Typography
           variant="body2"
           color="text.secondary"
           sx={{
             fontSize: '10px',
             display: {xs: 'none', xl: '-webkit-box'},
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: '0',
+            WebkitLineClamp: '3',
             overflow: 'hidden',
             textAlign: 'justify',
             textJustify: 'distribute',
             wordWrap: 'break-word',
           }}>
-          More
-        </Typography> 
+          <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
+        </Typography>  */}
       </CardContent>
     </Card>
   );

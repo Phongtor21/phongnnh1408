@@ -74,7 +74,7 @@ export default function NewsCard({ news }) {
             fontSize: '10px',
             display: {xs: 'none', xl: '-webkit-box'},
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: '5',
+            WebkitLineClamp: '3',
             overflow: 'hidden',
             textAlign: 'justify',
             textJustify: 'distribute'
