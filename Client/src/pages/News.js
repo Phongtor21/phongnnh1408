@@ -32,7 +32,14 @@ export default function News() {
     const fetchNewsList = async () => {
       try {
         const response = await newsApi.listNews(filters.page, filters.number);
-        setNewsList(response);
+        const { news } = response;
+        const sortedNews = news.sort((a, b) => {
+          return a.title.length - b.title.length;
+        });
+        setNewsList({
+          ...response,
+          news: sortedNews
+        });
       } catch (error) {
         console.log('Failed to fetch news list: ', error)
       }

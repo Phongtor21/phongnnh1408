@@ -33,7 +33,15 @@ export default function Projects() {
     const fetchProjectList = async () => {
       try {
         const response = await projectApi.listProject(filters.page, filters.number);
-        setProjectList(response);
+        const { projects } = response;
+        const sortedProjects = projects.sort((a, b) => {
+          return a.name.length - b.name.length;
+        });
+        console.log(sortedProjects);
+        setProjectList({
+          ...response,
+          projects: sortedProjects
+        });
       } catch (error) {
         console.log('Failed to fetch project list: ', error)
       }
