@@ -30,6 +30,12 @@ const StyleBoxContent = styled(Box)(({ theme }) => ({
     }
 }));
 
+const StyleTitlePage = styled('div')(({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+        display: 'none'
+    }
+}));
+
 export default function NewsDetail() {
 
     const [news, setNews] = useState(null);
@@ -99,9 +105,9 @@ export default function NewsDetail() {
                                     >
                                         P R E V
                                         <br />
-                                        <div className="button-transfer-page-title">
+                                        <StyleTitlePage className="button-transfer-page-title">
                                             {news.prevNews.title}
-                                        </div>
+                                        </StyleTitlePage>
                                     </a>
                                 )}
                                 {!news.prevNews && (
@@ -115,9 +121,9 @@ export default function NewsDetail() {
                                     >
                                         N E X T
                                         <br />
-                                        <div className="button-transfer-page-title">
+                                        <StyleTitlePage className="button-transfer-page-title">
                                             {news.nextNews.title}
-                                        </div>
+                                        </StyleTitlePage>
                                     </a>
                                 )}
                                 {!news.nextNews && (

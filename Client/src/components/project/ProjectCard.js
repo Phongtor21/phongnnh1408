@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from '@mui/material';
 import PropTypes from 'prop-types';
-import { Typography } from '@mui/material';
+// import { Typography } from '@mui/material';
 
 
 export default function ProjectCard({ project }) {

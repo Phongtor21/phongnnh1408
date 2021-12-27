@@ -55,7 +55,7 @@ export default function Projects() {
 
           <StyleBox >
             <Box sx={{ height: {xs:'auto', sm:'80vh'}}}>
-              <Grid container spacing={1} width={'120vh'}>
+              <Grid container spacing={1} maxWidth={'117vh'}>
                 {projectList.projects.map((project) => (
                   <Grid key={project._id} item xs={12} sm={3} sx={{ paddingTop: '0' }}>
                     <ProjectCard project={project} />
