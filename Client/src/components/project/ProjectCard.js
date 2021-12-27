@@ -23,7 +23,7 @@ export default function ProjectCard({ project }) {
     }}>
       <Link href={`/projects/${project.slug}`}>
         <CardMedia sx={{
-          height: {xs:'35vh', sm: '18vh'},
+          height: {xs:'35vh', sm: '19vh'},
         }}
           component="img"
           alt={project.name}
@@ -36,6 +36,7 @@ export default function ProjectCard({ project }) {
             color: '#000000',
             textDecoration: 'none',
             textTransform: 'uppercase',
+            //paddingBottom:'10px',
             fontWeight: '300',
             fontSize: '12px',
             overflow: 'hidden',
@@ -48,22 +49,24 @@ export default function ProjectCard({ project }) {
             ":hover": {
               color: '#6D6D6D'
             }
+            
           }}>{project.name}</Link>
         </CardActions>
-        <Typography
+         <Typography
           variant="body2"
           color="text.secondary"
           sx={{
             fontSize: '10px',
             display: {xs: 'none', xl: '-webkit-box'},
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: '1',
+            WebkitLineClamp: '0',
             overflow: 'hidden',
             textAlign: 'justify',
-            textJustify: 'distribute'
+            textJustify: 'distribute',
+            wordWrap: 'break-word',
           }}>
-          <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
-        </Typography>
+          More
+        </Typography> 
       </CardContent>
     </Card>
   );

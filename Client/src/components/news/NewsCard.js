@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from '@mui/material';
 import PropTypes from 'prop-types';
-// import { Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 
 export default function NewsCard({ news }) {
@@ -42,7 +42,7 @@ export default function NewsCard({ news }) {
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             maxWidth:'100%',
-            textAlign: 'justify',
+            
             textJustify: 'distribute',
             lineHeight: '16px',
             display: '-webkit-box',
@@ -67,6 +67,20 @@ export default function NewsCard({ news }) {
           }}>
           <div dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
         </Typography> */}
+         <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            fontSize: '10px',
+            display: {xs: 'none', xl: '-webkit-box'},
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: '5',
+            overflow: 'hidden',
+            textAlign: 'justify',
+            textJustify: 'distribute'
+          }}>
+          <div dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
+        </Typography>
       </CardContent>
     </Card>
   );
