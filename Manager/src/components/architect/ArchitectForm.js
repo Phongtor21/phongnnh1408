@@ -113,7 +113,7 @@ const ArchitectForm = ({ isEdit, architect }) => {
                                 />
                                 <TextField
                                     fullWidth
-                                    label='Tiêu đề phụ'
+                                    label='Chuyên môn'
                                     {...getFieldProps('subtitle')}
                                     error={Boolean(touched.subtitle && errors.subtitle)}
                                     helperText={touched.subtitle && errors.subtitle}
