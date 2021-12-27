@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from '@mui/material';
 import PropTypes from 'prop-types';
-// import { Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 
 export default function ProjectCard({ project }) {
@@ -42,25 +42,28 @@ export default function ProjectCard({ project }) {
             textOverflow: 'ellipsis',
             lineHeight: '16px',
             maxWidth:'100%',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: '2',
             ":hover": {
               color: '#6D6D6D'
             }
           }}>{project.name}</Link>
         </CardActions>
-        {/* <Typography
+        <Typography
           variant="body2"
           color="text.secondary"
           sx={{
             fontSize: '10px',
-            display: '-webkit-box',
+            display: {xs: 'none', xl: '-webkit-box'},
             WebkitBoxOrient: 'vertical',
             WebkitLineClamp: '1',
             overflow: 'hidden',
             textAlign: 'justify',
             textJustify: 'distribute'
           }}>
-          <div dangerouslySetInnerHTML={{ __html: `${project.subtitle}` }}></div>
-        </Typography> */}
+          <div dangerouslySetInnerHTML={{ __html: `${project.description}` }}></div>
+        </Typography>
       </CardContent>
     </Card>
   );

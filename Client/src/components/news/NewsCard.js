@@ -45,6 +45,9 @@ export default function NewsCard({ news }) {
             textAlign: 'justify',
             textJustify: 'distribute',
             lineHeight: '16px',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: '2',
             ":hover": {
               color: '#6D6D6D'
             }
