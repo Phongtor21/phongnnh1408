@@ -83,7 +83,7 @@ const ProjectForm = ({ isEdit, project }) => {
         setFieldValue('images', files);
     };
     const handleSelect = architect => {
-        setFieldValue('architectId', architect._id);
+        setFieldValue('architectId', architect?._id || null);
     };
     const handleRemoveAll = () => {
         setFieldValue('images', []);

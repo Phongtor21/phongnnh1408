@@ -24,7 +24,7 @@ export default function SlideMenu() {
     <>
     {imageSlide && (
       <Carousel>
-        {imageSlide.banners.map((slideImage, index) => (
+        {Object.keys(imageSlide).length !==0 && imageSlide.banners.map((slideImage, index) => (
           <Carousel.Item key={index}>
           <img
             className="d-block w-100 img-slide-home"

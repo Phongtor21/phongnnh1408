@@ -37,7 +37,6 @@ export default function Projects() {
         const sortedProjects = projects.sort((a, b) => {
           return a.name.length - b.name.length;
         });
-        console.log(sortedProjects);
         setProjectList({
           ...response,
           projects: sortedProjects

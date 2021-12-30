@@ -7,7 +7,7 @@ class BannersAPI {
         try {
             const banner = await Banner
                 .findOne({ key: 'banner' });
-            res.json(banner);
+            res.json(banner ? banner : {});
         } catch (error) {
             console.log(error);
         }

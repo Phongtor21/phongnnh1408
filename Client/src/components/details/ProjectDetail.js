@@ -105,7 +105,7 @@ export default function ProjectDetail() {
                             </Grid>
                         </Grid>
 
-                        <Box sx={{ paddingTop: { xs: '0', lg: '20px' } }} >
+                        <Box sx={{ paddingTop: { xs: '0' } }} >
                             <div className='pagination'>
                                 {project.prevProject && (
                                         <a
