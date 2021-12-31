@@ -75,7 +75,7 @@ export default function ProjectDetail() {
                             direction={{ xs: 'column', sm: 'row', md: 'row', lg: 'row' }}
                             sx={{
                                 maxWidth: '120vh',
-                                
+
                             }}>
                             <Grid item xs={9.065}>
 
@@ -88,36 +88,57 @@ export default function ProjectDetail() {
                                     </div>
                                 </div>
                             </Grid>
-                            <Grid item xs={2.935} sx={{ paddingLeft: { xs: '0', sm: '15px' }, marginTop: { xs: '0', sm: '-5px' }}}>
-                                <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }}>
-                                    TIME:
-                                    <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px', fontSize: '14px' }}>
-                                        {moment(project.current.createAt).format('DD/MM/YYYY')}
+                            <Grid item xs={2.935} sx={{
+                                paddingLeft: { xs: '0', sm: '15px' }, 
+                                marginTop: { xs: '0', sm: '-5px' }, 
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                WebkitFlexBasis: 'auto',
+                            }}>
+                                <div class="sub-logo">
+                                    <img style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover'
+                                    }}
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDIH49FVMfYl1RyY51sGm_zUoPlwYVnQaYCgISEa9zJh3k4vq2zgRjwlir3wMkbyUnRyE&usqp=CAU"
+                                        alt="Datos.png" />
+                                </div>
+                                <div>
+                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }}>
+                                        Architect: {project.current.architect.name}
                                     </Typography>
-                                </Typography>
-                                <br />
-                                <Typography variant="p" sx={{ color: '#000000', fontSize: '14px' }} >
-                                    ARCHITECT:
-                                    <Typography variant="p" sx={{ color: '#6D6D6D', marginLeft: '10px' }}>
-                                        {project.current.architect.name}
+                                    <br />
+                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }} >
+                                        Position: {project.current.architect.name}
                                     </Typography>
-                                </Typography>
+                                    <br />
+                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }}>
+                                        Time: {moment(project.current.createAt).format('DD/MM/YYYY')}
+                                    </Typography>
+                                    <br />
+                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }} >
+                                        Completion Time: {project.current.architect.name}
+                                    </Typography>
+                                </div>
+
                             </Grid>
                         </Grid>
 
                         <Box sx={{ paddingTop: { xs: '0' } }} >
                             <div className='pagination'>
                                 {project.prevProject && (
-                                        <a
-                                            className="button-transfer-page"
-                                            href={handleClick(project.prevProject)}
-                                        >
-                                            P R E V
-                                            <br />
-                                            <StyleTitlePage className="button-transfer-page-title">
-                                                {project.prevProject.name}
-                                            </StyleTitlePage>
-                                        </a>
+                                    <a
+                                        className="button-transfer-page"
+                                        href={handleClick(project.prevProject)}
+                                    >
+                                        P R E V
+                                        <br />
+                                        <StyleTitlePage className="button-transfer-page-title">
+                                            {project.prevProject.name}
+                                        </StyleTitlePage>
+                                    </a>
                                 )}
                                 {!project.prevProject && (
                                     <button className="button-transfer-page" disabled={true}></button>
@@ -144,7 +165,8 @@ export default function ProjectDetail() {
 
 
                 </>
-            )}
+            )
+            }
             {!project && (<LoadingScreen />)}
         </>
     )

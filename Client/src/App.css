@@ -663,6 +663,11 @@ ul {
 	text-justify: distribute;
 	padding-right: 5px;
 }
+.sub-logo {
+    width: 100%;
+    height: 50px;
+    flex-grow: 1;
+}
 
 /* ======= Map ======= */
 
