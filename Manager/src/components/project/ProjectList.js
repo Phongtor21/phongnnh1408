@@ -65,7 +65,7 @@ const localization = {
         actions: 'Hành động'
     },
     body: {
-        emptyDataSourceMessage: 'Chưa có dự án nào để hiện thị'
+        emptyDataSourceMessage: 'Chưa có dự án nào để hiển thị'
     },
     pagination: {
         labelRowsPerPage: 'Số dòng mỗi trang',

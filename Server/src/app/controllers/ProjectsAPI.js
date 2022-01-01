@@ -79,6 +79,9 @@ class ProjectsAPI {
         body {
             name: String,
             image: Files,
+            logo: File,
+            position: String,
+            completionTime: Date(IOS String),
             subtitle: String,
             description: String,
             architectId: String
@@ -86,10 +89,12 @@ class ProjectsAPI {
     */
     async insert(req, res) {
         try {
-            const images = req.files.map(file => file.originalname);
+            const images = req.files['images'].map(file => file.originalname);
+            const logo = req.files['logo'][0].originalname;
             const project = new Project({
                 ...req.body,
-                images
+                images,
+                logo
             });
             const isDeleted = await Project
                 .findOneDeleted({ name: project.name });
@@ -117,6 +122,9 @@ class ProjectsAPI {
         body {
             name: String,
             image: Files,
+            logo: File,
+            position: String,
+            completionTime: Date(IOS String),
             subtitle: String,
             description: String,
             architectId: String
@@ -125,7 +133,7 @@ class ProjectsAPI {
     async edit(req, res) {
         try {
             const { projectId } = req.params;
-            const { name, images, imagesString, ...newBody } = req.body;
+            const { name, logo, imagesString, ...newBody } = req.body;
             const isDeleted = await Project
                 .findOneDeleted({ name: name });
             if (isDeleted) {
@@ -139,11 +147,15 @@ class ProjectsAPI {
             const body = {
                 ...newBody
             };
-            if (req.files.length > 0) {
-                const images = req.files.map(file => file.originalname);
-                body.images = images
+            if (req.files['images'] && (req.files['images'].length > 0)) {
+                const images = req.files['images'].map(file => file.originalname);
+                body.images = images;
             } else {
                 body.images = imagesString ? imagesString : [];
+            }
+            if (req.files['logo'] && (req.files['logo'].length > 0)) {
+                const logo = req.files['logo'][0].originalname;
+                body.logo = logo;
             }
             if (name) {
                 const project = await Project

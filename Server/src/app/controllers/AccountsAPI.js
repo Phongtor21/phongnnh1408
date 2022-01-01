@@ -82,8 +82,8 @@ class AccountsAPI {
                 })
                 return;
             }
-            const isRightPassword = process.env.SECURITY_CODE === securityCode;
-            if (!isRightPassword) {
+            const isRightSecurityCode = process.env.SECURITY_CODE === securityCode;
+            if (!isRightSecurityCode) {
                 res.json({
                     status: 'error',
                     message: 'Mã bảo vệ không đúng!'
@@ -176,7 +176,7 @@ class AccountsAPI {
             return;
         }
         try {
-            const { email, password, passwordConfirm } = req.body;
+            const { email, password, passwordConfirm, securityCode } = req.body;
             const accountExisted = await Account
                 .findOne({ email: email });
             if (accountExisted) {
@@ -190,6 +190,14 @@ class AccountsAPI {
                 res.json({
                     status: 'error',
                     message: 'Mật khẩu không đồng bộ!'
+                })
+                return;
+            }
+            const isRightSecurityCode = process.env.SECURITY_CODE === securityCode;
+            if (!isRightSecurityCode) {
+                res.json({
+                    status: 'error',
+                    message: 'Mã bảo vệ không đúng!'
                 })
                 return;
             }

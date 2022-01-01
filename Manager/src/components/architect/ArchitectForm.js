@@ -5,10 +5,14 @@ import { LoadingButton } from '@mui/lab';
 import { FormikProvider, Form, useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 
+// apis
+import architectApi from '../../apis/architectApi';
+// hooks
+import useSnackbar from '../../hooks/useSnackbar';
 // upload
 import UploadSingleFile from '../upload/UploadSingleFile';
 // slices
-import { insertArchitect, editArchitect } from '../../redux/slices/architect';
+import { insertSuccess, editSuccess } from '../../redux/slices/architect';
 // utils
 import { createArchitectSchema } from '../../utils/yupSchemas';
 import { fDate } from '../../utils/formatDate';
@@ -23,6 +27,7 @@ const propTypes = {
 const ArchitectForm = ({ isEdit, architect }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { setSnackbar } = useSnackbar();
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
@@ -38,14 +43,37 @@ const ArchitectForm = ({ isEdit, architect }) => {
             formData.append('image', image.file);
             formData.append('subtitle', subtitle);
             if (isEdit) {
-                dispatch(editArchitect({
-                    architectId: architect._id,
-                    formData
-                }));
-                navigate(PATH_DASHBOARD.architect.list);
+                try {
+                    const res = await architectApi.edit(architect._id, formData);
+                    if (res.statusText === 'success') {
+                        dispatch(editSuccess(res.architect));
+                    }
+                    setSnackbar({
+                        isOpen: true,
+                        type: res.statusText,
+                        message: res.message,
+                        anchor: 'bottom-center'
+                    });
+                    navigate(PATH_DASHBOARD.architect.list);
+                } catch (error) {
+                    console.log(error);
+                }
             } else {
-                dispatch(insertArchitect(formData));
-                resetForm();
+                try {
+                    const res = await architectApi.insert(formData);
+                    if (res.statusText === 'success') {
+                        dispatch(insertSuccess(res.architect));
+                    }
+                    setSnackbar({
+                        isOpen: true,
+                        type: res.statusText,
+                        message: res.message,
+                        anchor: 'bottom-center'
+                    });
+                    resetForm();
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
     });

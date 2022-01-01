@@ -7,6 +7,12 @@ import 'react-image-lightbox/style.css';
 const SlideProject = ({ images }) => {
   const [index, setIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [displayHasMore, setDisplayHasMore] = useState('block');
+
+  const handleScroll = e => {
+    const isBottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    setDisplayHasMore(isBottom ? 'none' : 'block');
+  };
   return (
     <>
       <Grid
@@ -29,8 +35,9 @@ const SlideProject = ({ images }) => {
             />
           </FocusImage>
         </Grid>
-        <Grid item xs={12} sm={3}>
-          <ScrollWrapper>
+        <Grid item xs={12} sm={3} sx={{ position: 'relative' }}>
+          <ScrollWrapper onScroll={e => images.length > 3 && handleScroll(e)}>
+            {images.length > 3 && <HasMore sx={{ display: displayHasMore }} />}
             {images.map((image, i) => {
               return (
                 <Image
@@ -87,6 +94,23 @@ const ScrollWrapper = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     marginTop: theme.spacing(1)
+  }
+}));
+
+const HasMore = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  width: 'calc(100% - 8px)',
+  height: '10%',
+  bottom: 0,
+  zIndex: 99,
+  background: 'linear-gradient(180deg, transparent, #fff)',
+  transition: '0.3s',
+  [theme.breakpoints.down('sm')]: {
+    position: 'absolute',
+    width: '10%',
+    height: '100%',
+    right: 0,
+    background: 'linear-gradient(90deg, transparent, #fff)'
   }
 }));
 

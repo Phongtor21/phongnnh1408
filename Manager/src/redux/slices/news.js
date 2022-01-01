@@ -1,4 +1,3 @@
-import { Alert } from '@mui/material';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // apis
@@ -45,67 +44,72 @@ const slice = createSlice({
     }
 });
 
+export const {
+    insertSuccess,
+    editSuccess,
+    restoreSuccess
+} = slice.actions;
 export default slice.reducer;
 
-export const insertNews = params => async dispatch => {
-    try {
-        const { resetForm, confirm, formData } = params;
-        const res = await newsApi.insert(formData);
-        let { statusText, message, news } = res;
-        if (statusText === 'info') {
-            await confirm({
-                title: message,
-                content: <Alert severity={statusText}>Bạn có muốn khôi phục không?</Alert>
-            });
-            const restore = await newsApi.restoreById(news._id);
-            statusText = restore.statusText;
-            message = restore.message;
-            dispatch(slice.actions.restoreSuccess(news));
-        }
-        if (statusText === 'success') {
-            dispatch(slice.actions.insertSuccess(news));
-        }
-        dispatch(initSnackbar({
-            isOpen: true,
-            type: statusText,
-            message: message,
-            anchor: 'bottom-center'
-        }));
-        resetForm();
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const insertNews = params => async dispatch => {
+//     try {
+//         const { resetForm, confirm, formData } = params;
+//         const res = await newsApi.insert(formData);
+//         let { statusText, message, news } = res;
+//         if (statusText === 'info') {
+//             await confirm({
+//                 title: message,
+//                 content: <Alert severity={statusText}>Bạn có muốn khôi phục không?</Alert>
+//             });
+//             const restore = await newsApi.restoreById(news._id);
+//             statusText = restore.statusText;
+//             message = restore.message;
+//             dispatch(slice.actions.restoreSuccess(news));
+//         }
+//         if (statusText === 'success') {
+//             dispatch(slice.actions.insertSuccess(news));
+//         }
+//         dispatch(initSnackbar({
+//             isOpen: true,
+//             type: statusText,
+//             message: message,
+//             anchor: 'bottom-center'
+//         }));
+//         resetForm();
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
-export const editNews = params => async dispatch => {
-    try {
-        const { navigate, path, confirm, newsId, formData } = params;
-        const res = await newsApi.edit(newsId, formData);
-        let { statusText, message, news } = res;
-        if (statusText === 'info') {
-            await confirm({
-                title: message,
-                content: <Alert severity={statusText}>Đổi một tiêu đề mới hoặc khôi phục ngay</Alert>
-            });
-            const restore = await newsApi.restoreById(news._id);
-            statusText = restore.statusText;
-            message = restore.message;
-            dispatch(slice.actions.restoreSuccess(news));
-        }
-        if (statusText === 'success') {
-            dispatch(slice.actions.editSuccess(news));
-        }
-        dispatch(initSnackbar({
-            isOpen: true,
-            type: statusText,
-            message: message,
-            anchor: 'bottom-center'
-        }));
-        navigate(path);
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const editNews = params => async dispatch => {
+//     try {
+//         const { navigate, path, confirm, newsId, formData } = params;
+//         const res = await newsApi.edit(newsId, formData);
+//         let { statusText, message, news } = res;
+//         if (statusText === 'info') {
+//             await confirm({
+//                 title: message,
+//                 content: <Alert severity={statusText}>Đổi một tiêu đề mới hoặc khôi phục ngay</Alert>
+//             });
+//             const restore = await newsApi.restoreById(news._id);
+//             statusText = restore.statusText;
+//             message = restore.message;
+//             dispatch(slice.actions.restoreSuccess(news));
+//         }
+//         if (statusText === 'success') {
+//             dispatch(slice.actions.editSuccess(news));
+//         }
+//         dispatch(initSnackbar({
+//             isOpen: true,
+//             type: statusText,
+//             message: message,
+//             anchor: 'bottom-center'
+//         }));
+//         navigate(path);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
 export const deleteNews = params => async dispatch => {
     try {

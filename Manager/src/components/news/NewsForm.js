@@ -1,5 +1,5 @@
 import { LoadingButton } from '@mui/lab';
-import { Card, FormHelperText, Grid, Stack, TextField, Typography } from '@mui/material';
+import { Card, FormHelperText, Grid, Stack, TextField, Typography, Alert } from '@mui/material';
 import { Form, FormikProvider, useFormik } from 'formik';
 import { useConfirm } from 'material-ui-confirm';
 import PropTypes from 'prop-types';
@@ -7,8 +7,12 @@ import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+// apis
+import newsApi from '../../apis/newsApi';
+// hooks
+import useSnackbar from '../../hooks/useSnackbar';
 // slices
-import { insertNews, editNews } from '../../redux/slices/news';
+import { insertSuccess, editSuccess, restoreSuccess } from '../../redux/slices/news';
 // path
 import { PATH_DASHBOARD } from '../../routes/path';
 import { fDate } from '../../utils/formatDate';
@@ -30,6 +34,7 @@ const NewsForm = ({ isEdit, news }) => {
     const navigate = useNavigate();
     const confirm = useConfirm();
     const descriptionRef = useRef(null);
+    const { setSnackbar } = useSnackbar();
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
@@ -45,19 +50,55 @@ const NewsForm = ({ isEdit, news }) => {
             formData.append('image', image.file);
             formData.append('description', description);
             if (isEdit) {
-                dispatch(editNews({
-                    navigate,
-                    path: PATH_DASHBOARD.news.list,
-                    confirm,
-                    newsId: news._id,
-                    formData
-                }));
+                try {
+                    const res = await newsApi.edit(news._id, formData);
+                    if (res.statusText === 'info') {
+                        await confirm({
+                            title: res.message,
+                            content: <Alert severity={res.statusText}>Đổi một tiêu đề mới hoặc khôi phục ngay</Alert>
+                        });
+                        const restore = await newsApi.restoreById(res.news._id);
+                        res.message = restore.message;
+                        dispatch(restoreSuccess(res.news));
+                    }
+                    if (res.statusText === 'success') {
+                        dispatch(editSuccess(res.news));
+                    }
+                    setSnackbar({
+                        isOpen: true,
+                        type: res.statusText,
+                        message: res.message,
+                        anchor: 'bottom-center'
+                    });
+                    navigate(PATH_DASHBOARD.news.list);
+                } catch (error) {
+                    console.log(error);
+                }
             } else {
-                dispatch(insertNews({
-                    resetForm,
-                    confirm,
-                    formData
-                }));
+                try {
+                    const res = await newsApi.insert(formData);
+                    if (res.statusText === 'info') {
+                        await confirm({
+                            title: res.message,
+                            content: <Alert severity={res.statusText}>Bạn có muốn khôi phục không?</Alert>
+                        });
+                        const restore = await newsApi.restoreById(res.news._id);
+                        res.message = restore.message;
+                        dispatch(restoreSuccess(res.news));
+                    }
+                    if (res.statusText === 'success') {
+                        dispatch(insertSuccess(res.news));
+                    }
+                    setSnackbar({
+                        isOpen: true,
+                        type: res.statusText,
+                        message: res.message,
+                        anchor: 'bottom-center'
+                    });
+                    resetForm();
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
     });

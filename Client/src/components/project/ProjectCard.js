@@ -72,5 +72,5 @@ export default function ProjectCard({ project }) {
 }
 
 ProjectCard.propTypes = {
-  Project: PropTypes.array.isRequired
+  project: PropTypes.object.isRequired
 };

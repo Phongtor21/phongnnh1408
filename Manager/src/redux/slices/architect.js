@@ -41,44 +41,48 @@ const slice = createSlice({
     }
 });
 
+export const {
+    insertSuccess,
+    editSuccess
+} = slice.actions;
 export default slice.reducer;
 
-export const insertArchitect = params => async dispatch => {
-    try {
-        const res = await architectApi.insert(params);
-        const { statusText, message, architect } = res;
-        if (statusText === 'success') {
-            dispatch(slice.actions.insertSuccess(architect));
-        }
-        dispatch(initSnackbar({
-            isOpen: true,
-            type: statusText,
-            message: message,
-            anchor: 'bottom-center'
-        }));
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const insertArchitect = params => async dispatch => {
+//     try {
+//         const res = await architectApi.insert(params);
+//         const { statusText, message, architect } = res;
+//         if (statusText === 'success') {
+//             dispatch(slice.actions.insertSuccess(architect));
+//         }
+//         dispatch(initSnackbar({
+//             isOpen: true,
+//             type: statusText,
+//             message: message,
+//             anchor: 'bottom-center'
+//         }));
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
-export const editArchitect = params => async dispatch => {
-    try {
-        const { architectId, formData } = params;
-        const res = await architectApi.edit(architectId, formData);
-        const { statusText, message, architect } = res;
-        if (statusText === 'success') {
-            dispatch(slice.actions.editSuccess(architect));
-        }
-        dispatch(initSnackbar({
-            isOpen: true,
-            type: statusText,
-            message: message,
-            anchor: 'bottom-center'
-        }));
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const editArchitect = params => async dispatch => {
+//     try {
+//         const { architectId, formData } = params;
+//         const res = await architectApi.edit(architectId, formData);
+//         const { statusText, message, architect } = res;
+//         if (statusText === 'success') {
+//             dispatch(slice.actions.editSuccess(architect));
+//         }
+//         dispatch(initSnackbar({
+//             isOpen: true,
+//             type: statusText,
+//             message: message,
+//             anchor: 'bottom-center'
+//         }));
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
 export const deleteArchitect = params => async dispatch => {
     try {

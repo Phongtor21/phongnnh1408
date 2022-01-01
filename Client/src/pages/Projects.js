@@ -33,14 +33,15 @@ export default function Projects() {
     const fetchProjectList = async () => {
       try {
         const response = await projectApi.listProject(filters.page, filters.number);
-        const { projects } = response;
-        const sortedProjects = projects.sort((a, b) => {
-          return a.name.length - b.name.length;
-        });
-        setProjectList({
-          ...response,
-          projects: sortedProjects
-        });
+        setProjectList(response);
+        // const { projects } = response;
+        // const sortedProjects = projects.sort((a, b) => {
+        //   return a.name.length - b.name.length;
+        // });
+        // setProjectList({
+        //   ...response,
+        //   projects: sortedProjects
+        // });
       } catch (error) {
         console.log('Failed to fetch project list: ', error)
       }
@@ -61,7 +62,7 @@ export default function Projects() {
         <React.Fragment >
 
           <StyleBox >
-            <Box sx={{ height: {xs:'auto', sm:'80vh'}, width: '100%'}}>
+            <Box sx={{ height: { xs: 'auto', sm: '80vh' }, width: '100%' }}>
               <Grid container spacing={1} >
                 {projectList.projects.map((project) => (
                   <Grid key={project._id} item xs={12} sm={3} sx={{ paddingTop: '0' }}>

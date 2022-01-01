@@ -87,7 +87,7 @@ const ArchitectorList = () => {
         try {
             await confirm({
                 title: 'Bạn có chắc muốn xóa kiến trúc sư này?',
-                content: <Alert severity='error'>Kiến trúc sư sau khi xóa sẽ được lưu vào thùng rác!</Alert>,
+                content: <Alert severity='error'><b>Các dự án liên quan sẽ xóa kiến trúc sư phụ trách</b> và kiến trúc sư sẽ được lưu vào thùng rác sau khi xóa!</Alert>,
                 confirmationButtonProps: {
                     color: 'error'
                 }
@@ -101,7 +101,7 @@ const ArchitectorList = () => {
         try {
             await confirm({
                 title: 'Bạn có chắc muốn xóa tất cả kiến trúc sư được chọn?',
-                content: <Alert severity='error'>Kiến trúc sư sau khi xóa sẽ được lưu vào thùng rác!</Alert>,
+                content: <Alert severity='error'><b>Các dự án liên quan sẽ xóa kiến trúc sư phụ trách</b> và kiến trúc sư sẽ được lưu vào thùng rác sau khi xóa!</Alert>,
                 confirmationButtonProps: {
                     color: 'error'
                 }

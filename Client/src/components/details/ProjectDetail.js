@@ -51,8 +51,6 @@ export default function ProjectDetail() {
         getProject();
     }, [pathname]);
 
-    console.log(project);
-
     function handleClick(projectCurrent) {
         if (projectCurrent == null) {
             return `/projects`
@@ -77,7 +75,7 @@ export default function ProjectDetail() {
                                 maxWidth: '120vh',
 
                             }}>
-                            <Grid item xs={9.065}>
+                            <Grid item xs={12} sm={9}>
 
 
                                 <div className="scrollbar scrollbar-detail" id="style-4">
@@ -88,38 +86,40 @@ export default function ProjectDetail() {
                                     </div>
                                 </div>
                             </Grid>
-                            <Grid item xs={2.935} sx={{
-                                paddingLeft: { xs: '0', sm: '15px' }, 
-                                marginTop: { xs: '0', sm: '-5px' }, 
+                            <Grid item xs={12} sm={3} sx={{
+                                paddingLeft: { xs: '0', sm: '15px' },
+                                marginTop: { xs: '0', sm: '-5px' },
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                                 WebkitFlexBasis: 'auto',
                             }}>
-                                <div class="sub-logo">
+                                <Box
+                                    sx={{
+                                        flexGrow: 1,
+                                        height: { xs: '150px', sm: '50px' }
+                                    }}
+                                >
                                     <img style={{
                                         width: '100%',
                                         height: '100%',
                                         objectFit: 'cover'
                                     }}
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDIH49FVMfYl1RyY51sGm_zUoPlwYVnQaYCgISEa9zJh3k4vq2zgRjwlir3wMkbyUnRyE&usqp=CAU"
-                                        alt="Datos.png" />
-                                </div>
+                                        src={`${process.env.REACT_APP_IMAGE_URL}/${project.current.logo}`}
+                                        alt={project.current.logo} />
+                                </Box>
                                 <div>
-                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }}>
-                                        Architect: {project.current.architect.name}
+                                    <Typography component='p' sx={{ color: '#000000', fontSize: '10px' }}>
+                                        Architect: {project.current.architect?.name || 'No architect yet'}
                                     </Typography>
-                                    <br />
-                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }} >
-                                        Position: {project.current.architect.name}
+                                    <Typography component='p' sx={{ color: '#000000', fontSize: '10px' }} >
+                                        Position: {project.current.position}
                                     </Typography>
-                                    <br />
-                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }}>
-                                        Time: {moment(project.current.createAt).format('DD/MM/YYYY')}
+                                    <Typography component='p' sx={{ color: '#000000', fontSize: '10px' }}>
+                                        Time: {moment(project.current.createdAt).format('DD/MM/YYYY')}
                                     </Typography>
-                                    <br />
-                                    <Typography variant="p" sx={{  color: '#000000', fontSize: '10px' }} >
-                                        Completion Time: {project.current.architect.name}
+                                    <Typography component='p' sx={{ color: '#000000', fontSize: '10px' }} >
+                                        Completion Time: {moment(project.current.completionTime).format('DD/MM/YYYY')}
                                     </Typography>
                                 </div>
 

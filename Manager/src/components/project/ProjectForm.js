@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, Stack, Card, Typography, TextField, FormHelperText } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import { Grid, Stack, Card, Typography, TextField, FormHelperText, Alert } from '@mui/material';
+import { LoadingButton, MobileDatePicker } from '@mui/lab';
 import { FormikProvider, Form, useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useConfirm } from 'material-ui-confirm';
 
+// apis
+import projectApi from '../../apis/projectApi';
+// hooks
+import useSnackbar from '../../hooks/useSnackbar';
 // slices
-import { insertProject, editProject } from '../../redux/slices/project';
+import { insertSuccess, editSuccess, restoreSuccess } from '../../redux/slices/project';
 // upload
-import { UploadMultipleFile } from '../upload';
+import { UploadSingleFile, UploadMultipleFile } from '../upload';
 // editor
 import QuillEditor from '../editor/quill';
 // utils
@@ -27,22 +31,26 @@ const propTypes = {
 };
 
 const ProjectForm = ({ isEdit, project }) => {
+    const [completionTime, setCompletionTime] = useState(project ? new Date(project.completionTime) : new Date());
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const confirm = useConfirm();
+    const { setSnackbar } = useSnackbar();
     const descriptionRef = useRef(null);
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
             name: project?.name || '',
             images: project?.images || [],
+            logo: project?.logo || null,
+            position: project?.position || '',
             architectId: project?.architectId || null,
             // subtitle: project?.subtitle || '',
             description: project?.description || '',
         },
         validationSchema: createProjectSchema,
         onSubmit: async (values, { resetForm }) => {
-            const { name, images, architectId, description } = values;
+            const { name, images, logo, position, architectId, description } = values;
             // const { name, images, architectId, subtitle, description } = values;
             var formData = new FormData();
             formData.append('name', name);
@@ -53,28 +61,76 @@ const ProjectForm = ({ isEdit, project }) => {
                     formData.append('images', image);
                 }
             });
+            formData.append('logo', logo.file);
+            formData.append('position', position);
+            formData.append('completionTime', completionTime.toISOString());
             formData.append('architectId', architectId);
             // formData.append('subtitle', subtitle);
             formData.append('description', description);
             if (isEdit) {
-                dispatch(editProject({
-                    confirm,
-                    navigate,
-                    path: PATH_DASHBOARD.project.list,
-                    projectId: project._id,
-                    formData
-                }));
+                try {
+                    const res = await projectApi.edit(project._id, formData);
+                    if (res.statusText === 'info') {
+                        await confirm({
+                            title: res.message,
+                            content: <Alert severity={res.statusText}>Đổi một tiêu đề mới hoặc khôi phục ngay</Alert>
+                        });
+                        const restore = await projectApi.restoreById(res.project._id);
+                        res.message = restore.message;
+                        dispatch(restoreSuccess(res.project));
+                    }
+                    if (res.statusText === 'success') {
+                        dispatch(editSuccess(res.project));
+                    }
+                    setSnackbar({
+                        isOpen: true,
+                        type: res.statusText,
+                        message: res.message,
+                        anchor: 'bottom-center'
+                    });
+                    navigate(PATH_DASHBOARD.project.list);
+                } catch (error) {
+                    console.log(error);
+                }
             } else {
-                dispatch(insertProject({
-                    confirm,
-                    resetForm,
-                    formData
-                }));
+                try {
+                    const res = await projectApi.insert(formData);
+                    if (res.statusText === 'info') {
+                        await confirm({
+                            title: res.message,
+                            content: <Alert severity={res.statusText}>Bạn có muốn khôi phục không?</Alert>
+                        });
+                        const restore = await projectApi.restoreById(res.project._id);
+                        res.message = restore.message;
+                        dispatch(restoreSuccess(res.project));
+                    }
+                    if (res.statusText === 'success') {
+                        dispatch(insertSuccess(res.project));
+                    }
+                    setSnackbar({
+                        isOpen: true,
+                        type: res.statusText,
+                        message: res.message,
+                        anchor: 'bottom-center'
+                    });
+                    resetForm();
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
     });
     const { values, setFieldValue, getFieldProps, isSubmitting, touched, errors } = formik;
-    const handleDrop = acceptedFiles => {
+    const handleDropSingle = acceptedFiles => {
+        const file = acceptedFiles[0];
+        if (file) {
+            setFieldValue('logo', {
+                file,
+                preview: URL.createObjectURL(file)
+            });
+        }
+    };
+    const handleDropMultiple = acceptedFiles => {
         const files = acceptedFiles.map(file =>
             Object.assign(file, {
                 preview: URL.createObjectURL(file)
@@ -100,27 +156,64 @@ const ProjectForm = ({ isEdit, project }) => {
             setFieldValue('description', value);
         }, 500);
     };
+    const handleSelectTime = newTime => {
+        setCompletionTime(newTime);
+    };
     return (
         <FormikProvider value={formik}>
             <Form>
+                {isEdit && project && <Typography variant='caption'>Cập nhật lần cuối: {fDate(project.updatedAt)}</Typography>}
                 <Grid container spacing={3} mt={1}>
                     <Grid item xs={12} md={4}>
-                        <Card sx={{ py: 10, px: 2 }}>
+                        <Stack spacing={2}>
                             <div>
-                                <UploadMultipleFile
-                                    accept='image/*'
-                                    files={values.images}
-                                    showPreview
-                                    onDrop={handleDrop}
-                                    onRemove={handleRemove}
-                                    onRemoveAll={handleRemoveAll}
-                                />
-                                <FormHelperText error sx={{ px: 2, textAlign: 'center' }}>
-                                    {Boolean(touched.images && errors.images) && errors.images}
-                                </FormHelperText>
+                                <Typography variant='subtitle2'>Hình ảnh dự án</Typography>
+                                <Card sx={{ py: 10, px: 2 }}>
+                                    <UploadMultipleFile
+                                        accept='image/*'
+                                        files={values.images}
+                                        maxSize={3145728}
+                                        showPreview
+                                        onDrop={handleDropMultiple}
+                                        onRemove={handleRemove}
+                                        onRemoveAll={handleRemoveAll}
+                                    />
+                                    <FormHelperText error sx={{ px: 2, textAlign: 'center' }}>
+                                        {Boolean(touched.images && errors.images) && errors.images}
+                                    </FormHelperText>
+                                </Card>
                             </div>
-                            {isEdit && project && <Typography variant='caption'>Cập nhật lần cuối: <br /> {fDate(project.updatedAt)}</Typography>}
-                        </Card>
+                            <div>
+                                <Typography variant='subtitle2'>Logo dự án</Typography>
+                                <Card sx={{ py: 10, px: 3 }}>
+                                    <UploadSingleFile
+                                        accept='image/*'
+                                        file={values.logo}
+                                        maxSize={1048576}
+                                        error={Boolean(touched.logo && errors.logo)}
+                                        onDrop={handleDropSingle}
+                                        caption={
+                                            <Typography
+                                                variant='caption'
+                                                sx={{
+                                                    my: 2,
+                                                    mx: 'auto',
+                                                    display: 'block',
+                                                    textAlign: 'center',
+                                                    color: 'text.secondary'
+                                                }}
+                                            >
+                                                Chỉ *.jpeg, *.jpg, *.png, *.gif
+                                                <br />Tối đa 1MB
+                                            </Typography>
+                                        }
+                                    />
+                                    <FormHelperText error sx={{ px: 2, textAlign: 'center' }}>
+                                        {Boolean(touched.logo && errors.logo) && errors.logo}
+                                    </FormHelperText>
+                                </Card>
+                            </div>
+                        </Stack>
                     </Grid>
                     <Grid item xs={12} md={8}>
                         <Card sx={{ p: 3 }}>
@@ -139,6 +232,22 @@ const ProjectForm = ({ isEdit, project }) => {
                                     error={Boolean(touched.subtitle && errors.subtitle)}
                                     helperText={touched.subtitle && errors.subtitle}
                                 /> */}
+                                <Stack direction='row' spacing={2}>
+                                    <TextField
+                                        fullWidth
+                                        label='Vị trí'
+                                        {...getFieldProps('position')}
+                                        error={Boolean(touched.position && errors.position)}
+                                        helperText={touched.position && errors.position}
+                                    />
+                                    <MobileDatePicker
+                                        label='Thời gian hoàn thành'
+                                        inputFormat='MM/dd/yyyy'
+                                        value={completionTime}
+                                        onChange={handleSelectTime}
+                                        renderInput={(params) => <TextField {...params} />}
+                                    />
+                                </Stack>
                                 <div>
                                     <Typography variant='subtitle2'>Kiến trúc sư phụ trách</Typography>
                                     <ProjectInCharge architectId={values.architectId} handleSelect={handleSelect} />

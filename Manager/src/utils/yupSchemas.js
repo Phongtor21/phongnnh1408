@@ -15,6 +15,12 @@ export const createProjectSchema = yup.object().shape({
     images: yup
         .array()
         .min(1, 'Không được bỏ trống!'),
+    logo: yup
+        .mixed()
+        .required('Không được bỏ trống!'),
+    position: yup
+        .string()
+        .required('Không được bỏ trống!')
 });
 
 export const createNewsSchema = yup.object().shape({
@@ -24,7 +30,7 @@ export const createNewsSchema = yup.object().shape({
         .max(80, 'Tối đa 80 ký tự'),
     image: yup
         .mixed()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
 });
 
 export const createArchitectSchema = yup.object().shape({
@@ -38,7 +44,7 @@ export const createArchitectSchema = yup.object().shape({
         .max(50, 'Tối đa 50 ký tự'),
     image: yup
         .mixed()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
 });
 
 export const loginSchema = yup.object().shape({
@@ -104,7 +110,7 @@ export const menuSchema = yup.object().shape({
         .required('Không được bỏ trống!'),
     navThree: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
 });
 
 export const footerConnectSchema = yup.object().shape({
@@ -125,7 +131,7 @@ export const footerConnectSchema = yup.object().shape({
         .required('Không được bỏ trống!'),
     connectThreeLink: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
 });
 
 export const footerContactSchema = yup.object().shape({
@@ -147,7 +153,7 @@ export const footerContactSchema = yup.object().shape({
         .required('Không được bỏ trống!'),
     contactThreeLink: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
 });
 
 export const footerSupportSchema = yup.object().shape({
@@ -156,7 +162,7 @@ export const footerSupportSchema = yup.object().shape({
         .required('Không được bỏ trống!'),
     supportOneLink: yup
         .string()
-        .required('Không được bỏ trống!'),
+        .required('Không được bỏ trống!')
     // supportTwo: yup
     //     .string()
     //     .required('Không được bỏ trống!'),

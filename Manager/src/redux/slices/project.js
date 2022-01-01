@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material';
+// import { Alert } from '@mui/material';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // apis
@@ -45,67 +45,72 @@ const slice = createSlice({
     }
 });
 
+export const {
+    restoreSuccess,
+    insertSuccess,
+    editSuccess
+} = slice.actions;
 export default slice.reducer;
 
-export const insertProject = params => async dispatch => {
-    try {
-        const { confirm, resetForm, formData } = params;
-        const res = await projectApi.insert(formData);
-        let { statusText, message, project } = res;
-        if (statusText === 'info') {
-            await confirm({
-                title: message,
-                content: <Alert severity={statusText}>Bạn có muốn khôi phục không?</Alert>
-            });
-            const restore = await projectApi.restoreById(project._id);
-            statusText = restore.statusText;
-            message = restore.message;
-            dispatch(slice.actions.restoreSuccess(project));
-        }
-        if (statusText === 'success') {
-            dispatch(slice.actions.insertSuccess(project));
-        }
-        dispatch(initSnackbar({
-            isOpen: true,
-            type: statusText,
-            message: message,
-            anchor: 'bottom-center'
-        }));
-        resetForm();
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const insertProject = params => async dispatch => {
+//     try {
+//         const { confirm, resetForm, formData } = params;
+//         const res = await projectApi.insert(formData);
+//         let { statusText, message, project } = res;
+//         if (statusText === 'info') {
+//             await confirm({
+//                 title: message,
+//                 content: <Alert severity={statusText}>Bạn có muốn khôi phục không?</Alert>
+//             });
+//             const restore = await projectApi.restoreById(project._id);
+//             statusText = restore.statusText;
+//             message = restore.message;
+//             dispatch(slice.actions.restoreSuccess(project));
+//         }
+//         if (statusText === 'success') {
+//             dispatch(slice.actions.insertSuccess(project));
+//         }
+//         dispatch(initSnackbar({
+//             isOpen: true,
+//             type: statusText,
+//             message: message,
+//             anchor: 'bottom-center'
+//         }));
+//         resetForm();
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
-export const editProject = params => async dispatch => {
-    try {
-        const { confirm, navigate, path, projectId, formData } = params;
-        const res = await projectApi.edit(projectId, formData);
-        let { statusText, message, project } = res;
-        if (statusText === 'info') {
-            await confirm({
-                title: message,
-                content: <Alert severity={statusText}>Đổi một tiêu đề mới hoặc khôi phục ngay</Alert>
-            });
-            const restore = await projectApi.restoreById(project._id);
-            statusText = restore.statusText;
-            message = restore.message;
-            dispatch(slice.actions.restoreSuccess(project));
-        }
-        if (statusText === 'success') {
-            dispatch(slice.actions.editSuccess(project));
-        }
-        dispatch(initSnackbar({
-            isOpen: true,
-            type: statusText,
-            message: message,
-            anchor: 'bottom-center'
-        }));
-        navigate(path);
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const editProject = params => async dispatch => {
+//     try {
+//         const { confirm, navigate, path, projectId, formData } = params;
+//         const res = await projectApi.edit(projectId, formData);
+//         let { statusText, message, project } = res;
+//         if (statusText === 'info') {
+//             await confirm({
+//                 title: message,
+//                 content: <Alert severity={statusText}>Đổi một tiêu đề mới hoặc khôi phục ngay</Alert>
+//             });
+//             const restore = await projectApi.restoreById(project._id);
+//             statusText = restore.statusText;
+//             message = restore.message;
+//             dispatch(slice.actions.restoreSuccess(project));
+//         }
+//         if (statusText === 'success') {
+//             dispatch(slice.actions.editSuccess(project));
+//         }
+//         dispatch(initSnackbar({
+//             isOpen: true,
+//             type: statusText,
+//             message: message,
+//             anchor: 'bottom-center'
+//         }));
+//         navigate(path);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
 export const deleteProject = params => async dispatch => {
     try {

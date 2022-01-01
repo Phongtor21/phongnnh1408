@@ -19,6 +19,18 @@ const Project = new Schema({
         required: true,
         default: []
     },
+    logo: {
+        type: String,
+        required: true
+    },
+    position: {
+        type: String,
+        required: true
+    },
+    completionTime: {
+        type: Date,
+        required: true
+    },
     subtitle: {
         type: String,
         default: '',

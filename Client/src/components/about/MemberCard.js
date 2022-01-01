@@ -33,5 +33,5 @@ export default function MemberCard({ member }) {
 }
 
 MemberCard.propTypes = {
-  member: PropTypes.array.isRequired
+  member: PropTypes.object.isRequired
 };
