@@ -129,6 +129,7 @@ const NewsForm = ({ isEdit, news }) => {
                                 <UploadSingleFile
                                     accept='image/*'
                                     file={values.image}
+                                    maxSize={1048576}
                                     error={Boolean(touched.image && errors.image)}
                                     onDrop={handleDrop}
                                     caption={

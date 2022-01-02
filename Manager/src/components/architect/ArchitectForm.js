@@ -97,6 +97,7 @@ const ArchitectForm = ({ isEdit, architect }) => {
                                 <UploadSingleFile
                                     accept='image/*'
                                     file={values.image}
+                                    maxSize={1048576}
                                     onDrop={handleDrop}
                                     caption={
                                         <Typography
